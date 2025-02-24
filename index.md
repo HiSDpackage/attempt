@@ -10,9 +10,8 @@ toc_sticky: true
 ---
 
 ## Introduction to iFEM
-*i*FEM is a [MATLAB](https://www.mathworks.com/) software package containing robust, efficient, and easy-following codes for the main building blocks of adaptive finite element methods and multigrid methods on unstructured simplicial grids in both two and three dimensions. Besides the simplicity and readability, sparse matrixlization, an innovative programming style for MATLAB, is introduced to improve the efficiency.
-this is \pmb $\pmb{x}$ 
-this is \boldsymbol $\boldsymbol{x}$
+*i*FEM is a [MATLAB](https://www.mathworks.com/) software package containing robust, efficient, and easy-following codes for the main building blocks of adaptive finite element methods and multigrid methods on unstructured simplicial grids in both two and three dimensions. Besides the simplicity and readability, sparse matrixlization, an innovative programming style for MATLAB, is introduced to improve the efficiency.this is \pmb $\pmb{x}$  this is \boldsymbol $\boldsymbol{x}$
+
 
 
 ## Installation

@@ -30,7 +30,7 @@ Then use MATLAB to run the `setpath.m` script in the root folder to add all the 
 
 ## Help, Guides, and Contributing
 
-This documentation website will be constantly updated. If you have any questions, please feel free to [contact us](mailto:lyc102@gmail.com). If you like to suggest an additional equation to be implemented in iFEM, please go to the [GitHub repo submit an issue](https://github.com/lyc102/ifem/issues). If you like to contribute to the development of iFEM, please see our [Community hub page]({{ site.baseurl }}{% link _pages/research.md %}).
+This documentation website will be constantly updated. If you have any questions, please feel free to [contact us](mailto:lyc102@gmail.com). If you like to suggest an additional equation to be implemented in iFEM, please go to the [GitHub repo submit an issue](https://github.com/lyc102/ifem/issues). If you like to contribute to the development of iFEM, please see our 【xxx】.
 
 ### Use MATLAB help/doc
 1. `help funexample` displays a description of and syntax for the function `funexample`. For example, `help mg` will show basic usage for `mg` function in the plain text.  

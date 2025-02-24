@@ -24,12 +24,12 @@ title                    : "iFEM: an Integrated Finite Element Methods Package i
 email: chenlong@math.uci.edu
 description: >- # this means to ignore newlines until "baseurl:"
   iFEM is a MATLAB software package containing robust, efficient, and easy-following codes for the main building blocks of adaptive finite element methods on unstructured simplicial grids in both two and three dimensions. Besides the simplicity and readability, sparse matrixlization, an innovative programming style for MATLAB, is introduced to improve the efficiency. In this novel coding style, the sparse matrix and its operations are used extensively in the data structure and algorithms.
-baseurl: "/ifem" # the subpath of your site, e.g. /blog
-url: "https://lyc102.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/attempt" # the subpath of your site, e.g. /blog
+url: "https://hisdpackage.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 atom_feed:
   hide: true
 
-repository: lyc102/ifem
+repository: HiSDpackage/attempt
 repository_tree: master
 
 # Build settings

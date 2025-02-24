@@ -57,7 +57,7 @@ permalink   : date
 comments:
  provider: "disqus"
  disqus:
-  shortname: "https-lyc102-github-io"
+  shortname: "https-hisdpackage-github-io"
 
 include:
   - _pages

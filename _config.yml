@@ -62,7 +62,7 @@ include:
   - _HiOSD
   - _GHiSD
   - _AHiSD
-  - _projects
+  #- _projects
 
 exclude:
   - .sass-cache/

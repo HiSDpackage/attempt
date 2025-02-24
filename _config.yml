@@ -48,6 +48,7 @@ search_full_content: true
 markdown: kramdown
 kramdown:
   input: GFM
+  math_engine: mathjax
   highlighter: rouge
   # syntax_highlighter: rouge // new version, github pages need the old one
 permalink   : date

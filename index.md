@@ -7,6 +7,8 @@ sidebar:
     nav: docs
 toc: true
 toc_sticky: true
+mathjax: true
+
 ---
 
 ## Introduction to iFEM

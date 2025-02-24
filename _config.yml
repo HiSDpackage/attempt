@@ -86,20 +86,6 @@ plugins:
 
 # Defaults
 defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
-      sidebar:
-        nav: "docs"
-      mathjax: true
   # _pages: general pages in HiSD
   - scope:
       path: "_pages"

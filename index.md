@@ -12,7 +12,13 @@ mathjax: true
 ---
 
 ## Introduction to iFEM
-*i*FEM is a [MATLAB](https://www.mathworks.com/) software package containing robust, efficient, and easy-following codes for the main building blocks of adaptive finite element methods and multigrid methods on unstructured simplicial grids in both two and three dimensions. Besides the simplicity and readability, sparse matrixlization, an innovative programming style for MATLAB, is introduced to improve the efficiency.this is \pmb $\pmb{x}$  this is \boldsymbol $\boldsymbol{x}$ this is \bf $\bf{x}$ and $\mathbf{xys}$ and \(\mathbf{xxxx}\)and this is $$ abc\mathbf{xyz}$$,then we test for math $a \times b=c$, and $e^{x}=1234$, $\mathbb{R}$ $\mathcal{C}$ $\bm{x}$
+
+$$
+\boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}),\quad \boldsymbol{x} \in \mathbb{R}^n,\quad \boldsymbol{F} \in \mathcal{C}^r(\mathbb{R}^n,\mathbb{R}^n),\quad r \geq 2
+$$
+
+$\boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}),\quad \boldsymbol{x} \in \mathbb{R}^n,\quad \boldsymbol{F} \in \mathcal{C}^r(\mathbb{R}^n,\mathbb{R}^n),\quad r \geq 2$
+根据主分解定理，可以将 $\mathbb{R}^n$ 直和分解为 $\mathbb{R}^n = \mathcal{W}^u(\boldsymbol{\hat{x}}) \oplus \mathcal{W}^s(\boldsymbol{\hat{x}}) \oplus \mathcal{W}^c(\boldsymbol{\hat{x}})$。
 
 
 

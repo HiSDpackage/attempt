@@ -14,7 +14,7 @@ mathjax: true
 ## Introduction to iFEM
 
 $$
-\boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}),\quad \boldsymbol{x} \in \mathbb{R}^n,\quad \boldsymbol{F} \in \mathcal{C}^r(\mathbb{R}^n,\mathbb{R}^n),\quad r \geq 2
+\boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}),\quad \boldsymbol{x} \in \mathbb{R}^n,\quad \boldsymbol{F} \in \mathcal{C}^r(\mathbb{R}^n,\mathbb{R}^n),\quad r \geq 2 \tag{2.1}
 $$
 
 $\boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}),\quad \boldsymbol{x} \in \mathbb{R}^n,\quad \boldsymbol{F} \in \mathcal{C}^r(\mathbb{R}^n,\mathbb{R}^n),\quad r \geq 2$

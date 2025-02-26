@@ -1,10 +1,10 @@
 main:
-  - title: "Quick-Start Guide"
-    url: /fem/Poisson/
-  - title: "Community"
-    url: /research/
+  - title: "StartPage"
+    url: /index
+  - title: "Contact Us"
+    url: /index
   - title: "GitHub"
-    url: https://github.com/lyc102/ifem
+    url: https://github.com/liuobly1121/hisdpackage
 
 # documentation links
 docs:

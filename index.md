@@ -79,10 +79,13 @@ Lei Zhang
 Boya Distinguished Professor                
 <br>
 Beijing International Center for Mathematical Research
+<br>
 Center for Quantitative Biology
+<br>
 Center for Machine Learning Research
 <br>
 Peking University
+<br>
 http://faculty.bicmr.pku.edu.cn/~zhanglei/
 </div>
 
@@ -94,6 +97,7 @@ Ph.D. Candidate
 School of Mathematical Science
 <br>
 Peking University
+<br>
 https://liuonly1121.github.io/
 </div>
 

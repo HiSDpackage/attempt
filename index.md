@@ -73,15 +73,28 @@ The author is also grateful to the NSF for the partial support over the years.
 
 
 
-<div style="width:400px" onclick="myhref('http://math.uci.edu/~chenlong/');"><hr/>
-Long Chen
+<div style="width:400px" onclick="myhref('http://faculty.bicmr.pku.edu.cn/~zhanglei/');"><hr/>
+Lei Zhang
 <br>
-Professor                 
+Boya Distinguished Professor                
 <br>
-Department of Mathematics
+Beijing International Center for Mathematical Research
+Center for Quantitative Biology
+Center for Machine Learning Research
 <br>
-University of California at Irvine
-http://math.uci.edu/~chenlong/
+Peking University
+http://faculty.bicmr.pku.edu.cn/~zhanglei/
+</div>
+
+<div style="width:400px" onclick="myhref('https://liuonly1121.github.io/');"><hr/>
+Yuyang Liu
+<br>
+Ph.D. Candidate               
+<br>
+School of Mathematical Science
+<br>
+Peking University
+https://liuonly1121.github.io/
 </div>
 
 <script type="text/javascript">

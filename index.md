@@ -34,7 +34,7 @@ $$
 
 事实上这个对角矩阵的对角线上各个元素即为该实对称矩阵的特征值 $\hat{\lambda}_1,\hat{\lambda}_2,\ldots,\hat{\lambda}_d$，且不妨 $\hat{\lambda}_1\leq\hat{\lambda}_2\leq\ldots\leq\hat{\lambda}_d$，并设此时 $\mathbb{T}$ 的列向量为 $\boldsymbol{\hat{v}}_1,\boldsymbol{\hat{v}}_2,\ldots,\boldsymbol{\hat{v}}_d$。
 
-可以证明，对于非退化临界点 $\hat{x}$，若 $\hat{\lambda}_1\leq\ldots\leq\hat{\lambda}\_k<0<\hat{\lambda}\_{k+1}\leq\ldots\leq\hat{\lambda}\_d$ ，则 $k$ 即为该鞍点的阶数。一方面， $\mathbb{G}(\boldsymbol{\hat{x}})$ 在 $\boldsymbol{\hat{v}}\_1,\boldsymbol{\hat{v}}\_2,\ldots,\boldsymbol{\hat{v}}\_k$ 生成的子空间 $\hat{\mathcal{V}}$ 上是负定的，故 $\boldsymbol{\hat{x}}$ 至少为 $k$ 阶；另一方面，对于 $\mathcal{H}$ 的任意一个 $k+1$ 维子空间 $\mathcal{K'}$，有 $\boldsymbol{\hat{v}}\_{k+1},\ldots,\boldsymbol{\hat{v}}\_d$ 生成的子空间 $\hat{\mathcal{V}}^{\perp}$ 与 $\mathcal{K'}$ 交非零（否则 $\mathcal{K'}$ 中添上 $\boldsymbol{\hat{v}}\_{k+1},\ldots,\boldsymbol{\hat{v}}_d$ 生成 $d+1$ 维空间，矛盾！）。取交集中一个非零元素
+可以证明，对于非退化临界点 $\hat{x}$，若 $\hat{\lambda}_1\leq\ldots\leq\hat{\lambda}\_k<0<\hat{\lambda}\_{k+1}\leq\ldots\leq\hat{\lambda}\_d$ ，则 $k$ 即为该鞍点的阶数。一方面， $\mathbb{G}(\boldsymbol{\hat{x}})$ 在 $\boldsymbol{\hat{v}}\_1,\boldsymbol{\hat{v}}\_2,\ldots,\boldsymbol{\hat{v}}_k$ 生成的子空间 $\hat{\mathcal{V}}$ 上是负定的，故 $\boldsymbol{\hat{x}}$ 至少为 $k$ 阶；另一方面，对于 $\mathcal{H}$ 的任意一个 $k+1$ 维子空间 $\mathcal{K'}$，有 $\boldsymbol{\hat{v}}\_{k+1},\ldots,\boldsymbol{\hat{v}}\_d$ 生成的子空间 $\hat{\mathcal{V}}^{\perp}$ 与 $\mathcal{K'}$ 交非零（否则 $\mathcal{K'}$ 中添上 $\boldsymbol{\hat{v}}\_{k+1},\ldots,\boldsymbol{\hat{v}}_d$ 生成 $d+1$ 维空间，矛盾！）。取交集中一个非零元素
 
 $$
 \boldsymbol{w}=\sum_{i=k+1}^{d} a_i\boldsymbol{\hat{v}}_i
@@ -48,6 +48,47 @@ $$
 
 故 $\mathbb{G}(\boldsymbol{\hat{x}})$ 在 $\mathcal{K'}$ 上不是负定的，即 $\boldsymbol{\hat{x}}$ 的阶数为 $k$。
 
+## 将寻找$k$阶鞍点转化为优化问题
+沿用上面的符号，注意到 $\mathbb{G}(\boldsymbol{\hat{x}})$ 在 $\hat{\mathcal{V}}$ 上是负定的，在其正交补 $\hat{\mathcal{V}}^{\perp}$ 上是正定的，这意味着 $\boldsymbol{\hat{x}}$ 是线性流形 $\boldsymbol{\hat{x}} + \hat{\mathcal{V}}$ 上的局部极大值，同时也是线性流形 $\boldsymbol{\hat{x}} + \hat{\mathcal{V}}^{\perp}$ 上的局部极小值。
+
+考虑 $\boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}^{\perp}}$ 分别为 $\boldsymbol{\hat{x}}$ 在 $\hat{\mathcal{V}}, \hat{\mathcal{V}}^{\perp}$ 上的投影，则 $(\boldsymbol{v}, \boldsymbol{w}) = (\boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}^{\perp}})$ 是 minimax 问题
+
+$$
+\min\_{\boldsymbol{w}\in\hat{\mathcal{V}}^{\perp}} \max\_{\boldsymbol{v}\in\hat{\mathcal{V}}} E(\boldsymbol{v} + \boldsymbol{w})
+$$
+
+的一个解。但是，这并不是一个经典的 minimax 问题，因为空间 $\hat{\mathcal{V}}$ 是未知的，所以在求解优化问题的过程中我们的迭代法应该包括两个部分：一个是更新 $\boldsymbol{v}$ 和 $\boldsymbol{w}$（在这个问题中也就是更新 $\boldsymbol{x} = \boldsymbol{v} + \boldsymbol{w}$），还有一个就是要更新空间 $\mathcal{V}$（$\mathcal{V}$ 用于近似 $\hat{\mathcal{V}}$，一般用当前 $\boldsymbol{x}$ 处 Hessian 矩阵的最小 $k$ 个特征值对应的特征向量张成的子空间来描述）。
+
+## $\boldsymbol{x}$的动力学
+更新 $\boldsymbol{x}$ 直观上看是让 $\boldsymbol{\dot{x}}$ 在空间 $\mathcal{V}$ 上的投影 $\mathcal{P}\_{\mathcal{V}}\boldsymbol{\dot{x}}$ 为能量函数 $E(\boldsymbol{x})$ 的上升方向，而在其补空间 $\mathcal{V}^{\perp}$ 上的投影 $\mathcal{P}\_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}$ 为下降方向。
+
+特别地，注意到自然力 $\boldsymbol{F}(\boldsymbol{x})=-\nabla E(\boldsymbol{x})$ 为最速下降方向，故可以考虑令 $\mathcal{P}\_{\mathcal{V}}\boldsymbol{\dot{x}}=-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$ 以及
+
+$$
+\mathcal{P}\_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}=\mathcal{P}\_{\mathcal{V}^{\perp}}\boldsymbol{F}(\boldsymbol{x})=\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
+$$
+
+再取两个正的松弛常数 $\beta\_{\mathcal{V}}$ 和 $\beta\_{\mathcal{V}^{\perp}}$ 即可以给出 $\boldsymbol{x}$ 的动力学
+
+$$
+\boldsymbol{\dot{x}}=\beta\_{\mathcal{V}}(-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))+\beta\_{\mathcal{V}^{\perp}}(\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))
+$$
+
+进一步，如果简单地令 $\beta\_{\mathcal{V}}=\beta\_{\mathcal{V}^{\perp}}=\beta$ 则上式化为
+
+$$
+\beta^{-1}\boldsymbol{\dot{x}}=\boldsymbol{F}(\boldsymbol{x})-2\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
+\label{the dynamics of x easy vesion}
+$$
+
+特别地，如果给出空间 $\mathcal{V}$ 的一组标准正交基 $\boldsymbol{v\_1},\boldsymbol{v\_2},\ldots,\boldsymbol{v_k}$ 则有投影变换 $\mathcal{P}_{\mathcal{V}}=\sum\_{i=1}^{k}\boldsymbol{v}\_i\boldsymbol{v}^{\top}\_i$，从而公式
+
+$$
+\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\sum\_{i=1}^{k}\boldsymbol{v}\_i\boldsymbol{v}^{\top}\_i\right)\boldsymbol{F}(\boldsymbol{x})
+\label{the dynamics of x easy vesion 2}
+$$
+
+其中 $\mathbb{I}$ 为单位矩阵。
 
 
 ## Installation

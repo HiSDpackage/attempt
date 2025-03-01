@@ -53,21 +53,21 @@ $\mathbb{T}$ 的列向量为
 $\boldsymbol{\hat{v}}_1,\boldsymbol{\hat{v}}_2,\ldots,\boldsymbol{\hat{v}}_d$。
 
 可以证明，对于非退化临界点 $\hat{x}$，若
-$\hat{\lambda}_1\leq\ldots\leq\hat{\lambda}_k<0<\hat{\lambda}_{k+1}\leq\ldots\leq\hat{\lambda}_d$，则
+$\hat{\lambda}_1\leq\ldots\leq\hat{\lambda}_k<0<\hat{\lambda}\_{k+1}\leq\ldots\leq\hat{\lambda}_d$，则
 $k$ 即为该鞍点的阶数。 一方面，$\mathbb{G}(\boldsymbol{\hat{x}})$ 在
 $\boldsymbol{\hat{v}}_1,\boldsymbol{\hat{v}}_2,\ldots,\boldsymbol{\hat{v}}_k$
 生成的子空间 $\hat{\mathcal{V}}$ 上是负定的，故 $\boldsymbol{\hat{x}}$
 至少为 $k$ 阶； 另一方面，对于 $\mathcal{H}$ 的任意一个 $k+1$ 维子空间
 $\mathcal{K'}$，有
-$\boldsymbol{\hat{v}}_{k+1},\ldots,\boldsymbol{\hat{v}}_d$ 生成的子空间
+$\boldsymbol{\hat{v}}\_{k+1},\ldots,\boldsymbol{\hat{v}}_d$ 生成的子空间
 $\hat{\mathcal{V}}^{\perp}$ 与 $\mathcal{K'}$ 交非零（否则
 $\mathcal{K'}$ 中添上
-$\boldsymbol{\hat{v}}_{k+1},\ldots,\boldsymbol{\hat{v}}_d$ 生成 $d+1$
+$\boldsymbol{\hat{v}}\_{k+1},\ldots,\boldsymbol{\hat{v}}_d$ 生成 $d+1$
 维空间，矛盾！）。 取交集中一个非零元素
-$$\boldsymbol{w}=\displaystyle \sum_{i=k+1}^{d} a_i\boldsymbol{\hat{v}}_i$$
+$$\boldsymbol{w}=\displaystyle \sum\_{i=k+1}^{d} a_i\boldsymbol{\hat{v}}_i$$
 则有
-$$\boldsymbol{w^{\top}\mathbb{G}(\hat{x})w}=\displaystyle \sum_{i=k+1}^{d} a_i\boldsymbol{\hat{v}}_i^{\top}\sum_{i=k+1}^{d} \hat{\lambda}_ia_i\boldsymbol{\hat{v}}_i
-=\displaystyle \sum_{i=k+1}^{d} \hat{\lambda}_ia_i^2>0$$ 故
+$$\boldsymbol{w^{\top}\mathbb{G}(\hat{x})w}=\displaystyle \sum\_{i=k+1}^{d} a_i\boldsymbol{\hat{v}}_i^{\top}\sum_{i=k+1}^{d} \hat{\lambda}_ia_i\boldsymbol{\hat{v}}_i
+=\displaystyle \sum\_{i=k+1}^{d} \hat{\lambda}_ia_i^2>0$$ 故
 $\mathbb{G}(\boldsymbol{\hat{x}})$ 在 $\mathcal{K'}$ 上不是负定的，即
 $\boldsymbol{\hat{x}}$ 的阶数为 $k$。
 

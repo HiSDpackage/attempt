@@ -4,7 +4,7 @@ main:
   - title: "Contact Us"
     url: /index
   - title: "GitHub"
-    url: https://github.com/liuobly1121/hisdpackage
+    url: https://github.com/liuonly1121/hisdpackage
 
 # documentation links
 docs:
@@ -13,11 +13,11 @@ docs:
     children:
       - title: "Installation"
         url: /index
-      - title: "Quick-start: Poisson equation"
+      - title: "Quick-start"
         url: /fem/Poisson/
 
-  - title: Mesh Data Structure
-    url: /mesh/
+  - title: HiOSD
+    url: /HiOSD/
     children:
       - title: "Basic data structure"
         url: /mesh/basic/
@@ -30,8 +30,8 @@ docs:
       - title: "Simplicial complex in 3D"
         url: /mesh/sc3/
 
-  - title: Finite Element Methods
-    url: /fem/
+  - title: GHiSD
+    url: /GHiSD/
     children:
       - title: "FEM for Poisson equation"
         url: /fem/Poisson/
@@ -42,7 +42,8 @@ docs:
       - title: "FEM examples"
         url: /fem/examples/
 
-  - title: Adaptive Finite Element Methods
+  - title: AHiSD
+    url: /AHiSD/
     children:
       - title: "Introduction to AFEM"
         url: /afem/
@@ -97,7 +98,7 @@ docs:
       - title: "Site logs"
         url: /logs/site/
 
-solver:
+HiOSD:
   - title: "Back to main"
     url: /
   - title: "Fast solvers"
@@ -112,7 +113,7 @@ solver:
       - title: "Solver for heat equation"
         url: /solver/heat/
 
-fem:
+GHiSD:
   - title: "Back to main"
     url: /
   - title: "Finite Element Methods"
@@ -191,7 +192,7 @@ fem:
       - title: "Quadratic Edge Element"
         url: /fem/Maxwell3ND2femrate/
 
-afem:
+AHiSD:
   - title: "Back to main"
     url: /
   - title: Adaptive Finite element methods

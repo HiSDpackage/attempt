@@ -1,10 +1,9 @@
 ---
 layout: single
-permalink: /
-title: "iFEM: an Integrated Finite Element Methods Package in MATLAB"
-excerpt: "A quick start guide."
+permalink: /HiOSD
+title: "High-Index Optimization-Based Shrinking Dimer Method"
 sidebar:
-    nav: docs
+    nav: HiOSD
 toc: true
 toc_sticky: true
 mathjax: true

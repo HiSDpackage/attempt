@@ -1,6 +1,6 @@
 ---
 layout: single
-permalink: /HiOSD
+permalink: /HiOSD/
 title: "High-Index Optimization-Based Shrinking Dimer Method"
 sidebar:
     nav: HiOSD

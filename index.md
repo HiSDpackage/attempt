@@ -18,7 +18,7 @@ mathjax: true
 
 给定一个在实希尔伯特空间 $\mathcal{H}$ 上定义的二次Fréchet可微的能量泛函 $E(\boldsymbol{x})$ ，其内积为 $\langle \cdot,\cdot \rangle$ ，我们令 $\boldsymbol{F}(\boldsymbol{x})=-\nabla E(\boldsymbol{x})$ 表示其自然力， $\mathbb{G}(\boldsymbol{x})=\nabla^2E(\boldsymbol{x})$ 表示其Hessian矩阵。
 
-- 如果 $\lVert \boldsymbol{F}(\boldsymbol{\hat{x}}) \rVert =0$，则称 $\hat{x}\in\mathcal{H}$ 为 $E(\boldsymbol{x})$ 的一个临界点。
+- 如果 $\lVert \boldsymbol{F}(\boldsymbol{\hat{x}}) \rVert =0$，则称 $\boldsymbol{\hat{x}}\in\mathcal{H}$ 为 $E(\boldsymbol{x})$ 的一个临界点。
 - 一个不是局部极值的 $E(\boldsymbol{x})$ 的临界点被称为 $E(\boldsymbol{x})$ 的一个鞍点。特别的，有些时候我们也把局部极小值称为 $0$ 阶鞍点，局部极大值称为 $d$（系统维度）阶鞍点。
 - 如果 $\mathbb{G}(\boldsymbol{\hat{x}})$ 有一个有界逆，则称临界点 $\boldsymbol{\hat{x}}$ 为非退化的。
 - 根据Morse理论，非退化临界点 $\boldsymbol{\hat{x}}$ 的指数（Morse指数）是使得 $\mathbb{G}(\boldsymbol{\hat{x}})$ 为负定的最大子空间 $\mathcal{K}$ 的维数。我们的目标是找到势能面上的指数为 $k$ 的鞍点，简称为 $k$-saddle 或 $k$ 阶鞍点。
@@ -43,7 +43,7 @@ $$
 则有
 
 $$
-\boldsymbol{w^{\top}\mathbb{G}(\hat{x})w}=\sum_{i=k+1}^{d} a_i\boldsymbol{\hat{v}}\_i^{\top}\sum_{i=k+1}^{d} \hat{\lambda}\_ia_i\boldsymbol{\hat{v}}\_i=\sum_{i=k+1}^{d} \hat{\lambda}\_ia_i^2>0
+\boldsymbol{w^{\top}\mathbb{G}(\hat{x})w}=\sum_{i=k+1}^{d} a_i\boldsymbol{\hat{v}}_i^{\top}\sum_{i=k+1}^{d} \hat{\lambda}_ia_i\boldsymbol{\hat{v}}_i=\sum\_{i=k+1}^{d} \hat{\lambda}_ia_i^2>0
 $$
 
 故 $\mathbb{G}(\boldsymbol{\hat{x}})$ 在 $\mathcal{K'}$ 上不是负定的，即 $\boldsymbol{\hat{x}}$ 的阶数为 $k$。
@@ -54,37 +54,37 @@ $$
 考虑 $\boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}^{\perp}}$ 分别为 $\boldsymbol{\hat{x}}$ 在 $\hat{\mathcal{V}}, \hat{\mathcal{V}}^{\perp}$ 上的投影，则 $(\boldsymbol{v}, \boldsymbol{w}) = (\boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}^{\perp}})$ 是 minimax 问题
 
 $$
-\min\_{\boldsymbol{w}\in\hat{\mathcal{V}}^{\perp}} \max\_{\boldsymbol{v}\in\hat{\mathcal{V}}} E(\boldsymbol{v} + \boldsymbol{w})
+\min\{\boldsymbol{w}\in\hat{\mathcal{V}}^{\perp}} \max\{\boldsymbol{v}\in\hat{\mathcal{V}}} E(\boldsymbol{v} + \boldsymbol{w})
 $$
 
 的一个解。但是，这并不是一个经典的 minimax 问题，因为空间 $\hat{\mathcal{V}}$ 是未知的，所以在求解优化问题的过程中我们的迭代法应该包括两个部分：一个是更新 $\boldsymbol{v}$ 和 $\boldsymbol{w}$（在这个问题中也就是更新 $\boldsymbol{x} = \boldsymbol{v} + \boldsymbol{w}$），还有一个就是要更新空间 $\mathcal{V}$（$\mathcal{V}$ 用于近似 $\hat{\mathcal{V}}$，一般用当前 $\boldsymbol{x}$ 处 Hessian 矩阵的最小 $k$ 个特征值对应的特征向量张成的子空间来描述）。
 
 ## $\boldsymbol{x}$的动力学
-更新 $\boldsymbol{x}$ 直观上看是让 $\boldsymbol{\dot{x}}$ 在空间 $\mathcal{V}$ 上的投影 $\mathcal{P}\_{\mathcal{V}}\boldsymbol{\dot{x}}$ 为能量函数 $E(\boldsymbol{x})$ 的上升方向，而在其补空间 $\mathcal{V}^{\perp}$ 上的投影 $\mathcal{P}\_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}$ 为下降方向。
+更新 $\boldsymbol{x}$ 直观上看是让 $\boldsymbol{\dot{x}}$ 在空间 $\mathcal{V}$ 上的投影 $\mathcal{P}_{\mathcal{V}}\boldsymbol{\dot{x}}$ 为能量函数 $E(\boldsymbol{x})$ 的上升方向，而在其补空间 $\mathcal{V}^{\perp}$ 上的投影 $\mathcal{P}\_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}$ 为下降方向。
 
-特别地，注意到自然力 $\boldsymbol{F}(\boldsymbol{x})=-\nabla E(\boldsymbol{x})$ 为最速下降方向，故可以考虑令 $\mathcal{P}\_{\mathcal{V}}\boldsymbol{\dot{x}}=-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$ 以及
-
-$$
-\mathcal{P}\_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}=\mathcal{P}\_{\mathcal{V}^{\perp}}\boldsymbol{F}(\boldsymbol{x})=\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
-$$
-
-再取两个正的松弛常数 $\beta\_{\mathcal{V}}$ 和 $\beta\_{\mathcal{V}^{\perp}}$ 即可以给出 $\boldsymbol{x}$ 的动力学
+特别地，注意到自然力 $\boldsymbol{F}(\boldsymbol{x})=-\nabla E(\boldsymbol{x})$ 为最速下降方向，故可以考虑令 $\mathcal{P}_{\mathcal{V}}\boldsymbol{\dot{x}}=-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$ 以及
 
 $$
-\boldsymbol{\dot{x}}=\beta\_{\mathcal{V}}(-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))+\beta\_{\mathcal{V}^{\perp}}(\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))
+\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}=\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{F}(\boldsymbol{x})=\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
 $$
 
-进一步，如果简单地令 $\beta\_{\mathcal{V}}=\beta\_{\mathcal{V}^{\perp}}=\beta$ 则上式化为
+再取两个正的松弛常数 $\beta_{\mathcal{V}}$ 和 $\beta_{\mathcal{V}^{\perp}}$ 即可以给出 $\boldsymbol{x}$ 的动力学
 
 $$
-\beta^{-1}\boldsymbol{\dot{x}}=\boldsymbol{F}(\boldsymbol{x})-2\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
+\boldsymbol{\dot{x}}=\beta_{\mathcal{V}}(-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))+\beta_{\mathcal{V}^{\perp}}(\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))
+$$
+
+进一步，如果简单地令 $\beta_{\mathcal{V}}=\beta_{\mathcal{V}^{\perp}}=\beta$ 则上式化为
+
+$$
+\beta^{-1}\boldsymbol{\dot{x}}=\boldsymbol{F}(\boldsymbol{x})-2\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
 \label{the dynamics of x easy vesion}
 $$
 
-特别地，如果给出空间 $\mathcal{V}$ 的一组标准正交基 $\boldsymbol{v\_1},\boldsymbol{v\_2},\ldots,\boldsymbol{v_k}$ 则有投影变换 $\mathcal{P}_{\mathcal{V}}=\sum\_{i=1}^{k}\boldsymbol{v}\_i\boldsymbol{v}^{\top}\_i$，从而公式
+特别地，如果给出空间 $\mathcal{V}$ 的一组标准正交基 $\boldsymbol{v_1},\boldsymbol{v_2},\ldots,\boldsymbol{v_k}$ 则有投影变换 $\mathcal{P}_{\mathcal{V}}=\sum\_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}\_i$，从而公式
 
 $$
-\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\sum\_{i=1}^{k}\boldsymbol{v}\_i\boldsymbol{v}^{\top}\_i\right)\boldsymbol{F}(\boldsymbol{x})
+\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i\right)\boldsymbol{F}(\boldsymbol{x})
 \label{the dynamics of x easy vesion 2}
 $$
 

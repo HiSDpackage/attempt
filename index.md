@@ -43,7 +43,7 @@ $$
 则有
 
 $$
-\boldsymbol{w^{\top}\mathbb{G}(\hat{x})w}=\sum_{i=k+1}^{d} a_i\boldsymbol{\hat{v}}_i^{\top}\sum_{i=k+1}^{d} \hat{\lambda}_ia_i\boldsymbol{\hat{v}}_i=\sum\_{i=k+1}^{d} \hat{\lambda}_ia_i^2>0
+\boldsymbol{w^{\top}\mathbb{G}(\hat{x})w}=\sum_{i=k+1}^{d} a_i\boldsymbol{\hat{v}}_i^{\top}\sum_{i=k+1}^{d} \hat{\lambda}_ia_i\boldsymbol{\hat{v}}_i=\sum_{i=k+1}^{d}\hat{\lambda}_ia_i^2>0
 $$
 
 故 $\mathbb{G}(\boldsymbol{\hat{x}})$ 在 $\mathcal{K'}$ 上不是负定的，即 $\boldsymbol{\hat{x}}$ 的阶数为 $k$。

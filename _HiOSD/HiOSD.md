@@ -106,32 +106,44 @@ $\boldsymbol{x}$ 处 Hessian 矩阵的最小 $k$ 个特征值对应的特征向�
 # $\boldsymbol{x}$的动力学
 
 更新 $\boldsymbol{x}$ 直观上看是让 $\boldsymbol{\dot{x}}$ 在空间
-$\mathcal{V}$ 上的投影 $\mathcal{P}_{\mathcal{V}}\boldsymbol{\dot{x}}$
+$\mathcal{V}$ 上的投影 $\mathcal{P}\_{\mathcal{V}}\boldsymbol{\dot{x}}$
 为能量函数 $E(\boldsymbol{x})$ 的上升方向， 而在其补空间
 $\mathcal{V}^{\perp}$ 上的投影
 $\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}$ 为下降方向。
 
 特别地，注意到自然力
 $\boldsymbol{F}(\boldsymbol{x})=-\nabla E(\boldsymbol{x})$
-为最速下降方向， 故可以考虑令
-$\mathcal{P}_{\mathcal{V}}\boldsymbol{\dot{x}}=-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$
+为最速下降方向， 故可以考虑令 $\mathcal{P}\_{\mathcal{V}}\boldsymbol{\dot{x}}=-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$ 
 以及
-$\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}=\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{F}(\boldsymbol{x})=\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$，再取两个正的松弛常数
+$\mathcal{P}\_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}=\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{F}(\boldsymbol{x})=\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$ ，再取两个正的松弛常数
 $\beta_{\mathcal{V}}$ 和 $\beta_{\mathcal{V}^{\perp}}$ 即可以给出
 $\boldsymbol{x}$ 的动力学
-$$\boldsymbol{\dot{x}}=\beta_{\mathcal{V}}(-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))+\beta_{\mathcal{V}^{\perp}}(\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))$$
+
+$$
+\boldsymbol{\dot{x}}=\beta_{\mathcal{V}}(-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))+\beta_{\mathcal{V}^{\perp}}(\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))
+$$
+
 进一步，如果简单地令
 $\beta_{\mathcal{V}}=\beta_{\mathcal{V}^{\perp}}=\beta$ 则上式化为
-$$\beta^{-1}\boldsymbol{\dot{x}}=\boldsymbol{F}(\boldsymbol{x})-2\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
-\label{the dynamics of x easy vesion}$$ 特别地，如果给出空间
+
+$$
+\beta^{-1}\boldsymbol{\dot{x}}=\boldsymbol{F}(\boldsymbol{x})-2\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
+\label{the dynamics of x easy vesion}
+$$ 
+
+特别地，如果给出空间
 $\mathcal{V}$ 的一组标准正交基
 $\boldsymbol{v_1},\boldsymbol{v_2},\ldots,\boldsymbol{v_k}$ 则有投影变换
 $\mathcal{P}_{\mathcal{V}}=\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i$
 从而公式
 ([\[the dynamics of x easy vesion\]](#the dynamics of x easy vesion){reference-type="ref"
 reference="the dynamics of x easy vesion"}) 化为
-$$\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i\right)\boldsymbol{F}(\boldsymbol{x})
-\label{the dynamics of x easy vesion 2}$$ 其中 $\mathbb{I}$ 为单位矩阵。
+
+$$
+\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i\right)\boldsymbol{F}(\boldsymbol{x})
+\label{the dynamics of x easy vesion 2}
+$$ 
+其中 $\mathbb{I}$ 为单位矩阵。
 
 # $\mathcal{V}$的动力学
 

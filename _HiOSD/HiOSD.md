@@ -113,9 +113,18 @@ $\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}$ 为下降方向。
 
 特别地，注意到自然力
 $\boldsymbol{F}(\boldsymbol{x})=-\nabla E(\boldsymbol{x})$
-为最速下降方向， 故可以考虑令 
-$\mathcal{P}_{\mathcal{V}}\boldsymbol{\dot{x}}=-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$
-以及 $\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}=\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{F}(\boldsymbol{x})=\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$ 
+为最速下降方向， 故可以考虑令
+
+$$
+\mathcal{P}_{\mathcal{V}}\boldsymbol{\dot{x}}=-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
+$$
+
+以及
+
+$$
+\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}=\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{F}(\boldsymbol{x})=\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
+$$
+
 再取两个正的松弛常数 $\beta_{\mathcal{V}}$ 和 $\beta_{\mathcal{V}^{\perp}}$ 即可以给出 $\boldsymbol{x}$ 的动力学
 
 $$
@@ -169,11 +178,13 @@ $\boldsymbol{v_1},\boldsymbol{v_2},\ldots,\boldsymbol{v_{i-1}}$
 $$
 \min_{\boldsymbol{v}_i} \langle \boldsymbol{v}_i,\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \rangle \hspace{4em} \text{s.t.} \hspace{1em} \langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle=\delta_{ij} \hspace{1em}
 j=1,2,\ldots,i
-\label{Rayleigh Quotient Optimization}$$
+\label{Rayleigh Quotient Optimization}
+$$
 
 其中
 
-$$\delta_{ij}=
+$$
+\delta_{ij}=
 \begin{cases}
     1 & \text{如果 } i=j \\
     0 & \text{如果 } i \neq j 
@@ -239,6 +250,7 @@ $$
 \xi^{(i)}_j=4\langle \boldsymbol{v}_j,\mathbb{G}\boldsymbol{v}_i \rangle
 \hspace{1em} j=1,2,\ldots,i-1
 $$
+
 代回公式
 ()
 可得最终的 $\boldsymbol{v}_i$ 的动力学

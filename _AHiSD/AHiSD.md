@@ -31,7 +31,7 @@ $$
 
 其中
 
--    $\text{EigenSol} \left\{ \mathbb{G}(\boldsymbol{x}^{(n+1)}), \left\{\boldsymbol{v}_i^{(n)}\right\}_{i=1}^{k} \right\}$ 为特征向量求解器，既可以使用HiOSD动力学的直接离散化，也可以使用LOBPCG等算法来处理。
+-    EigenSol 为特征向量求解器，既可以使用HiOSD动力学的直接离散化，也可以使用LOBPCG等算法来处理。
 
 -   步长$\beta_n$与HiOSD算法中类似，可以考虑用Euler格式、线搜索方法和BB步长法来处理
 

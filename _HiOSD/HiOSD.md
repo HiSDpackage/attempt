@@ -148,7 +148,8 @@ $$
 $\beta_{\mathcal{V}}=\beta_{\mathcal{V}^{\perp}}=\beta$ 则上式化为
 
 $$
-\beta^{-1}\boldsymbol{\dot{x}}=\boldsymbol{F}(\boldsymbol{x})-2\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}) \tag{1}
+\beta^{-1}\boldsymbol{\dot{x}}=\boldsymbol{F}(\boldsymbol{x})-2\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
+\tag{1}
 $$ 
 
 特别地，如果给出空间
@@ -159,7 +160,8 @@ $\mathcal{P}\_{\mathcal{V}}=\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsym
 (1) 化为
 
 $$
-\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i\right)\boldsymbol{F}(\boldsymbol{x}) \tag{2}
+\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i\right)\boldsymbol{F}(\boldsymbol{x})
+\tag{2}
 $$ 
 
 其中 $\mathbb{I}$ 为单位矩阵。
@@ -190,7 +192,7 @@ $\boldsymbol{v_1},\boldsymbol{v_2},\ldots,\boldsymbol{v_{i-1}}$
 $$
 \min_{\boldsymbol{v}_i} \langle \boldsymbol{v}_i,\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \rangle \hspace{4em} \text{s.t.} \hspace{1em} \langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle=\delta_{ij} \hspace{1em}
 j=1,2,\ldots,i
-\label{Rayleigh Quotient Optimization}
+\tag{3}
 $$
 
 其中
@@ -223,7 +225,9 @@ $$
 \boldsymbol{\dot{v}}_i
 &=-\frac{\gamma}{2}\frac{\partial}{\partial \boldsymbol{v}_i}\mathcal{L}_i(\boldsymbol{v}_i;\xi^{(i)}_1,\ldots,\xi^{(i)}_{i-1},\xi^{(i)}_i) \nonumber \\
 &=-\gamma(\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i-\xi^{(i)}_i\boldsymbol{v}_i-\displaystyle \frac{1}{2}\sum_{j=1}^{i-1}\xi^{(i)}_j\boldsymbol{v}_j)
-\label{the dynamics of v_i with undetermined coefficient}\end{aligned}
+\tag{4}
+\end{aligned}
+
 $$
 
 这里前面乘 $-\frac{\gamma}{2}$ 而非 $-\gamma$
@@ -251,7 +255,7 @@ $$
 $$
 
 将公式
-()
+(4)
 代入（按上标顺序求解）即可求得
 
 $$
@@ -264,7 +268,7 @@ $$
 $$
 
 代回公式
-()
+(4)
 可得最终的 $\boldsymbol{v}_i$ 的动力学
 
 $$
@@ -272,24 +276,24 @@ $$
 \gamma^{-1}\boldsymbol{\dot{v}}_i
  &=-\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i+\langle \boldsymbol{v}_i,\mathbb{G}\boldsymbol{v}_i \rangle\boldsymbol{v}_i+2\displaystyle \sum_{j=1}^{i-1}\langle \boldsymbol{v}_j,\mathbb{G}\boldsymbol{v}_i \rangle\boldsymbol{v}_j \nonumber \\
  &=-(\mathbb{I}-\boldsymbol{v}_i\boldsymbol{v}^T_i-2\displaystyle \sum_{j=1}^{i-1}\boldsymbol{v}_j\boldsymbol{v}^{\top}_j)\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \hspace{1em} i=1,2,\ldots,k
-\label{the dynamics of v_i}\end{aligned}
+\tag{5}
 $$ 
 
 综合公式
-()()即可得整个问题的动力学 
+(2)(5)即可得整个问题的动力学 
 
 $$
 \begin{cases}
      &\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i\right)\boldsymbol{F}(\boldsymbol{x})\\
      &\gamma^{-1}\boldsymbol{\dot{v}}_i=-\left(\mathbb{I}-\boldsymbol{v}_i\boldsymbol{v}^{\top}_i-2\displaystyle \sum_{j=1}^{i-1}\boldsymbol{v}_j\boldsymbol{v}^{\top}_j\right)\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \hspace{1em} i=1,2,\ldots,k
 \end{cases}
-\label{the dynamics with accurate Hessian}
+\tag{6}
 $$
 
 
 ## 4.2 Hessian矩阵需要数值近似的情形------收缩二聚体方法
 
-在公式() 中如果能给出精确的Hessian 当然可以，但很多问题的 Hessian矩阵无法求出或者求解代价太高，我们需要用数值近似的方法来处理 Hessian矩阵。特别地，在公式()中，我们不需要近似整个矩阵，只需要处理 Hessian 矩阵乘向量 $\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i$
+在公式(6) 中如果能给出精确的Hessian 当然可以，但很多问题的 Hessian矩阵无法求出或者求解代价太高，我们需要用数值近似的方法来处理 Hessian矩阵。特别地，在公式(6)中，我们不需要近似整个矩阵，只需要处理 Hessian 矩阵乘向量 $\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i$
 的形式，而这一点通过差分可以做到。
 
 考虑近似向量 $\mathbb{G}(\boldsymbol{x})\boldsymbol{v}$ 注意到
@@ -306,7 +310,7 @@ $$
 
 $$
 \boldsymbol{H}(\boldsymbol{x},\boldsymbol{v},l)=-\frac{\boldsymbol{F}(\boldsymbol{x}+l\boldsymbol{v})-\boldsymbol{F}(\boldsymbol{x}-l\boldsymbol{v})}{2l} \approx \mathbb{G}(\boldsymbol{x})\boldsymbol{v}
-\label{the approximation of Hessian}
+\tag{7}
 $$
 
 
@@ -351,7 +355,6 @@ $$
 
 $$
 \boldsymbol{u}_i^{(n)}=H\left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)},l^{(n)} \right)
-\label{dimer G(x)v}
 $$
 
 第6、7步通过施密特正交化保持正交条件；第9步的
@@ -429,8 +432,7 @@ LOBPCG（局部最优块预条件共轭梯度法）方法，因为它能较好�
 
 ## 7.1 方法的大致思想
 
-将全空间上的 Rayleigh 商优化问题
-()
+将全空间上的 Rayleigh 商优化问题(3)
 改为在一个子空间$\mathcal{U}$上近似求解，而且如果进行多次迭代这个子空间的信息会逐渐丰富，从而近似效果更好，也就是求出的特征向量更加接近全空间上的最小
 $k$
 个特征向量。而转化为求解子空间上的特征值问题其实就可以转化为求解一个规模更小的矩阵的特征值问题。
@@ -470,7 +472,7 @@ $n\times K$（其中 $k\leq K\leq 3k$）
 
 $$
 \mathbb{U}_{\text{CG}}^{(n)}=\left[ \boldsymbol{v}_1^{(n)}, \ldots, \boldsymbol{v}_k^{(n)}, \tilde{\boldsymbol{w}}_i^{(n)} \big/ \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\| : \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\| > \epsilon_w, i = 1, \ldots, 2k \right]
-\label{U}
+\tag(8)
 $$
 
 从而子空间中的向量可近似表示为
@@ -488,7 +490,7 @@ $$
 
 $$
 (\mathbb{U}_{\text{CG}}^{(n)})^{\top}\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}\boldsymbol{\eta}=\lambda\boldsymbol{\eta}
-\label{smaller question}
+\tag{9}
 $$
 
 从而只需求解一个 $K\times K$ 对称矩阵 
@@ -504,8 +506,7 @@ $\mathbb{U}_{\text{CG}}^{(n)}$ 即可还原到原来的空间中。
 事实上，上面的 $\mathbb{G}(\boldsymbol{x}^{(n+1)})$ 仍然可以类似 4.2
 小节用dimer方法来处理，因为
 $\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}$
-本质上仍是只需关注 Hessian 矩阵乘向量这样的结构，之前已有公式
-()
+本质上仍是只需关注 Hessian 矩阵乘向量这样的结构，之前已得到
 
 $$
 \mathbb{G}(\boldsymbol{x}^{(n+1)})\boldsymbol{v}_i^{(n)}\approx\boldsymbol{u}_i^{(n)}=H\left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)},l^{(n)} \right)
@@ -517,7 +518,7 @@ $$
 \boldsymbol{y}_i^{(n)} = \boldsymbol{H} \left( \boldsymbol{x}^{(n+1)}, \tilde{\boldsymbol{w}}_i^{(n)} \big/ \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\|, l^{(n)} \right)
 $$
 
-即可用
+结合公式(7)即知可用
 
 $$
 \mathbb{Y}_{\text{CG}}^{(n)} = \left[ \boldsymbol{u}_1^{(n)}, \ldots, \boldsymbol{u}_k^{(n)}, \boldsymbol{y}_i^{(n)} : \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\| > \epsilon_w, i = 1, \ldots, 2k \right]
@@ -530,9 +531,10 @@ $\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}$ 故可用
 
 $$
 \mathbb{P}_{\text{CG}}^{(n)}=(\mathbb{U}_{\text{CG}}^{(n)})^{\top}\mathbb{Y}_{\text{CG}}^{(n)}
+\tag{10}s
 $$
 
-来近似公式() 中的
+来近似公式(9) 中的
 $$
 (\mathbb{U}_{\text{CG}}^{(n)})^{\top}\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}
 $$

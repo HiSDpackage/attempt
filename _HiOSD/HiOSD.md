@@ -307,12 +307,16 @@ $l$ 在分母位置出现，为了保持数值稳定性 $l$ 不能取得太小�
 "收缩"这个过程在数值算法中可以通过给出一个 $l$
 的动力学来实现，最简单的可以考虑 $\dot{l}=-l$
 对应于二聚体长度的指数型衰减，由此给出 Hessian
-矩阵需要数值近似时整个问题的动力学 $$\begin{cases}
+矩阵需要数值近似时整个问题的动力学 
+
+$$
+\begin{cases}
      &\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i\right)\boldsymbol{F}(\boldsymbol{x})\\
      &\gamma^{-1}\boldsymbol{\dot{v}}_i=-\left(\mathbb{I}-\boldsymbol{v}_i\boldsymbol{v}^{\top}_i-2\displaystyle \sum_{j=1}^{i-1}\boldsymbol{v}_j\boldsymbol{v}^{\top}_j\right)\boldsymbol{H}(\boldsymbol{x},\boldsymbol{v},l) \hspace{1em} i=1,2,\ldots,k\\
      &\dot{l}=-l
 \end{cases}
-\label{the dynamics with accurate Hessian}$$
+$$
+
 该方法的收敛性证明详见殷鉴远、张磊、张平文的文章《High-Index
 Optimization-Based Shrinking Dimer Method for Finding High-Index Saddle
 Points》。
@@ -321,31 +325,24 @@ Points》。
 
 我们将如上给出的动力学直接离散化后给出如下算法：
 
-::: algorithm
-**Input:**
-$k \in \mathbb{N},\ l^{(0)} > 0,\ \boldsymbol{x}^{(0)} \in \mathcal{H},\ \{\boldsymbol{v}_i^{(0)}\}_{i=1}^k \subset \mathcal{H}$
-满足
-$\left\langle \boldsymbol{v}_j^{(0)}, \boldsymbol{v}_i^{(0)} \right\rangle =\delta_{ij}$.
 
-::: algorithmic
-初始令 $n=0$, 计算 $f^{(0)} = F(\boldsymbol{x}^{(0)})$;
-$\boldsymbol{x}^{(n+1)}=\boldsymbol{x}^{(n)}+\beta^{(n)}\boldsymbol{g}^{(n)}$;
-$\boldsymbol{v}_i^*=\boldsymbol{v}_i^{(n)}+\gamma_i^{(n)}\boldsymbol{d}_i^{(n)}$;
-$\boldsymbol{v}_i^*=\boldsymbol{v}_i^*-\sum_{j=1}^{i-1}\left\langle \boldsymbol{v}_j^{(n+1)},\boldsymbol{v}_i^*\right\rangle \boldsymbol{v}_j^{(n+1)}$;
-$\boldsymbol{v}_i^{(n+1)}=\boldsymbol{v}_i^*/\|\boldsymbol{v}_i^*\|$;
-$l^{(n+1)} =\max\left\{l^{(n)}/(1+\beta^{(n)}),\ \varepsilon \right\}$;
-$f^{(n+1)} = F(\boldsymbol{x}^{(n+1)})$; $n:=n+1$; **Output:**
-$\boldsymbol{x}^{(n)},\ \boldsymbol{v}_1^{(n)},\ldots,\boldsymbol{v}_k^{(n)}$;
-:::
-:::
 
 其中
-$$\boldsymbol{g}^{(n)}=\boldsymbol{f}^{(n)}-2\sum_{i=1}^k\left\langle \boldsymbol{v}_i^{(n)},\boldsymbol{f}^{(n)}\right\rangle \boldsymbol{v}_i^{(n)}$$
 
-$$\boldsymbol{d}_i^{(n)}=-\boldsymbol{u}_i^{(n)}+\left\langle \boldsymbol{v}_i^{(n)},\boldsymbol{u}_i^{(n)} \right\rangle \boldsymbol{v}_i^{(n)}+\sum_{j=1}^{i-1}2 \left\langle \boldsymbol{v}_j^{(n)}, \boldsymbol{u}_i^{(n)} \right\rangle \boldsymbol{v}_j^{(n)}$$
+$$
+\boldsymbol{g}^{(n)}=\boldsymbol{f}^{(n)}-2\sum_{i=1}^k\left\langle \boldsymbol{v}_i^{(n)},\boldsymbol{f}^{(n)}\right\rangle \boldsymbol{v}_i^{(n)}
+$$
 
-$$\boldsymbol{u}_i^{(n)}=H\left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)},l^{(n)} \right)
-\label{dimer G(x)v}$$ 第6、7步通过施密特正交化保持正交条件；第9步的
+$$
+\boldsymbol{d}_i^{(n)}=-\boldsymbol{u}_i^{(n)}+\left\langle \boldsymbol{v}_i^{(n)},\boldsymbol{u}_i^{(n)} \right\rangle \boldsymbol{v}_i^{(n)}+\sum_{j=1}^{i-1}2 \left\langle \boldsymbol{v}_j^{(n)}, \boldsymbol{u}_i^{(n)} \right\rangle \boldsymbol{v}_j^{(n)}
+$$
+
+$$
+\boldsymbol{u}_i^{(n)}=H\left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)},l^{(n)} \right)
+\label{dimer G(x)v}
+$$
+
+第6、7步通过施密特正交化保持正交条件；第9步的
 $\varepsilon$ 是为了防止位于
 $H\left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)},l^{(n)} \right)$
 分母的 $l^{(n)}$ 太小，以保持数值稳定性。
@@ -377,18 +374,39 @@ $\beta^{(n)}\|\boldsymbol{g}^{(n)}\|$ 设置一个上界 $\tau$
 $\Delta \boldsymbol{x}^{(n)}=\boldsymbol{x}^{(n)}-\boldsymbol{x}^{(n-1)}$
 以及
 $\Delta \boldsymbol{g}^{(n)}=\boldsymbol{g}^{(n)}-\boldsymbol{g}^{(n-1)}$，根据拟牛顿法的思想，通过分别求解优化问题
-$$\min_{\beta^{(n)}}\|\Delta \boldsymbol{x}^{(n)}-\beta^{(n)}\boldsymbol{g}^{(n)}\|$$
-$$\min_{\beta^{(n)}}\|\Delta \boldsymbol{x}^{(n)}/\beta^{(n)}-\boldsymbol{g}^{(n)}\|$$
+
+$$
+\min_{\beta^{(n)}}\|\Delta \boldsymbol{x}^{(n)}-\beta^{(n)}\boldsymbol{g}^{(n)}\|
+$$
+
+$$
+\min_{\beta^{(n)}}\|\Delta \boldsymbol{x}^{(n)}/\beta^{(n)}-\boldsymbol{g}^{(n)}\|
+$$
+
 可得BB1和BB2步长
-$$\beta_{\text{BB1}}^{(n)}=\frac{\langle \Delta \boldsymbol{x}^{(n)},\Delta \boldsymbol{x}^{(n)} \rangle}{\langle \Delta \boldsymbol{x}^{(n)},\Delta \boldsymbol{g}^{(n)} \rangle}$$
-$$\beta_{\text{BB2}}^{(n)}=\frac{\left\langle \Delta \boldsymbol{x}^{(n)},\Delta \boldsymbol{g}^{(n)} \right\rangle}{\left\langle \Delta \boldsymbol{g}^{(n)},\Delta \boldsymbol{g}^{(n)} \right\rangle}$$
+
+$$
+\beta_{\text{BB1}}^{(n)}=\frac{\langle \Delta \boldsymbol{x}^{(n)},\Delta \boldsymbol{x}^{(n)} \rangle}{\langle \Delta \boldsymbol{x}^{(n)},\Delta \boldsymbol{g}^{(n)} \rangle}
+$$
+
+$$
+\beta_{\text{BB2}}^{(n)}=\frac{\left\langle \Delta \boldsymbol{x}^{(n)},\Delta \boldsymbol{g}^{(n)} \right\rangle}{\left\langle \Delta \boldsymbol{g}^{(n)},\Delta \boldsymbol{g}^{(n)} \right\rangle}
+$$
+
 在这个问题中，由于BB1的分母可能过于接近0而导致数值不稳定，所以我们一般使用BB2步长。
 当然，我们也可以类似于上面线搜索时给
 $\beta^{(n)}\|\boldsymbol{g}^{(n)}\|$ 一个上界，并通过对
 $\beta_{\text{BB2}}^{(n)}$ 取绝对值来避免负步长的出现，二者综合即得：
-$$\beta^{(n)}=\text{min}\left\{ \frac{\tau}{\|\boldsymbol{g}^{(n)}\|},\left| \frac{\left\langle \Delta \boldsymbol{x}^{(n)},\Delta \boldsymbol{g}^{(n)} \right\rangle}{\left\langle \Delta \boldsymbol{g}^{(n)},\Delta \boldsymbol{g}^{(n)} \right\rangle} \right| \right\}$$
+
+$$
+\beta^{(n)}=\text{min}\left\{ \frac{\tau}{\|\boldsymbol{g}^{(n)}\|},\left| \frac{\left\langle \Delta \boldsymbol{x}^{(n)},\Delta \boldsymbol{g}^{(n)} \right\rangle}{\left\langle \Delta \boldsymbol{g}^{(n)},\Delta \boldsymbol{g}^{(n)} \right\rangle} \right| \right\}
+$$
+
 对于 $\gamma_i^{(n)}$ 也用BB2步长可得
-$$\gamma_i^{(n)}=\left| \frac{\left\langle \Delta \boldsymbol{v}_i^{(n)},\Delta \boldsymbol{d}_i^{(n)} \right\rangle}{\left\langle \Delta \boldsymbol{d}_i^{(n)},\Delta \boldsymbol{d}_i^{(n)} \right\rangle} \right|$$
+
+$$
+\gamma_i^{(n)}=\left| \frac{\left\langle \Delta \boldsymbol{v}_i^{(n)},\Delta \boldsymbol{d}_i^{(n)} \right\rangle}{\left\langle \Delta \boldsymbol{d}_i^{(n)},\Delta \boldsymbol{d}_i^{(n)} \right\rangle} \right|
+$$
 
 # $\mathcal{V}$的另一种更新方式------LOBPCG方法的应用
 
@@ -407,32 +425,62 @@ $k$
 个特征向量。而转化为求解子空间上的特征值问题其实就可以转化为求解一个规模更小的矩阵的特征值问题。
 
 具体而言，我们面对的问题是
-$$\min \displaystyle \sum_{i=1}^{k}\langle \boldsymbol{v}_i,\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \rangle \hspace{4em} \text{s.t.} \hspace{1em} \boldsymbol{v}_i\in\mathcal{U},\langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle=\delta_{ij}$$
+
+$$
+\min \displaystyle \sum_{i=1}^{k}\langle \boldsymbol{v}_i,\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \rangle \hspace{4em} \text{s.t.} \hspace{1em} \boldsymbol{v}_i\in\mathcal{U},\langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle=\delta_{ij}
+$$
+
 实际算法中我们可以考虑每次 $\boldsymbol{x}$ 迭代完成后只做一次
 LOBPCG，也可以选择多做几次。下面展示的是只做一次的情形，其中上标 $(n)$
 表示的是 $\boldsymbol{x}$ 的更新次数，特别地这种情形下也是
 $\boldsymbol{v}_i$ 的更新次数。
 
 在 LOBPCG 算法中，取对称正定的预条件器 $\mathbb{T}$ 作用于残差向量上得
-$$\boldsymbol{w}_i^{(n)}=\mathbb{T}\left(\mathbb{G}(\boldsymbol{x}^{(n+1)})\boldsymbol{v}_i^{(n)}-\left\langle\boldsymbol{v}_i^{(n)},\mathbb{G}(\boldsymbol{x}^{(n+1)})\boldsymbol{v}_i^{(n)}\right\rangle\boldsymbol{v}_i^{(n)}\right)$$
+
+$$
+\boldsymbol{w}_i^{(n)}=\mathbb{T}\left(\mathbb{G}(\boldsymbol{x}^{(n+1)})\boldsymbol{v}_i^{(n)}-\left\langle\boldsymbol{v}_i^{(n)},\mathbb{G}(\boldsymbol{x}^{(n+1)})\boldsymbol{v}_i^{(n)}\right\rangle\boldsymbol{v}_i^{(n)}\right)
+$$
+
 再结合当前和上一步的近似特征向量得到 LOBPCG 方法中的子空间
-$$\mathcal{U}_{\text{CG}}^{(n)}=\text{span}\left\{\boldsymbol{v}_i^{(n-1)},\boldsymbol{v}_i^{(n)},\boldsymbol{w}_i^{(n)},i=1,2,\ldots,k\right\}$$
+
+$$
+\mathcal{U}_{\text{CG}}^{(n)}=\text{span}\left\{\boldsymbol{v}_i^{(n-1)},\boldsymbol{v}_i^{(n)},\boldsymbol{w}_i^{(n)},i=1,2,\ldots,k\right\}
+$$
+
 记 $\boldsymbol{w}_{i+k}^{(n)}=\boldsymbol{v}_i^{(n-1)},i=1,2,\ldots,k$
 并做施密特正交化
-$$\tilde{\boldsymbol{w}}_i^{(n)} = \boldsymbol{w}_i^{(n)} - \sum_{j=1}^{k} \left\langle \boldsymbol{w}_i^{(n)}, \boldsymbol{v}_j^{(n)} \right\rangle \boldsymbol{v}_j^{(n)} - \sum_{\substack{j=1 \\ \|\tilde{\boldsymbol{w}}_j^{(n)}\| > \epsilon_w}}^{i-1} \frac{\left\langle \boldsymbol{w}_i^{(n)}, \tilde{\boldsymbol{w}}_j^{(n)} \right\rangle}{\left\| \tilde{\boldsymbol{w}}_j^{(n)} \right\|^2} \tilde{\boldsymbol{w}}_j^{(n)},i=1,2,\ldots,2k$$
+
+$$
+\tilde{\boldsymbol{w}}_i^{(n)} = \boldsymbol{w}_i^{(n)} - \sum_{j=1}^{k} \left\langle \boldsymbol{w}_i^{(n)}, \boldsymbol{v}_j^{(n)} \right\rangle \boldsymbol{v}_j^{(n)} - \sum_{\substack{j=1 \\ \|\tilde{\boldsymbol{w}}_j^{(n)}\| > \epsilon_w}}^{i-1} \frac{\left\langle \boldsymbol{w}_i^{(n)}, \tilde{\boldsymbol{w}}_j^{(n)} \right\rangle}{\left\| \tilde{\boldsymbol{w}}_j^{(n)} \right\|^2} \tilde{\boldsymbol{w}}_j^{(n)},i=1,2,\ldots,2k
+$$
+
 舍去其中模长过小的向量是为了保持数值稳定性。由此可以得到一个列向量正交的矩阵
 $n\times K$（其中 $k\leq K\leq 3k$）
-$$\mathbb{U}_{\text{CG}}^{(n)}=\left[ \boldsymbol{v}_1^{(n)}, \ldots, \boldsymbol{v}_k^{(n)}, \tilde{\boldsymbol{w}}_i^{(n)} \big/ \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\| : \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\| > \epsilon_w, i = 1, \ldots, 2k \right]
-\label{U}$$ 从而子空间中的向量可近似表示为
+
+$$
+\mathbb{U}_{\text{CG}}^{(n)}=\left[ \boldsymbol{v}_1^{(n)}, \ldots, \boldsymbol{v}_k^{(n)}, \tilde{\boldsymbol{w}}_i^{(n)} \big/ \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\| : \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\| > \epsilon_w, i = 1, \ldots, 2k \right]
+\label{U}
+$$
+
+从而子空间中的向量可近似表示为
 $\mathbb{U}_{\text{CG}}^{(n)}\boldsymbol{\eta}$，其中
 $\boldsymbol{\eta}\in\mathbb{R}^{K\times 1}$。
 
 进而在 $\mathcal{U}_{\text{CG}}^{(n)}$ 中找最小的 $k$
 个特征值及其对应的特征向量相当于找 $\boldsymbol{\eta}$ 使得
-$$\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}\boldsymbol{\eta}=\lambda\mathbb{U}_{\text{CG}}^{(n)}\boldsymbol{\eta}$$
+
+$$
+\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}\boldsymbol{\eta}=\lambda\mathbb{U}_{\text{CG}}^{(n)}\boldsymbol{\eta}
+$$
+
 亦即
-$$(\mathbb{U}_{\text{CG}}^{(n)})^{\top}\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}\boldsymbol{\eta}=\lambda\boldsymbol{\eta}
-\label{smaller question}$$ 从而只需求解一个 $K\times K$ 对称矩阵
+
+$$
+(\mathbb{U}_{\text{CG}}^{(n)})^{\top}\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}\boldsymbol{\eta}=\lambda\boldsymbol{\eta}
+\label{smaller question}
+$$
+
+从而只需求解一个 $K\times K$ 对称矩阵
 $(\mathbb{U}_{\text{CG}}^{(n)})^T\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}$
 的最小 $k$ 个特征值及其对应的特征向量即可，求出后对特征向量左乘
 $\mathbb{U}_{\text{CG}}^{(n)}$ 即可还原到原来的空间中。
@@ -446,17 +494,33 @@ $\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}$
 本质上仍是只需关注 Hessian 矩阵乘向量这样的结构，之前已有公式
 ([\[dimer G(x)v\]](#dimer G(x)v){reference-type="ref"
 reference="dimer G(x)v"})
-$$\mathbb{G}(\boldsymbol{x}^{(n+1)})\boldsymbol{v}_i^{(n)}\approx\boldsymbol{u}_i^{(n)}=H\left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)},l^{(n)} \right)$$
+
+$$
+\mathbb{G}(\boldsymbol{x}^{(n+1)})\boldsymbol{v}_i^{(n)}\approx\boldsymbol{u}_i^{(n)}=H\left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)},l^{(n)} \right)
+$$
+
 我们类似地令
-$$\boldsymbol{y}_i^{(n)} = \boldsymbol{H} \left( \boldsymbol{x}^{(n+1)}, \tilde{\boldsymbol{w}}_i^{(n)} \big/ \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\|, l^{(n)} \right)$$
+
+$$
+\boldsymbol{y}_i^{(n)} = \boldsymbol{H} \left( \boldsymbol{x}^{(n+1)}, \tilde{\boldsymbol{w}}_i^{(n)} \big/ \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\|, l^{(n)} \right)
+$$
+
 即可用
-$$\mathbb{Y}_{\text{CG}}^{(n)} = \left[ \boldsymbol{u}_1^{(n)}, \ldots, \boldsymbol{u}_k^{(n)}, \boldsymbol{y}_i^{(n)} : \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\| > \epsilon_w, i = 1, \ldots, 2k \right]
-\label{dimer Y=GU}$$ 来近似
+
+$$
+\mathbb{Y}_{\text{CG}}^{(n)} = \left[ \boldsymbol{u}_1^{(n)}, \ldots, \boldsymbol{u}_k^{(n)}, \boldsymbol{y}_i^{(n)} : \left\| \tilde{\boldsymbol{w}}_i^{(n)} \right\| > \epsilon_w, i = 1, \ldots, 2k \right]
+\label{dimer Y=GU}
+$$
+
+来近似
+
 $\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}$ 故可用
-$$\mathbb{P}_{\text{CG}}^{(n)}=(\mathbb{U}_{\text{CG}}^{(n)})^{\top}\mathbb{Y}_{\text{CG}}^{(n)}$$
-来近似公式
-([\[smaller question\]](#smaller question){reference-type="ref"
-reference="smaller question"}) 中的
+
+$$
+\mathbb{P}_{\text{CG}}^{(n)}=(\mathbb{U}_{\text{CG}}^{(n)})^{\top}\mathbb{Y}_{\text{CG}}^{(n)}
+$$
+
+来近似公式() 中的
 $(\mathbb{U}_{\text{CG}}^{(n)})^{\top}\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}$。
 由于数值误差，为了保持 $\mathbb{P}_{\text{CG}}^{(n)}$
 的对称性，更好的选择是使用
@@ -467,30 +531,7 @@ $(\mathbb{P}_{\text{CG}}^{(n)}+(\mathbb{P}_{\text{CG}}^{(n)})^{\top})/2$
 
 总结梳理一下上一小节的内容即得 HiOSD-LOBPCG 算法的大致框架
 
-::: algorithm
-**Input:**
-$k \in \mathbb{N}, l^{(0)} > 0, \boldsymbol{x}^{(0)} \in \mathcal{H}, \{\boldsymbol{v}_i^{(0)}\}_{i=1}^k \subset \mathcal{H}$
-满足
-$\langle \boldsymbol{v}_j^{(0)}, \boldsymbol{v}_i^{(0)} \rangle = \delta_{ij}$.
 
-::: algorithmic
-初始令 $n = 0$, 计算
-$\boldsymbol{f}^{(0)} = \boldsymbol{F}(\boldsymbol{x}^{(0)})$;
-$\boldsymbol{x}^{(n+1)} = \boldsymbol{x}^{(n)} + \beta^{(n)} \boldsymbol{g}^{(n)}$;
-计算 $\mathbb{U}^{(n)}$ as ([\[U\]](#U){reference-type="ref"
-reference="U"}); 计算 $\mathbb{Y}^{(n)}$ as
-([\[dimer Y=GU\]](#dimer Y=GU){reference-type="ref"
-reference="dimer Y=GU"});
-$\mathbb{P}^{(n)} = (\mathbb{U}^{(n)})^\top \mathbb{Y}^{(n)}$; 计算
-$(\mathbb{P}^{(n)} + (\mathbb{P}^{(n)})^\top) / 2$ 的最小的 $k$
-个特征值所对应的特征向量 $\{\boldsymbol{\eta}_i^{(n)}\}_{i=1}^k$;
-$\boldsymbol{v}_i^{(n+1)} = \mathbb{U}^{(n)} \boldsymbol{\eta}_i^{(n)}$;
-$l^{(n+1)} = \max\{ l^{(n)}/(1+\beta^{(n)}), \epsilon \}$;
-$\boldsymbol{f}^{(n+1)} = \boldsymbol{F}(\boldsymbol{x}^{(n+1)})$;
-$n:=n+1$; ; **Output:**
-$\boldsymbol{x}^{(n)}, \boldsymbol{v}_1^{(n)}, \ldots, \boldsymbol{v}_k^{(n)}$.
-:::
-:::
 
 注意到这种方法的步长选取只出现在第 3 行中 $\beta^{(n)}$
 的选取，这一点参考第 6 节的内容即可。

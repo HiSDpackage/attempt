@@ -9,7 +9,7 @@ toc_sticky: true
 mathjax: true
 ---
 
-这一章我们简单介绍两种HiOSD的动量加速算法，其理论证明和数值实验结果可以参考文章《》。
+这一章我们简单介绍两种HiOSD的动量加速算法，其相关理论和数值实验结果可以参考罗月、张磊、郑祥成的文章《Accelerated high-index saddle dynamics method for searching high-index saddle points》。
 第一种是重球加速法 
 
 $$
@@ -36,7 +36,7 @@ $$
 -   步长$\beta_n$与HiOSD算法中类似，可以考虑用Euler格式、线搜索方法和BB步长法来处理
 
 -   动量加速 $\gamma (\boldsymbol{x}^{(n)} - \boldsymbol{x}^{(n-1)})$ 是加速的核心，其中重球加速中$\gamma\in[0,1)$一般取为常数，而Nesterov加速 $\gamma_n$ 有多种选择，例如
--   
+      
     $$
     \gamma_n = \frac{n}{n+3}
     $$
@@ -48,4 +48,3 @@ $$
     $$
     
     数值实验中两种选择的效果一般相差不大，所以我们一般选用形式更简单的前者
-

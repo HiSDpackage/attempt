@@ -190,12 +190,11 @@ $$
 \dot{\boldsymbol{v}}_i = \left( \mathbb{I} - \boldsymbol{v}_i \boldsymbol{v}_i^\top \right) \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i - \displaystyle\sum_{j=1}^{i-1} \boldsymbol{v}_j \boldsymbol{v}_j^\top \left( \mathbb{J}(\boldsymbol{x}) + \mathbb{J}^\top(\boldsymbol{x}) \right) \boldsymbol{v}_i,\quad i = 1, \cdots, k
 \end{cases}
 $$ 
-该动力学的收敛性详见殷鉴远、俞炳、张磊的文章《Searching
+该动力学的线性稳定性详见殷鉴远、俞炳、张磊的文章《Searching
 the solution landscape by generalized high-index saddle dynamics》。
 
 事实上，得到这个动力学以后我们可以对其做直接离散化而得到新的数值算法，但这种算法相比之前的离散格式计算量要更大，因为实际计算过程中，离散化格式的正交性保持仍然需要Gram-Schmidt正交化的修正。此外，张磊、张平文、郑祥成的文章《Understanding
-high-index saddle dynamics via numerical
-analysis》中证明了两种离散格式的实际效果相差不大，所以出于计算量的考虑，我们往往直接使用更简单的离散格式(4)。
+high-index saddle dynamics via numerical analysis》中证明了两种离散格式的实际效果相差不大，所以出于计算量的考虑，我们往往直接使用更简单的离散格式(4)。
 
 # 4 解景观的构建
 

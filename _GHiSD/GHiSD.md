@@ -18,6 +18,7 @@ $\boldsymbol{F}(\boldsymbol{x}) = -\nabla E(\boldsymbol{x})$
 
 $$
 \boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}),\quad \boldsymbol{x} \in \mathbb{R}^d,\quad \boldsymbol{F} \in \mathcal{C}^r(\mathbb{R}^d,\mathbb{R}^d),\quad r \geq 2
+\tag{1}
 $$ 
 
 也能做到搜索 $k$
@@ -32,9 +33,7 @@ $\boldsymbol{F}(\boldsymbol{\hat{x}}) = \boldsymbol{0}$ 的
 $\boldsymbol{\hat{x}}$，我们可以称其为平衡点或驻点。
 
 考虑平衡点附近的系统，令
-$\boldsymbol{x} = \boldsymbol{\hat{x}} + \boldsymbol{y}$ 代入
-([\[dynamical system\]](#dynamical system){reference-type="ref"
-reference="dynamical system"}) 并做 Taylor 展开可得
+$\boldsymbol{x} = \boldsymbol{\hat{x}} + \boldsymbol{y}$ 代入(1)并做 Taylor 展开可得
 
 $$
 \boldsymbol{\dot{y}} = \boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}) = \boldsymbol{F}(\boldsymbol{\hat{x}}) + \mathbb{J}(\boldsymbol{\hat{x}})\boldsymbol{y} + \mathcal{O}(\|\boldsymbol{y}\|^2)
@@ -96,7 +95,7 @@ $\mathbb{R}^d = \mathcal{W}^u(\boldsymbol{\hat{x}}) \oplus \mathcal{W}^s(\boldsy
 $\boldsymbol{x}$的动力学构建的整体想法与HiOSD类似，在平衡点附近的稳定子空间方向上，力的作用效果是靠近平衡点，而在不稳定子空间方向上则是远离平衡点。故直观上我们仍然可以让$\boldsymbol{\dot{x}}$在稳定子空间中保持系统力的方向，而在不稳定子空间中选择与系统力相反的方向，即
 
 $$
-\boldsymbol{\dot{x}} = -\mathcal{P}_{\mathcal{W}^{\mathrm{u}}(\boldsymbol{x})} \boldsymbol{F}(\boldsymbol{x}) + \left( \boldsymbol{F}(\boldsymbol{x}) - \mathcal{P}_{\mathcal{W}^u(\boldsymbol{x})} \boldsymbol{F}(\boldsymbol{x}) \right) = \left( \mathbb{I} - 2\mathcal{P}_{\mathcal{W}^u(\boldsymbol{x})} \right) \boldsymbol{F}(\boldsymbol{x}),
+\boldsymbol{\dot{x}} = -\mathcal{P}_{\mathcal{W}^{\mathrm{u}}(\boldsymbol{x})} \boldsymbol{F}(\boldsymbol{x}) + \left( \boldsymbol{F}(\boldsymbol{x}) - \mathcal{P}_{\mathcal{W}^u(\boldsymbol{x})} \boldsymbol{F}(\boldsymbol{x}) \right) = \left( \mathbb{I} - 2\mathcal{P}_{\mathcal{W}^u(\boldsymbol{x})} \right) \boldsymbol{F}(\boldsymbol{x})
 $$
 
 注意上面的动力学中由于我们不清楚$k$阶鞍点的不稳定子空间$\mathcal{W}^u(\boldsymbol{\hat{x}})$，所以考虑用当前点的不稳定子空间$\mathcal{W}^u(\boldsymbol{x})$来近似（更准确地说，其实是$\mathcal{W}^u(\boldsymbol{x})$的$k$维子空间，因为实际计算中使用$k$个向量构成的基底来近似，但后文统称为$\mathcal{W}^u(\boldsymbol{x})$）。其中非平衡点的不稳定子空间定义与前述平衡点处的一致，尽管其物理意义不如平衡点处清晰。
@@ -111,7 +110,7 @@ $$
 
 $$
 \boldsymbol{\dot{x}} = \left( \mathbb{I} - 2 \sum_{j=1}^{k} \boldsymbol{v}_j \boldsymbol{v}_j^\top \right) \boldsymbol{F}(\boldsymbol{x})
-\label{GHiSD the dynamics of x}
+\tag{2}
 $$
 
 
@@ -129,7 +128,7 @@ $$
 \begin{cases}
 \tilde{\boldsymbol{v}}_i^{(m+1)} = \boldsymbol{v}_i^{(m)} + \beta \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i^{(m)} \hspace{1em} i = 1, \cdots, k \\
 \left[ \boldsymbol{v}_1^{(m+1)}, \cdots, \boldsymbol{v}_k^{(m+1)} \right] = \text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)
-\label{discrete GHiSD of W^u}
+\tag{3}
 \end{cases}
 $$
 
@@ -140,7 +139,6 @@ $$
 \tilde{\boldsymbol{v}}_i^{(m+1)} = \boldsymbol{v}_i^{(m)} + \beta \dfrac{\boldsymbol{F}(\boldsymbol{x} + l \boldsymbol{v}_i^{(m)}) - \boldsymbol{F}(\boldsymbol{x} - l \boldsymbol{v}_i^{(m)})}{2l} \quad i = 1, \cdots, k \\
 \left[ \boldsymbol{v}_1^{(m+1)}, \cdots, \boldsymbol{v}_k^{(m+1)} \right] = \text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)
 \end{cases}
-\label{discrete GHiSD of W^u dimer}
 $$
 
 再结合$\boldsymbol{x}$的动力学离散化即得： 
@@ -151,13 +149,12 @@ $$
 \tilde{\boldsymbol{v}}_i^{(m+1)} = \boldsymbol{v}_i^{(m)} + \beta \dfrac{\boldsymbol{F}(\boldsymbol{x}^{(m+1)} + l \boldsymbol{v}_i^{(m)}) - \boldsymbol{F}(\boldsymbol{x}^{(m+1)} - l \boldsymbol{v}_i^{(m)})}{2l}\quad i = 1, \cdots, k \\
 \left[ \boldsymbol{v}_1^{(m+1)}, \cdots, \boldsymbol{v}_k^{(m+1)} \right] = \text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)
 \end{cases}
-\label{discrete GHiSD}
+\tag{4}
 $$
 
 ## $\mathcal{W}^u(\boldsymbol{x})$的动力学与直接离散化
 
-将上述离散形式([\[discrete GHiSD of W\^u\]](#discrete GHiSD of W^u){reference-type="ref"
-reference="discrete GHiSD of W^u"})（包括正交化过程）令$\beta \rightarrow0$可得连续化ODE形如：
+将上述离散形式(3)（包括正交化过程）令$\beta \rightarrow0$可得连续化ODE形如：
 
 $$
 \boldsymbol{\dot{v}}_i=\mathbb{J}(\boldsymbol{x})\boldsymbol{v}_i+\displaystyle \sum_{j=1}^{i}\xi^{(i)}_j\boldsymbol{v}_j
@@ -185,8 +182,7 @@ $$
 \xi_{j}^{(i)} = -\langle \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i, \boldsymbol{v}_j \rangle - \langle \boldsymbol{v}_i, \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_j \rangle \quad j = 1, \cdots, i-1
 $$
 
-由此结合([\[GHiSD the dynamics of x\]](#GHiSD the dynamics of x){reference-type="ref"
-reference="GHiSD the dynamics of x"})式可得整个问题的动力学:
+由此结合(2)式可得整个问题的动力学:
 
 $$
 \begin{cases} 
@@ -199,8 +195,7 @@ the solution landscape by generalized high-index saddle dynamics》。
 
 事实上，得到这个动力学以后我们可以对其做直接离散化而得到新的数值算法，但这种算法相比之前的离散格式计算量要更大，因为实际计算过程中，离散化格式的正交性保持仍然需要Gram-Schmidt正交化的修正。此外，张磊、张平文、郑祥成的文章《Understanding
 high-index saddle dynamics via numerical
-analysis》中证明了两种离散格式的实际效果相差不大，所以出于计算量的考虑，我们往往直接使用更简单的离散格式([\[discrete GHiSD\]](#discrete GHiSD){reference-type="ref"
-reference="discrete GHiSD"})。
+analysis》中证明了两种离散格式的实际效果相差不大，所以出于计算量的考虑，我们往往直接使用更简单的离散格式(4)。
 
 # 解景观的构建
 

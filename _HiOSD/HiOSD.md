@@ -88,20 +88,20 @@ $\boldsymbol{\hat{x}} + \hat{\mathcal{V}}$
 $\boldsymbol{\hat{x}} + \hat{\mathcal{V}}^{\perp}$ 上的局部极小值。
 
 考虑
-$\boldsymbol{\hat{x}}_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}_{\hat{\mathcal{V}}^{\perp}}$
-分别为 $\boldsymbol{\hat{x}}$ 在
-$\hat{\mathcal{V}}, \hat{\mathcal{V}}^{\perp}$ 上的投影，则
+$\boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}^{\perp}}$
+分别为 $\boldsymbol{\hat{x}}$ 在 $\hat{\mathcal{V}}, \hat{\mathcal{V}}^{\perp}$ 上的投影，则
 $(\boldsymbol{v}, \boldsymbol{w}) = (\boldsymbol{\hat{x}}_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}_{\hat{\mathcal{V}}^{\perp}})$
 是 minimax 问题
-$$\min_{\boldsymbol{w}\in\hat{\mathcal{V}}^{\perp}} \max_{\boldsymbol{v}\in\hat{\mathcal{V}}} E(\boldsymbol{v} + \boldsymbol{w})$$
-的一个解。但是，这并不是一个经典的 minimax 问题，因为空间
-$\hat{\mathcal{V}}$
-是未知的，所以在求解优化问题的过程中我们的迭代法应该包括两个部分：一个是更新
+
+$$
+\min_{\boldsymbol{w}\in\hat{\mathcal{V}}^{\perp}} \max_{\boldsymbol{v}\in\hat{\mathcal{V}}} E(\boldsymbol{v} + \boldsymbol{w})
+$$
+
+的一个解。但是，这并不是一个经典的 minimax 问题，因为空间 $\hat{\mathcal{V}}$ 是未知的，所以在求解优化问题的过程中我们的迭代法应该包括两个部分：一个是更新
 $\boldsymbol{v}$ 和 $\boldsymbol{w}$（在这个问题中也就是更新
-$\boldsymbol{x} = \boldsymbol{v} + \boldsymbol{w}$），还有一个就是要更新空间
-$\mathcal{V}$（$\mathcal{V}$ 用于近似 $\hat{\mathcal{V}}$，一般用当前
-$\boldsymbol{x}$ 处 Hessian 矩阵的最小 $k$
-个特征值对应的特征向量张成的子空间来描述）。
+$\boldsymbol{x} = \boldsymbol{v} + \boldsymbol{w}$ ），还有一个就是要更新空间
+$\mathcal{V}$（ $\mathcal{V}$ 用于近似 $\hat{\mathcal{V}}$ ，一般用当前
+$\boldsymbol{x}$ 处 Hessian 矩阵的最小 $k$ 个特征值对应的特征向量张成的子空间来描述）。
 
 # $\boldsymbol{x}$的动力学
 

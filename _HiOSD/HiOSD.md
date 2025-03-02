@@ -148,7 +148,7 @@ $$
 $\beta_{\mathcal{V}}=\beta_{\mathcal{V}^{\perp}}=\beta$ 则上式化为
 
 $$
-\beta^{-1}\boldsymbol{\dot{x}}=\boldsymbol{F}(\boldsymbol{x})-2\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})
+\beta^{-1}\boldsymbol{\dot{x}}=\boldsymbol{F}(\boldsymbol{x})-2\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}) \tag{1}
 $$ 
 
 特别地，如果给出空间
@@ -156,11 +156,10 @@ $\mathcal{V}$ 的一组标准正交基
 $\boldsymbol{v_1},\boldsymbol{v_2},\ldots,\boldsymbol{v_k}$ 则有投影变换
 $\mathcal{P}\_{\mathcal{V}}=\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i$
 从而公式
-() 化为
+(1) 化为
 
 $$
-\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i\right)\boldsymbol{F}(\boldsymbol{x})
-\label{the dynamics of x easy vesion 2}
+\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i\right)\boldsymbol{F}(\boldsymbol{x}) \tag{2}
 $$ 
 
 其中 $\mathbb{I}$ 为单位矩阵。
@@ -431,9 +430,8 @@ LOBPCG（局部最优块预条件共轭梯度法）方法，因为它能较好�
 ## 7.1 方法的大致思想
 
 将全空间上的 Rayleigh 商优化问题
-([\[Rayleigh Quotient Optimization\]](#Rayleigh Quotient Optimization){reference-type="ref"
-reference="Rayleigh Quotient Optimization"})
-改为在一个子空间上近似求解，而且如果进行多次迭代这个子空间的信息会逐渐丰富，从而近似效果更好，也就是求出的特征向量更加接近全空间上的最小
+()
+改为在一个子空间$\mathcal{U}$上近似求解，而且如果进行多次迭代这个子空间的信息会逐渐丰富，从而近似效果更好，也就是求出的特征向量更加接近全空间上的最小
 $k$
 个特征向量。而转化为求解子空间上的特征值问题其实就可以转化为求解一个规模更小的矩阵的特征值问题。
 

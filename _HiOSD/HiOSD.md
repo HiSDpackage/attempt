@@ -525,17 +525,14 @@ $$
 $$
 (\mathbb{U}_{\text{CG}}^{(n)})^{\top}\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}
 $$
-
 由于数值误差，为了保持 
 $$
 \mathbb{P}_{\text{CG}}^{(n)}
 $$
-
 的对称性，更好的选择是使用
 $$
 (\mathbb{P}_{\text{CG}}^{(n)}+(\mathbb{P}_{\text{CG}}^{(n)})^{\top})/2
 $$
-
 来替代 $\mathbb{P}_{\text{CG}}^{(n)}$。
 
 ## 算法框架

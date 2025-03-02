@@ -140,6 +140,7 @@ $$
 \beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i\right)\boldsymbol{F}(\boldsymbol{x})
 \label{the dynamics of x easy vesion 2}
 $$ 
+
 其中 $\mathbb{I}$ 为单位矩阵。
 
 # $\mathcal{V}$的动力学
@@ -153,81 +154,137 @@ $\mathbb{G}(\boldsymbol{x})$ 的 $k$
 ## 基本方法：转化为带约束优化问题后用拉格朗日函数的梯度流构造动力学
 
 先看最简单的情况，如何找最小特征值及其对应的特征向量？我们可以通过求解带约束问题
-$$\min_{\boldsymbol{v}_1} \langle \boldsymbol{v}_1,\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_1 \rangle \hspace{4em} \text{s.t.} \hspace{1em} \langle \boldsymbol{v}_1,\boldsymbol{v}_1 \rangle=1$$
-来实现
+
+$$
+\min_{\boldsymbol{v}_1} \langle \boldsymbol{v}_1,\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_1 \rangle \hspace{4em} \text{s.t.} \hspace{1em} \langle \boldsymbol{v}_1,\boldsymbol{v}_1 \rangle=1
+$$
+
+来实现。
 
 类似地，在给出
 $\boldsymbol{v_1},\boldsymbol{v_2},\ldots,\boldsymbol{v_{i-1}}$
 的情况下，想要求第 $i$
 小的特征值及其对应的特征向量则可以考虑求解带约束优化问题
-$$\min_{\boldsymbol{v}_i} \langle \boldsymbol{v}_i,\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \rangle \hspace{4em} \text{s.t.} \hspace{1em} \langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle=\delta_{ij} \hspace{1em}
+
+$$
+\min_{\boldsymbol{v}_i} \langle \boldsymbol{v}_i,\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \rangle \hspace{4em} \text{s.t.} \hspace{1em} \langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle=\delta_{ij} \hspace{1em}
 j=1,2,\ldots,i
-\label{Rayleigh Quotient Optimization}$$ 其中 $$\delta_{ij}=
+\label{Rayleigh Quotient Optimization}$$
+
+其中
+
+$$\delta_{ij}=
 \begin{cases}
     1 & \text{如果 } i=j \\
     0 & \text{如果 } i \neq j 
-\end{cases}$$ 我们考虑这一系列带约束优化问题的动力学，考虑拉格朗日函数
-$$\mathcal{L}_i(\boldsymbol{v}_i;\xi^{(i)}_1,\ldots,\xi^{(i)}_{i-1},\xi^{(i)}_i)=\langle \boldsymbol{v}_i,\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \rangle-\xi^{(i)}_i(\langle \boldsymbol{v}_i,\boldsymbol{v}_i \rangle-1)-\displaystyle \sum_{j=1}^{i-1}\xi^{(i)}_j\langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle$$
+\end{cases}
+$$ 
+
+我们考虑这一系列带约束优化问题的动力学，考虑拉格朗日函数
+
+$$
+\mathcal{L}_i(\boldsymbol{v}_i;\xi^{(i)}_1,\ldots,\xi^{(i)}_{i-1},\xi^{(i)}_i)=\langle \boldsymbol{v}_i,\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \rangle-\xi^{(i)}_i(\langle \boldsymbol{v}_i,\boldsymbol{v}_i \rangle-1)-\displaystyle \sum_{j=1}^{i-1}\xi^{(i)}_j\langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle
+$$
+
 关于 $\boldsymbol{v}_i$ 求梯度得
-$$\frac{\partial}{\partial \boldsymbol{v}_i}\mathcal{L}_i(\boldsymbol{v}_i;\xi^{(i)}_1,\ldots,\xi^{(i)}_{i-1},\xi^{(i)}_i)=2\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i-2\xi^{(i)}_i\boldsymbol{v}_i-\displaystyle \sum_{j=1}^{i-1}\xi^{(i)}_j\boldsymbol{v}_j$$
+
+$$
+\frac{\partial}{\partial \boldsymbol{v}_i}\mathcal{L}_i(\boldsymbol{v}_i;\xi^{(i)}_1,\ldots,\xi^{(i)}_{i-1},\xi^{(i)}_i)=2\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i-2\xi^{(i)}_i\boldsymbol{v}_i-\displaystyle \sum_{j=1}^{i-1}\xi^{(i)}_j\boldsymbol{v}_j
+$$
+
 取松弛常数 $\gamma>0$，可得由拉格朗日函数的梯度流给出的
-$\boldsymbol{v_i}$ 的动力学（含待定系数） $$\begin{aligned}
+$\boldsymbol{v_i}$ 的动力学（含待定系数） 
+
+$$
+\begin{aligned}
 \boldsymbol{\dot{v}}_i
 &=-\frac{\gamma}{2}\frac{\partial}{\partial \boldsymbol{v}_i}\mathcal{L}_i(\boldsymbol{v}_i;\xi^{(i)}_1,\ldots,\xi^{(i)}_{i-1},\xi^{(i)}_i) \nonumber \\
 &=-\gamma(\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i-\xi^{(i)}_i\boldsymbol{v}_i-\displaystyle \frac{1}{2}\sum_{j=1}^{i-1}\xi^{(i)}_j\boldsymbol{v}_j)
-\label{the dynamics of v_i with undetermined coefficient}\end{aligned}$$
+\label{the dynamics of v_i with undetermined coefficient}\end{aligned}
+$$
+
 这里前面乘 $-\frac{\gamma}{2}$ 而非 $-\gamma$
 是为了之后的表达式更加简洁。 接下来我们的目的是确定各个
 $\xi_i$，注意到等式约束条件
-$$c^{(i)}_i(t)=\langle \boldsymbol{v}_i,\boldsymbol{v}_i \rangle-1$$
-$$c^{(i)}_j(t)=\langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle \hspace{1em}
-j=1,2,\ldots,i-1$$ 从而
-$$\dot{c}^{(i)}_i(t)=2\langle \boldsymbol{\dot{v}}_i,\boldsymbol{v}_i \rangle=0$$
-$$\dot{c}^{(i)}_j(t)=\langle \boldsymbol{\dot{v}}_i,\boldsymbol{v}_j \rangle+\langle \boldsymbol{v}_i,\boldsymbol{\dot{v}}_j \rangle=0
-\hspace{1em} j=1,2,\ldots,i-1$$ 将公式
-([\[the dynamics of v_i with undetermined coefficient\]](#the dynamics of v_i with undetermined coefficient){reference-type="ref"
-reference="the dynamics of v_i with undetermined coefficient"})
+
+$$
+c^{(i)}_i(t)=\langle \boldsymbol{v}_i,\boldsymbol{v}_i \rangle-1
+$$
+
+$$
+c^{(i)}_j(t)=\langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle \hspace{1em}
+j=1,2,\ldots,i-1
+$$ 
+
+从而
+
+$$
+\dot{c}^{(i)}_i(t)=2\langle \boldsymbol{\dot{v}}_i,\boldsymbol{v}_i \rangle=0
+$$
+
+$$
+\dot{c}^{(i)}_j(t)=\langle \boldsymbol{\dot{v}}_i,\boldsymbol{v}_j \rangle+\langle \boldsymbol{v}_i,\boldsymbol{\dot{v}}_j \rangle=0
+\hspace{1em} j=1,2,\ldots,i-1
+$$
+
+将公式
+()
 代入（按上标顺序求解）即可求得
-$$\xi^{(i)}_i=\langle \boldsymbol{v}_i,\mathbb{G}\boldsymbol{v}_i \rangle$$
-$$\xi^{(i)}_j=4\langle \boldsymbol{v}_j,\mathbb{G}\boldsymbol{v}_i \rangle
-\hspace{1em} j=1,2,\ldots,i-1$$ 代回公式
-([\[the dynamics of v_i with undetermined coefficient\]](#the dynamics of v_i with undetermined coefficient){reference-type="ref"
-reference="the dynamics of v_i with undetermined coefficient"})
+
+$$
+\xi^{(i)}_i=\langle \boldsymbol{v}_i,\mathbb{G}\boldsymbol{v}_i \rangle
+$$
+
+$$
+\xi^{(i)}_j=4\langle \boldsymbol{v}_j,\mathbb{G}\boldsymbol{v}_i \rangle
+\hspace{1em} j=1,2,\ldots,i-1
+$$
+代回公式
+()
 可得最终的 $\boldsymbol{v}_i$ 的动力学
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \gamma^{-1}\boldsymbol{\dot{v}}_i
  &=-\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i+\langle \boldsymbol{v}_i,\mathbb{G}\boldsymbol{v}_i \rangle\boldsymbol{v}_i+2\displaystyle \sum_{j=1}^{i-1}\langle \boldsymbol{v}_j,\mathbb{G}\boldsymbol{v}_i \rangle\boldsymbol{v}_j \nonumber \\
  &=-(\mathbb{I}-\boldsymbol{v}_i\boldsymbol{v}^T_i-2\displaystyle \sum_{j=1}^{i-1}\boldsymbol{v}_j\boldsymbol{v}^{\top}_j)\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \hspace{1em} i=1,2,\ldots,k
-\label{the dynamics of v_i}\end{aligned}$$ 综合公式
-([\[the dynamics of x easy vesion 2\]](#the dynamics of x easy vesion 2){reference-type="ref"
-reference="the dynamics of x easy vesion 2"})([\[the dynamics of v_i\]](#the dynamics of v_i){reference-type="ref"
-reference="the dynamics of v_i"}) 即可得整个问题的动力学 $$\begin{cases}
+\label{the dynamics of v_i}\end{aligned}
+$$ 
+
+综合公式
+()()即可得整个问题的动力学 
+
+$$
+\begin{cases}
      &\beta^{-1}\boldsymbol{\dot{x}}=\left(\mathbb{I}-2\displaystyle \sum_{i=1}^{k}\boldsymbol{v}_i\boldsymbol{v}^{\top}_i\right)\boldsymbol{F}(\boldsymbol{x})\\
      &\gamma^{-1}\boldsymbol{\dot{v}}_i=-\left(\mathbb{I}-\boldsymbol{v}_i\boldsymbol{v}^{\top}_i-2\displaystyle \sum_{j=1}^{i-1}\boldsymbol{v}_j\boldsymbol{v}^{\top}_j\right)\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \hspace{1em} i=1,2,\ldots,k
 \end{cases}
-\label{the dynamics with accurate Hessian}$$
+\label{the dynamics with accurate Hessian}
+$$
+
 
 ## Hessian矩阵需要数值近似的情形------收缩二聚体方法
 
-在公式
-([\[the dynamics with accurate Hessian\]](#the dynamics with accurate Hessian){reference-type="ref"
-reference="the dynamics with accurate Hessian"}) 中如果能给出精确的
-Hessian 当然可以，但很多问题的 Hessian
-矩阵无法求出或者求解代价太高，我们需要用数值近似的方法来处理 Hessian
-矩阵。特别地，在公式
-([\[the dynamics with accurate Hessian\]](#the dynamics with accurate Hessian){reference-type="ref"
-reference="the dynamics with accurate Hessian"})
-中，我们不需要近似整个矩阵，只需要处理 Hessian 矩阵乘向量
-$\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i$
+在公式() 中如果能给出精确的Hessian 当然可以，但很多问题的 Hessian矩阵无法求出或者求解代价太高，我们需要用数值近似的方法来处理 Hessian矩阵。特别地，在公式()中，我们不需要近似整个矩阵，只需要处理 Hessian 矩阵乘向量 $\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i$
 的形式，而这一点通过差分可以做到。
 
 考虑近似向量 $\mathbb{G}(\boldsymbol{x})\boldsymbol{v}$ 注意到
-$$-\boldsymbol{F}(\boldsymbol{x}+l\boldsymbol{v})\approx \nabla E(\boldsymbol{x}+l\boldsymbol{v})=\nabla E(\boldsymbol{x})+\mathbb{G}(\boldsymbol{x})l\boldsymbol{v}+o(\lVert l\boldsymbol{v} \rVert ^2)\hspace{1em}(l\to 0)$$
-$$-\boldsymbol{F}(\boldsymbol{x}-l\boldsymbol{v})\approx \nabla E(\boldsymbol{x}-l\boldsymbol{v})=\nabla E(\boldsymbol{x})-\mathbb{G}(\boldsymbol{x})l\boldsymbol{v}+o(\lVert l\boldsymbol{v} \rVert ^2)\hspace{1em}(l\to 0)$$
+
+$$
+-\boldsymbol{F}(\boldsymbol{x}+l\boldsymbol{v})\approx \nabla E(\boldsymbol{x}+l\boldsymbol{v})=\nabla E(\boldsymbol{x})+\mathbb{G}(\boldsymbol{x})l\boldsymbol{v}+o(\lVert l\boldsymbol{v} \rVert ^2)\hspace{1em}(l\to 0)
+$$
+
+$$
+-\boldsymbol{F}(\boldsymbol{x}-l\boldsymbol{v})\approx \nabla E(\boldsymbol{x}-l\boldsymbol{v})=\nabla E(\boldsymbol{x})-\mathbb{G}(\boldsymbol{x})l\boldsymbol{v}+o(\lVert l\boldsymbol{v} \rVert ^2)\hspace{1em}(l\to 0)
+$$
+
 故可以考虑近似
-$$\boldsymbol{H}(\boldsymbol{x},\boldsymbol{v},l)=-\frac{\boldsymbol{F}(\boldsymbol{x}+l\boldsymbol{v})-\boldsymbol{F}(\boldsymbol{x}-l\boldsymbol{v})}{2l} \approx \mathbb{G}(\boldsymbol{x})\boldsymbol{v}
-\label{the approximation of Hessian}$$
+
+$$
+\boldsymbol{H}(\boldsymbol{x},\boldsymbol{v},l)=-\frac{\boldsymbol{F}(\boldsymbol{x}+l\boldsymbol{v})-\boldsymbol{F}(\boldsymbol{x}-l\boldsymbol{v})}{2l} \approx \mathbb{G}(\boldsymbol{x})\boldsymbol{v}
+\label{the approximation of Hessian}
+$$
+
 
 事实上，二聚体(dimer)方法直观上就是用 $\boldsymbol{x}+l\boldsymbol{v}$
 和 $\boldsymbol{x}-l\boldsymbol{v}$ 两点处的梯度来估计中心

@@ -18,7 +18,6 @@ $\boldsymbol{F}(\boldsymbol{x}) = -\nabla E(\boldsymbol{x})$
 
 $$
 \boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}),\quad \boldsymbol{x} \in \mathbb{R}^d,\quad \boldsymbol{F} \in \mathcal{C}^r(\mathbb{R}^d,\mathbb{R}^d),\quad r \geq 2
-\label{dynamical system}
 $$ 
 
 也能做到搜索 $k$
@@ -69,7 +68,9 @@ $$
     $$
      ，称其稳定是因为系统在平衡点附近在这些方向上的扰动会指数级衰减从而靠近平衡点。
 
--   $\{\boldsymbol{w}_{k_u+k_s+1},\ldots,\boldsymbol{w}_{k_u+k_s+k_c}\} \subset \mathbb{C}^d$
+-   $$
+    \{\boldsymbol{w}_{k_u+k_s+1},\ldots,\boldsymbol{w}_{k_u+k_s+k_c}\} \subset \mathbb{C}^d
+    $$
     对应实部为$0$的特征值，对应于平衡点的中心子空间 
     $$
     \mathcal{W}^c(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_{k_u+k_s+1},\ldots,\boldsymbol{w}_{k_u+k_s+k_c}\} \cap \mathbb{R}^d
@@ -123,42 +124,77 @@ $$
 注意到动力学$\boldsymbol{\dot{v}}=\mathbb{J}(\boldsymbol{x})\boldsymbol{v}$会使得$\boldsymbol{v}$的方向以指数速度趋近于$\mathbb{J}(\boldsymbol{x})$实部最大的特征值对应的特征向量方向（若同时有多个实部最大且相同的的特征值，它们的特征向量构成空间$\mathcal{W}$，则$\boldsymbol{v}$的方向以指数趋向于在$\mathcal{W}$上的投影）。
 
 而对于找前$k$个实部较大的特征值对应的特征向量构成的空间，直观上的想法是，用上述迭代得到实部最大特征值对应特征向量的近似后，在空间中去掉在此方向上的投影，再在剩下的子空间中继续用上述方法求得子空间中的最大、原空间中的次大特征值对应的特征向量，这样的想法可以类似地从2个推广到$k$个。而这个过程换言之其实也就是对这些向量做正交化操作（由于我们只关心方向，所以可以做标准正交化），由此我们得到一个简洁的离散算法:
-$$\begin{cases}
+
+$$
+\begin{cases}
 \tilde{\boldsymbol{v}}_i^{(m+1)} = \boldsymbol{v}_i^{(m)} + \beta \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i^{(m)} \hspace{1em} i = 1, \cdots, k \\
 \left[ \boldsymbol{v}_1^{(m+1)}, \cdots, \boldsymbol{v}_k^{(m+1)} \right] = \text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)
 \label{discrete GHiSD of W^u}
-\end{cases}$$
+\end{cases}
+$$
+
 其中$\text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)$表示标准正交化过程，一般采用Gram-Schmidt正交化方法。此外，类似于HiOSD，结合dimer方法可对$\mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i^{(m)}$做近似得到：
-$$\begin{cases}
+
+$$
+\begin{cases}
 \tilde{\boldsymbol{v}}_i^{(m+1)} = \boldsymbol{v}_i^{(m)} + \beta \dfrac{\boldsymbol{F}(\boldsymbol{x} + l \boldsymbol{v}_i^{(m)}) - \boldsymbol{F}(\boldsymbol{x} - l \boldsymbol{v}_i^{(m)})}{2l} \quad i = 1, \cdots, k \\
 \left[ \boldsymbol{v}_1^{(m+1)}, \cdots, \boldsymbol{v}_k^{(m+1)} \right] = \text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)
 \end{cases}
-\label{discrete GHiSD of W^u dimer}$$
-再结合$\boldsymbol{x}$的动力学离散化即得： $$\begin{cases}
+\label{discrete GHiSD of W^u dimer}
+$$
+
+再结合$\boldsymbol{x}$的动力学离散化即得： 
+
+$$
+\begin{cases}
 \boldsymbol{x}^{(m+1)} = \boldsymbol{x}^{(m)} + \alpha \left( \boldsymbol{F}(\boldsymbol{x}^{(m)}) - 2 \displaystyle\sum_{j=1}^{k} \left\langle \boldsymbol{F}(\boldsymbol{x}^{(m)}), \boldsymbol{v}_j^{(m)} \right\rangle \boldsymbol{v}_j^{(m)} \right) \\
 \tilde{\boldsymbol{v}}_i^{(m+1)} = \boldsymbol{v}_i^{(m)} + \beta \dfrac{\boldsymbol{F}(\boldsymbol{x}^{(m+1)} + l \boldsymbol{v}_i^{(m)}) - \boldsymbol{F}(\boldsymbol{x}^{(m+1)} - l \boldsymbol{v}_i^{(m)})}{2l}\quad i = 1, \cdots, k \\
 \left[ \boldsymbol{v}_1^{(m+1)}, \cdots, \boldsymbol{v}_k^{(m+1)} \right] = \text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)
 \end{cases}
-\label{discrete GHiSD}$$
+\label{discrete GHiSD}
+$$
 
 ## $\mathcal{W}^u(\boldsymbol{x})$的动力学与直接离散化
 
 将上述离散形式([\[discrete GHiSD of W\^u\]](#discrete GHiSD of W^u){reference-type="ref"
 reference="discrete GHiSD of W^u"})（包括正交化过程）令$\beta \rightarrow0$可得连续化ODE形如：
-$$\boldsymbol{\dot{v}}_i=\mathbb{J}(\boldsymbol{x})\boldsymbol{v}_i+\displaystyle \sum_{j=1}^{i}\xi^{(i)}_j\boldsymbol{v}_j$$
+
+$$
+\boldsymbol{\dot{v}}_i=\mathbb{J}(\boldsymbol{x})\boldsymbol{v}_i+\displaystyle \sum_{j=1}^{i}\xi^{(i)}_j\boldsymbol{v}_j
+$$
+
 再注意到标准正交约束
-$$\left\langle \boldsymbol{v}_i,\boldsymbol{v}_j \right\rangle=\delta_{ij}\hspace{1em}i,j=1,\ldots,k$$
+
+$$
+\left\langle \boldsymbol{v}_i,\boldsymbol{v}_j \right\rangle=\delta_{ij}\hspace{1em}i,j=1,\ldots,k
+$$
+
 关于$t$求导即得
-$$\left\langle \boldsymbol{\dot{v}}_i,\boldsymbol{v}_j \right\rangle+\left\langle \boldsymbol{v}_i,\boldsymbol{\dot{v}}_j \right\rangle=0 \hspace{1em}i,j=1,\ldots,k$$
+
+$$
+\left\langle \boldsymbol{\dot{v}}_i,\boldsymbol{v}_j \right\rangle+\left\langle \boldsymbol{v}_i,\boldsymbol{\dot{v}}_j \right\rangle=0 \hspace{1em}i,j=1,\ldots,k
+$$
+
 代入可求得
-$$\xi_{i}^{(i)} = -\langle \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i, \boldsymbol{v}_i \rangle$$
-$$\xi_{j}^{(i)} = -\langle \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i, \boldsymbol{v}_j \rangle - \langle \boldsymbol{v}_i, \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_j \rangle \quad j = 1, \cdots, i-1$$
+
+$$
+\xi_{i}^{(i)} = -\langle \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i, \boldsymbol{v}_i \rangle
+$$
+
+$$
+\xi_{j}^{(i)} = -\langle \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i, \boldsymbol{v}_j \rangle - \langle \boldsymbol{v}_i, \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_j \rangle \quad j = 1, \cdots, i-1
+$$
+
 由此结合([\[GHiSD the dynamics of x\]](#GHiSD the dynamics of x){reference-type="ref"
 reference="GHiSD the dynamics of x"})式可得整个问题的动力学:
-$$\begin{cases} 
+
+$$
+\begin{cases} 
 \dot{\boldsymbol{x}} = \left( \mathbb{I} - 2 \displaystyle\sum_{j=1}^{k} \boldsymbol{v}_j \boldsymbol{v}_j^\top \right) \boldsymbol{F}(\boldsymbol{x}),\\
 \dot{\boldsymbol{v}}_i = \left( \mathbb{I} - \boldsymbol{v}_i \boldsymbol{v}_i^\top \right) \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i - \displaystyle\sum_{j=1}^{i-1} \boldsymbol{v}_j \boldsymbol{v}_j^\top \left( \mathbb{J}(\boldsymbol{x}) + \mathbb{J}^\top(\boldsymbol{x}) \right) \boldsymbol{v}_i,\quad i = 1, \cdots, k
-\end{cases}$$ 该动力学的收敛性详见殷鉴远、俞炳、张磊的文章《Searching
+\end{cases}
+$$ 
+该动力学的收敛性详见殷鉴远、俞炳、张磊的文章《Searching
 the solution landscape by generalized high-index saddle dynamics》。
 
 事实上，得到这个动力学以后我们可以对其做直接离散化而得到新的数值算法，但这种算法相比之前的离散格式计算量要更大，因为实际计算过程中，离散化格式的正交性保持仍然需要Gram-Schmidt正交化的修正。此外，张磊、张平文、郑祥成的文章《Understanding

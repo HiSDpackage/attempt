@@ -534,7 +534,7 @@ $$
 \tag{10}s
 $$
 
-来近似公式(9) 中的
+来近似公式(9)中的
 $$
 (\mathbb{U}_{\text{CG}}^{(n)})^{\top}\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}
 $$

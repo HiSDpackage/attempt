@@ -13,7 +13,7 @@ mathjax: true
 
 # 1 什么是 $k$ 阶鞍点
 
-给定一个在实希尔伯特空间 $\mathcal{H}$ 上定义的二次Fréchet可微的能量泛函
+  给定一个在实希尔伯特空间 $\mathcal{H}$ 上定义的二次Fréchet可微的能量泛函
 $E(\boldsymbol{x})$，其内积为 $\langle \cdot,\cdot \rangle$，我们令
 $\boldsymbol{F}(\boldsymbol{x})=-\nabla E(\boldsymbol{x})$
 表示其自然力，$\mathbb{G}(\boldsymbol{x}) =\nabla^2E(\boldsymbol{x})$
@@ -41,9 +41,9 @@ $\boldsymbol{F}(\boldsymbol{x})=-\nabla E(\boldsymbol{x})$
     $\langle \boldsymbol{x},\boldsymbol{y} \rangle$ 写为
     $\boldsymbol{x}^{\top}\boldsymbol{y}$。
 
-下面先从特征值和特征向量的角度给一个鞍点阶数的直观理解，便于之后问题的开展。
+  下面先从特征值和特征向量的角度给一个鞍点阶数的直观理解，便于之后问题的开展。
 
-我们注意到Hessian矩阵是实对称矩阵（用到前面的二次Fréchet可微），其正交相似于一个对角矩阵，即存在正交矩阵
+  我们注意到Hessian矩阵是实对称矩阵（用到前面的二次Fréchet可微），其正交相似于一个对角矩阵，即存在正交矩阵
 $\mathbb{T}$ 和对角矩阵 $\mathbb{D}$ 使得
 $\mathbb{T}^{-1}\mathbb{G}(\boldsymbol{\hat{x}})\mathbb{T}=\mathbb{D}$。
 事实上这个对角矩阵的对角线上各个元素即为该实对称矩阵的特征值
@@ -52,7 +52,7 @@ $\hat{\lambda}_1\leq\hat{\lambda}_2\leq\ldots\leq\hat{\lambda}_d$，并设此时
 $\mathbb{T}$ 的列向量为
 $\boldsymbol{\hat{v}}_1,\boldsymbol{\hat{v}}_2,\ldots,\boldsymbol{\hat{v}}_d$。
 
-可以证明，对于非退化临界点 $\hat{x}$，若
+  可以证明，对于非退化临界点 $\hat{x}$，若
 $$
 \hat{\lambda}_1\leq\ldots\leq\hat{\lambda}_k<0<\hat{\lambda}_{k+1}\leq\ldots\leq\hat{\lambda}_d
 $$
@@ -93,14 +93,14 @@ $\boldsymbol{\hat{x}}$ 的阶数为 $k$。
 
 # 2 将寻找 $k$ 阶鞍点转化为优化问题
 
-沿用上面的符号，注意到 $\mathbb{G}(\boldsymbol{\hat{x}})$ 在
+  沿用上面的符号，注意到 $\mathbb{G}(\boldsymbol{\hat{x}})$ 在
 $\hat{\mathcal{V}}$ 上是负定的，在其正交补 $\hat{\mathcal{V}}^{\perp}$
 上是正定的，这意味着 $\boldsymbol{\hat{x}}$ 是线性流形
 $\boldsymbol{\hat{x}} + \hat{\mathcal{V}}$
 上的局部极大值，同时也是线性流形
 $\boldsymbol{\hat{x}} + \hat{\mathcal{V}}^{\perp}$ 上的局部极小值。
 
-考虑
+  考虑
 $\boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}^{\perp}}$
 分别为 $\boldsymbol{\hat{x}}$ 在 $\hat{\mathcal{V}}, \hat{\mathcal{V}}^{\perp}$ 上的投影，则
 $(\boldsymbol{v}, \boldsymbol{w}) = (\boldsymbol{\hat{x}}_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}^{\perp}})$
@@ -118,13 +118,13 @@ $\boldsymbol{x}$ 处 Hessian 矩阵的最小 $k$ 个特征值对应的特征向�
 
 # 3 $\boldsymbol{x}$ 的动力学
 
-更新 $\boldsymbol{x}$ 直观上看是让 $\boldsymbol{\dot{x}}$ 在空间
+  更新 $\boldsymbol{x}$ 直观上看是让 $\boldsymbol{\dot{x}}$ 在空间
 $\mathcal{V}$ 上的投影 $\mathcal{P}\_{\mathcal{V}}\boldsymbol{\dot{x}}$
 为能量函数 $E(\boldsymbol{x})$ 的上升方向， 而在其补空间
 $\mathcal{V}^{\perp}$ 上的投影
 $\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}$ 为下降方向。
 
-特别地，注意到自然力
+  特别地，注意到自然力
 $\boldsymbol{F}(\boldsymbol{x})=-\nabla E(\boldsymbol{x})$
 为最速下降方向， 故可以考虑令
 
@@ -168,7 +168,7 @@ $$
 
 # 4 $\mathcal{V}$ 的演化
 
-我们的目标是用 $\mathcal{V}$ 来近似 $\hat{\mathcal{V}}$，注意到
+  我们的目标是用 $\mathcal{V}$ 来近似 $\hat{\mathcal{V}}$，注意到
 $\hat{\mathcal{V}}$ 是由 $\mathbb{G}(\boldsymbol{\hat{x}})$ 的 $k$
 个最小特征值对应的特征向量生成的子空间，于是我们可以考虑把
 $\mathbb{G}(\boldsymbol{x})$ 的 $k$
@@ -293,10 +293,10 @@ $$
 
 ## 4.2 Hessian矩阵需要数值近似的情形------收缩二聚体方法
 
-在公式(6) 中如果能给出精确的Hessian 当然可以，但很多问题的 Hessian矩阵无法求出或者求解代价太高，我们需要用数值近似的方法来处理 Hessian矩阵。特别地，在公式(6)中，我们不需要近似整个矩阵，只需要处理 Hessian 矩阵乘向量 $\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i$
+  在公式(6) 中如果能给出精确的Hessian 当然可以，但很多问题的 Hessian矩阵无法求出或者求解代价太高，我们需要用数值近似的方法来处理 Hessian矩阵。特别地，在公式(6)中，我们不需要近似整个矩阵，只需要处理 Hessian 矩阵乘向量 $\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i$
 的形式，而这一点通过差分可以做到。
 
-考虑近似向量 $\mathbb{G}(\boldsymbol{x})\boldsymbol{v}$ 注意到
+  考虑近似向量 $\mathbb{G}(\boldsymbol{x})\boldsymbol{v}$ ，注意到
 
 $$
 -\boldsymbol{F}(\boldsymbol{x}+l\boldsymbol{v})\approx \nabla E(\boldsymbol{x}+l\boldsymbol{v})=\nabla E(\boldsymbol{x})+\mathbb{G}(\boldsymbol{x})l\boldsymbol{v}+o(\lVert l\boldsymbol{v} \rVert ^2)\hspace{1em}(l\to 0)
@@ -314,16 +314,16 @@ $$
 $$
 
 
-事实上，二聚体(dimer)方法直观上就是用 $\boldsymbol{x}+l\boldsymbol{v}$
+  事实上，二聚体(dimer)方法直观上就是用 $\boldsymbol{x}+l\boldsymbol{v}$
 和 $\boldsymbol{x}-l\boldsymbol{v}$ 两点处的梯度来估计中心
 $\boldsymbol{x}$ 处的 Hessian
 矩阵。收缩二聚体说的就是让这两个点相互靠近最终趋于中心点，上述估计在极限情况下是精确的，但在数值计算时由于
 $l$ 在分母位置出现，为了保持数值稳定性 $l$ 不能取得太小。
 
-"收缩"这个过程在数值算法中可以通过给出一个 $l$
+  "收缩"这个过程在数值算法中可以通过给出一个 $l$
 的动力学来实现，最简单的可以考虑 $\dot{l}=-l$
 对应于二聚体长度的指数型衰减，由此给出 Hessian
-矩阵需要数值近似时整个问题的动力学 
+矩阵需要数值近似时整个问题的动力学：
 
 $$
 \begin{cases}
@@ -333,13 +333,11 @@ $$
 \end{cases}
 $$
 
-该方法的线性稳定性证明详见殷鉴远、张磊、张平文的文章《High-Index
-Optimization-Based Shrinking Dimer Method for Finding High-Index Saddle
-Points》。
+  该方法的线性稳定性证明详见殷鉴远、张磊、张平文的文章《High-Index Optimization-Based Shrinking Dimer Method for Finding High-Index Saddle Points》。
 
 # 5 HiOSD动力学的直接离散化
 
-我们将如上给出的动力学直接离散化后给出如下算法：
+  我们将如上给出的动力学直接离散化后给出如下算法：
 
 
 
@@ -362,22 +360,22 @@ $\varepsilon$ 是为了防止位于
 $H\left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)},l^{(n)} \right)$
 分母的 $l^{(n)}$ 太小，以保持数值稳定性。
 
-注意到之前的动力学给出的相当于是离散化迭代过程中的迭代方向，而上述算法中还有
+  注意到之前的动力学给出的相当于是离散化迭代过程中的迭代方向，而上述算法中还有
 $\beta^{(n)}$ 和 $\gamma_i^{(n)}$
 这些尚未说明的量，其实就相当于迭代算法中的步长，关于迭代步长的选取有多种方法，我们在下一节进行介绍。
 
 # 6 迭代步长的选取
 
-简单来说，典型的步长选取方法有以下几种：
+  简单来说，典型的步长选取方法有以下几种：
 
 ## 6.1 显式Euler方法
 
-取 $\beta^{(n)}=\gamma_i^{(n)}=\Delta t>0$ 为固定正常数，其中 $\Delta t$
+  取 $\beta^{(n)}=\gamma_i^{(n)}=\Delta t>0$ 为固定正常数，其中 $\Delta t$
 不能太小，否则可能导致收敛速度过慢；但也不能太大，否则可能导致算法不收敛。
 
 ## 6.2 线搜索方法（对 $\beta^{(n)}$）
 
-关于 $\beta^{(n)}$ 最小化
+  关于 $\beta^{(n)}$ 最小化
 $\|\boldsymbol{F}(\boldsymbol{x}^{(n)}+\beta^{(n)}\boldsymbol{g}^{(n)})\|^2$，精确线搜索或非精确线搜索均可。细节上可以考虑给
 $\beta^{(n)}\|\boldsymbol{g}^{(n)}\|$ 设置一个上界 $\tau$
 以避免状态之间跳跃过大；同时给 $\beta^{(n)}$
@@ -385,9 +383,7 @@ $\beta^{(n)}\|\boldsymbol{g}^{(n)}\|$ 设置一个上界 $\tau$
 
 ## 6.3 BB步长方法
 
-记
-$\Delta \boldsymbol{x}^{(n)}=\boldsymbol{x}^{(n)}-\boldsymbol{x}^{(n-1)}$
-以及
+  记$\Delta \boldsymbol{x}^{(n)}=\boldsymbol{x}^{(n)}-\boldsymbol{x}^{(n-1)}$以及
 $\Delta \boldsymbol{g}^{(n)}=\boldsymbol{g}^{(n)}-\boldsymbol{g}^{(n-1)}$，根据拟牛顿法的思想，通过分别求解优化问题
 
 $$
@@ -425,19 +421,19 @@ $$
 
 # 7 $\mathcal{V}$的另一种更新方式------LOBPCG方法的应用
 
-事实上除了将 HiOSD 的动力学直接做离散化，我们也可以考虑其他经典的方法与
+  事实上除了将 HiOSD 的动力学直接做离散化，我们也可以考虑其他经典的方法与
 dimer 方法结合来完成更新 $\mathcal{V}$，本质上还是求解最小的 $k$
 个特征值对应的特征向量问题。这里我们采用的是
 LOBPCG（局部最优块预条件共轭梯度法）方法，因为它能较好地兼顾效果和速度。
 
 ## 7.1 方法的大致思想
 
-将全空间上的 Rayleigh 商优化问题(3)
+  将全空间上的 Rayleigh 商优化问题(3)
 改为在一个子空间$\mathcal{U}$上近似求解，而且如果进行多次迭代这个子空间的信息会逐渐丰富，从而近似效果更好，也就是求出的特征向量更加接近全空间上的最小
 $k$
 个特征向量。而转化为求解子空间上的特征值问题其实就可以转化为求解一个规模更小的矩阵的特征值问题。
 
-具体而言，我们面对的问题是
+  具体而言，我们面对的问题是
 
 $$
 \min \displaystyle \sum_{i=1}^{k}\langle \boldsymbol{v}_i,\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \rangle \hspace{4em} \text{s.t.} \hspace{1em} \boldsymbol{v}_i\in\mathcal{U},\langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle=\delta_{ij}
@@ -448,7 +444,7 @@ LOBPCG，也可以选择多做几次。下面展示的是只做一次的情形�
 表示的是 $\boldsymbol{x}$ 的更新次数，特别地这种情形下也是
 $\boldsymbol{v}_i$ 的更新次数。
 
-在 LOBPCG 算法中，取对称正定的预条件器 $\mathbb{T}$ 作用于残差向量上得
+  在 LOBPCG 算法中，取对称正定的预条件子 $\mathbb{T}$ 作用于残差向量上得
 
 $$
 \boldsymbol{w}_i^{(n)}=\mathbb{T}\left(\mathbb{G}(\boldsymbol{x}^{(n+1)})\boldsymbol{v}_i^{(n)}-\left\langle\boldsymbol{v}_i^{(n)},\mathbb{G}(\boldsymbol{x}^{(n+1)})\boldsymbol{v}_i^{(n)}\right\rangle\boldsymbol{v}_i^{(n)}\right)
@@ -479,7 +475,7 @@ $$
 $\mathbb{U}_{\text{CG}}^{(n)}\boldsymbol{\eta}$，其中
 $\boldsymbol{\eta}\in\mathbb{R}^{K\times 1}$。
 
-进而在 $\mathcal{U}_{\text{CG}}^{(n)}$ 中找最小的 $k$
+  进而在 $\mathcal{U}_{\text{CG}}^{(n)}$ 中找最小的 $k$
 个特征值及其对应的特征向量相当于找 $\boldsymbol{\eta}$ 使得
 
 $$
@@ -500,10 +496,10 @@ $$
 的最小 $k$ 个特征值及其对应的特征向量即可，求出后对特征向量左乘
 $\mathbb{U}_{\text{CG}}^{(n)}$ 即可还原到原来的空间中。
 
-而对于处理规模较小的对称矩阵特征值问题有多种解法（一般而言 $K$
+  而对于处理规模较小的对称矩阵特征值问题有多种解法（一般而言 $K$
 较小），例如 QR 方法、Jacobi 方法等。
 
-事实上，上面的 $\mathbb{G}(\boldsymbol{x}^{(n+1)})$ 仍然可以类似 4.2
+  事实上，上面的 $\mathbb{G}(\boldsymbol{x}^{(n+1)})$ 仍然可以类似 4.2
 小节用dimer方法来处理，因为
 $\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}$
 本质上仍是只需关注 Hessian 矩阵乘向量这样的结构，之前已得到
@@ -550,13 +546,13 @@ $$
 
 ## 7.2 算法框架
 
-总结梳理一下上一小节的内容,即得 HiOSD-LOBPCG 算法的大致框架
+  总结梳理一下上一小节的内容,即得 HiOSD-LOBPCG 算法的大致框架
 
 
 
-注意到这种方法的步长选取只出现在第 3 行中 $\beta^{(n)}$
+  注意到这种方法的步长选取只出现在第 3 行中 $\beta^{(n)}$
 的选取，这一点参考第 6 节的内容即可。
 
 # 8 总结
 
-此前我们已经介绍了HiSD系列算法所针对问题的背景，告诉了大家求解$k$阶鞍点的意义，这一章我们首先从特征值的角度更详细地描述了$k$阶鞍点，之后我们将求解$k$阶鞍点的问题转化为一个优化问题，并给出了这个问题的动力学，将其直接离散化后就得到了HiOSD算法。最后我们在此基础上给出了步长的几种选取方法来进一步落实算法的实现，以及将LOBPCG融入HiOSD方法给出解决问题的其他思路。
+  此前我们已经介绍了HiSD系列算法所针对问题的背景，告诉了大家求解$k$阶鞍点的意义，这一章我们首先从特征值的角度更详细地描述了$k$阶鞍点，之后我们将求解$k$阶鞍点的问题转化为一个优化问题，并给出了这个问题的动力学，将其直接离散化后就得到了HiOSD算法。最后我们在此基础上给出了步长的几种选取方法来进一步落实算法的实现，以及将LOBPCG融入HiOSD方法给出解决问题的其他思路。

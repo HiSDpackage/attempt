@@ -91,7 +91,7 @@ $\boldsymbol{\hat{x}}$ 的阶数为 $k$。
 事实上，如果熟悉实对称矩阵的合同标准型的话，可以
 发现这里所说的阶其实也就是Hessian矩阵的负惯性指数。
 
-# 2 将寻找$k$阶鞍点转化为优化问题
+# 2 将寻找 $k$ 阶鞍点转化为优化问题
 
 沿用上面的符号，注意到 $\mathbb{G}(\boldsymbol{\hat{x}})$ 在
 $\hat{\mathcal{V}}$ 上是负定的，在其正交补 $\hat{\mathcal{V}}^{\perp}$
@@ -116,7 +116,7 @@ $\boldsymbol{x} = \boldsymbol{v} + \boldsymbol{w}$ ），还有一个就是要�
 $\mathcal{V}$（ $\mathcal{V}$ 用于近似 $\hat{\mathcal{V}}$ ，一般用当前
 $\boldsymbol{x}$ 处 Hessian 矩阵的最小 $k$ 个特征值对应的特征向量张成的子空间来描述）。
 
-# 3 $\boldsymbol{x}$的动力学
+# 3 $\boldsymbol{x}$ 的动力学
 
 更新 $\boldsymbol{x}$ 直观上看是让 $\boldsymbol{\dot{x}}$ 在空间
 $\mathcal{V}$ 上的投影 $\mathcal{P}\_{\mathcal{V}}\boldsymbol{\dot{x}}$
@@ -166,7 +166,7 @@ $$
 
 其中 $\mathbb{I}$ 为单位矩阵。
 
-# 4 $\mathcal{V}$的演化
+# 4 $\mathcal{V}$ 的演化
 
 我们的目标是用 $\mathcal{V}$ 来近似 $\hat{\mathcal{V}}$，注意到
 $\hat{\mathcal{V}}$ 是由 $\mathbb{G}(\boldsymbol{\hat{x}})$ 的 $k$
@@ -550,7 +550,7 @@ $$
 
 ## 7.2 算法框架
 
-总结梳理一下上一小节的内容即得 HiOSD-LOBPCG 算法的大致框架
+总结梳理一下上一小节的内容,即得 HiOSD-LOBPCG 算法的大致框架
 
 
 

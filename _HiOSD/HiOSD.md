@@ -480,8 +480,10 @@ $$
 \label{smaller question}
 $$
 
-从而只需求解一个 $K\times K$ 对称矩阵
-$(\mathbb{U}_{\text{CG}}^{(n)})^T\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}$
+从而只需求解一个 $K\times K$ 对称矩阵 
+$$
+(\mathbb{U}_{\text{CG}}^{(n)})^T\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}
+$$
 的最小 $k$ 个特征值及其对应的特征向量即可，求出后对特征向量左乘
 $\mathbb{U}_{\text{CG}}^{(n)}$ 即可还原到原来的空间中。
 
@@ -492,8 +494,7 @@ $\mathbb{U}_{\text{CG}}^{(n)}$ 即可还原到原来的空间中。
 小节用dimer方法来处理，因为
 $\mathbb{G}(\boldsymbol{x}^{(n+1)})\mathbb{U}_{\text{CG}}^{(n)}$
 本质上仍是只需关注 Hessian 矩阵乘向量这样的结构，之前已有公式
-([\[dimer G(x)v\]](#dimer G(x)v){reference-type="ref"
-reference="dimer G(x)v"})
+()
 
 $$
 \mathbb{G}(\boldsymbol{x}^{(n+1)})\boldsymbol{v}_i^{(n)}\approx\boldsymbol{u}_i^{(n)}=H\left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)},l^{(n)} \right)

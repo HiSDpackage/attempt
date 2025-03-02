@@ -10,6 +10,7 @@ mathjax: true
 ---
 
 这一章我们简单介绍两种HiOSD的动量加速算法，其相关理论和数值实验结果可以参考罗月、张磊、郑祥成的文章《Accelerated high-index saddle dynamics method for searching high-index saddle points》。
+
 第一种是重球加速法 
 
 $$

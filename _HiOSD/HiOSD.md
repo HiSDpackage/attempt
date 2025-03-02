@@ -225,9 +225,8 @@ $$
 \boldsymbol{\dot{v}}_i
 &=-\frac{\gamma}{2}\frac{\partial}{\partial \boldsymbol{v}_i}\mathcal{L}_i(\boldsymbol{v}_i;\xi^{(i)}_1,\ldots,\xi^{(i)}_{i-1},\xi^{(i)}_i) \nonumber \\
 &=-\gamma(\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i-\xi^{(i)}_i\boldsymbol{v}_i-\displaystyle \frac{1}{2}\sum_{j=1}^{i-1}\xi^{(i)}_j\boldsymbol{v}_j)
-\tag{4}
 \end{aligned}
-
+\tag{4}
 $$
 
 这里前面乘 $-\frac{\gamma}{2}$ 而非 $-\gamma$
@@ -276,6 +275,7 @@ $$
 \gamma^{-1}\boldsymbol{\dot{v}}_i
  &=-\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i+\langle \boldsymbol{v}_i,\mathbb{G}\boldsymbol{v}_i \rangle\boldsymbol{v}_i+2\displaystyle \sum_{j=1}^{i-1}\langle \boldsymbol{v}_j,\mathbb{G}\boldsymbol{v}_i \rangle\boldsymbol{v}_j \nonumber \\
  &=-(\mathbb{I}-\boldsymbol{v}_i\boldsymbol{v}^T_i-2\displaystyle \sum_{j=1}^{i-1}\boldsymbol{v}_j\boldsymbol{v}^{\top}_j)\mathbb{G}(\boldsymbol{x})\boldsymbol{v}_i \hspace{1em} i=1,2,\ldots,k
+\end{aligned}
 \tag{5}
 $$ 
 

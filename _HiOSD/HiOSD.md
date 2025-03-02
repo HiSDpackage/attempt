@@ -11,7 +11,7 @@ mathjax: true
 ---
 
 
-# 什么是$k$阶鞍点
+# 什么是 $k$ 阶鞍点
 
 给定一个在实希尔伯特空间 $\mathcal{H}$ 上定义的二次Fréchet可微的能量泛函
 $E(\boldsymbol{x})$，其内积为 $\langle \cdot,\cdot \rangle$，我们令
@@ -114,13 +114,10 @@ $\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}$ 为下降方向。
 特别地，注意到自然力
 $\boldsymbol{F}(\boldsymbol{x})=-\nabla E(\boldsymbol{x})$
 为最速下降方向， 故可以考虑令 $\mathcal{P}\_{\mathcal{V}}\boldsymbol{\dot{x}}=-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$ 
-以及
-$\mathcal{P}\_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}=\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{F}(\boldsymbol{x})=\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$ ，再取两个正的松弛常数 
-$\beta_{\mathcal{V}}$ 和 $\beta_{\mathcal{V}^{\perp}}$ 即可以给出
-$\boldsymbol{x}$ 的动力学
+以及 $\mathcal{P}\_{\mathcal{V}^{\perp}}\boldsymbol{\dot{x}}=\mathcal{P}_{\mathcal{V}^{\perp}}\boldsymbol{F}(\boldsymbol{x})=\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x})$ 再取两个正的松弛常数 $\beta_{\mathcal{V}}$ 和 $\beta_{\mathcal{V}^{\perp}}$ 即可以给出 $\boldsymbol{x}$ 的动力学
 
 $$
-\boldsymbol{\dot{x}}=\beta_{\mathcal{V}}(-\mathcal{P}\_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))+\beta_{\mathcal{V}^{\perp}}(\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))
+\boldsymbol{\dot{x}}=\beta_{\mathcal{V}}(-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))+\beta_{\mathcal{V}^{\perp}}(\boldsymbol{F}(\boldsymbol{x})-\mathcal{P}_{\mathcal{V}}\boldsymbol{F}(\boldsymbol{x}))
 $$
 
 进一步，如果简单地令

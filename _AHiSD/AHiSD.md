@@ -14,8 +14,8 @@ mathjax: true
 
 $$
 \begin{cases}
-\boldsymbol{x}^{(n+1)} = \boldsymbol{x}^{(n)} + \beta_n \left( \mathbb{I} - 2 \displaystyle \sum_{i=1}^{k} \boldsymbol{v}_i^{(n)} {\boldsymbol{v}_i^{(n)}}^\top \right) \boldsymbol{F}(\boldsymbol{x}^{(n)}) + \gamma (\boldsymbol{x}^{(n)} - \boldsymbol{x}^{(n-1)}) \\
-\left\{\boldsymbol{v}_i^{(n+1)}\right\}_{i=1}^{k} = \text{EigenSol} \left\{ \mathbb{G}(\boldsymbol{x}^{(n+1)}), \left\{\boldsymbol{v}_i^{(n)}\right\}_{i=1}^{k} \right\}
+\boldsymbol{x}^{(n+1)} = \boldsymbol{x}^{(n)} + \beta_n \left( \mathbb{I} - 2 \displaystyle \sum_{i=1}^{k} \boldsymbol{v}_i^{(n)} {\boldsymbol{v}_i^{(n)}}^\top \right) \boldsymbol{F}(\boldsymbol{x}^{(n)}) + \gamma (\boldsymbol{x}^{(n)} - \boldsymbol{x}^{(n-1)}), \\
+\left\{\boldsymbol{v}_i^{(n+1)}\right\}_{i=1}^{k} = \text{EigenSol} \left\{ \mathbb{G}(\boldsymbol{x}^{(n+1)}), \left\{\boldsymbol{v}_i^{(n)}\right\}_{i=1}^{k} \right\}.
 \end{cases}
 $$
 
@@ -23,9 +23,9 @@ $$
 
 $$
 \begin{cases}
-\boldsymbol{w}^{(n)} = \boldsymbol{x}^{(n)} + \gamma_n (\boldsymbol{x}^{(n)} - \boldsymbol{x}^{(n-1)})\\
-\boldsymbol{x}^{(n+1)} = \boldsymbol{w}^{(n)} + \beta_n \left( \mathbb{I} - 2 \displaystyle \sum_{i=1}^{k} \boldsymbol{v}_i^{(n)} {\boldsymbol{v}_i^{(n)}}^\top \right) \boldsymbol{F}(\boldsymbol{w}^{(n)})\\
-\left\{\boldsymbol{v}_i^{(n+1)}\right\}_{i=1}^{k} = \text{EigenSol} \left\{ \mathbb{G}(\boldsymbol{x}^{(n+1)}), \left\{\boldsymbol{v}_i^{(n)}\right\}_{i=1}^{k} \right\}
+\boldsymbol{w}^{(n)} = \boldsymbol{x}^{(n)} + \gamma_n (\boldsymbol{x}^{(n)} - \boldsymbol{x}^{(n-1)}),\\
+\boldsymbol{x}^{(n+1)} = \boldsymbol{w}^{(n)} + \beta_n \left( \mathbb{I} - 2 \displaystyle \sum_{i=1}^{k} \boldsymbol{v}_i^{(n)} {\boldsymbol{v}_i^{(n)}}^\top \right) \boldsymbol{F}(\boldsymbol{w}^{(n)}),\\
+\left\{\boldsymbol{v}_i^{(n+1)}\right\}_{i=1}^{k} = \text{EigenSol} \left\{ \mathbb{G}(\boldsymbol{x}^{(n+1)}), \left\{\boldsymbol{v}_i^{(n)}\right\}_{i=1}^{k} \right\}.
 \end{cases}
 $$ 
 

@@ -20,6 +20,7 @@ $$
 \boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}),\quad \boldsymbol{x} \in \mathbb{R}^d,\quad \boldsymbol{F} \in \mathcal{C}^r(\mathbb{R}^d,\mathbb{R}^d),\quad r \geq 2
 \label{dynamical system}
 $$ 
+
 也能做到搜索 $k$
 阶鞍点，那么首先我们要说清楚在非梯度系统中鞍点的阶指的是什么。
 
@@ -50,26 +51,30 @@ $$
 考虑将 $\mathbb{J}(\boldsymbol{\hat{x}})$
 的（广义）右特征向量按照对应特征值的实部的符号来分类，具体来说：
 
--   $\{\boldsymbol{w}_1,\ldots,\boldsymbol{w}_{k_u}\} \subset \mathbb{C}^d$
-    对应实部为正的特征值，对应于平衡点的不稳定子空间
+-   $$
+    \{\boldsymbol{w}_1,\ldots,\boldsymbol{w}_{k_u}\} \subset \mathbb{C}^d
+    $$
+    对应实部为正的特征值，对应于平衡点的不稳定子空间 
     $$
     \mathcal{W}^u(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_1,\ldots,\boldsymbol{w}_{k_u}\} \cap \mathbb{R}^d
     $$
-    ，称其不稳定是因为系统在平衡点附近在这些方向上的扰动会指数级增长从而远离平衡点。
+     ，称其不稳定是因为系统在平衡点附近在这些方向上的扰动会指数级增长从而远离平衡点。
 
--   $\{\boldsymbol{w}_{k_u+1},\ldots,\boldsymbol{w}_{k_u+k_s}\} \subset \mathbb{C}^d$
-    对应实部为负的特征值，对应于平衡点的稳定子空间
+-   $$
+    \{\boldsymbol{w}_{k_u+1},\ldots,\boldsymbol{w}_{k_u+k_s}\} \subset \mathbb{C}^d
+    $$
+    对应实部为负的特征值，对应于平衡点的稳定子空间 
     $$
     \mathcal{W}^s(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_{k_u+1},\ldots,\boldsymbol{w}_{k_u+k_s}\} \cap \mathbb{R}^d
     $$
-    ，称其稳定是因为系统在平衡点附近在这些方向上的扰动会指数级衰减从而靠近平衡点。
+     ，称其稳定是因为系统在平衡点附近在这些方向上的扰动会指数级衰减从而靠近平衡点。
 
 -   $\{\boldsymbol{w}_{k_u+k_s+1},\ldots,\boldsymbol{w}_{k_u+k_s+k_c}\} \subset \mathbb{C}^d$
-    对应实部为$0$的特征值，对应于平衡点的中心子空间
+    对应实部为$0$的特征值，对应于平衡点的中心子空间 
     $$
     \mathcal{W}^c(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_{k_u+k_s+1},\ldots,\boldsymbol{w}_{k_u+k_s+k_c}\} \cap \mathbb{R}^d
     $$
-    ，系统在这些方向上的扰动不呈现指数增长或衰减，而是具有周期性振荡或其他更复杂的动态行为。
+     ，系统在这些方向上的扰动不呈现指数增长或衰减，而是具有周期性振荡或其他更复杂的动态行为。
 
 上面 $k_u+k_s+k_c=d$ 根据主分解定理，可以将 $\mathbb{R}^d$ 直和分解为
 $\mathbb{R}^d = \mathcal{W}^u(\boldsymbol{\hat{x}}) \oplus \mathcal{W}^s(\boldsymbol{\hat{x}}) \oplus \mathcal{W}^c(\boldsymbol{\hat{x}})$

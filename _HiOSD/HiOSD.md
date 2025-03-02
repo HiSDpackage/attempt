@@ -90,7 +90,7 @@ $\boldsymbol{\hat{x}} + \hat{\mathcal{V}}^{\perp}$ 上的局部极小值。
 考虑
 $\boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}^{\perp}}$
 分别为 $\boldsymbol{\hat{x}}$ 在 $\hat{\mathcal{V}}, \hat{\mathcal{V}}^{\perp}$ 上的投影，则
-$(\boldsymbol{v}, \boldsymbol{w}) = (\boldsymbol{\hat{x}}_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}_{\hat{\mathcal{V}}^{\perp}})$
+$(\boldsymbol{v}, \boldsymbol{w}) = (\boldsymbol{\hat{x}}_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}\_{\hat{\mathcal{V}}^{\perp}})$
 是 minimax 问题
 
 $$

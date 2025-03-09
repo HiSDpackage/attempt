@@ -326,8 +326,8 @@ $$
 \gamma^{-1} \boldsymbol{\dot{v}}_i 
 &= - \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i + \langle \boldsymbol{v}_i, \mathbb{G} \boldsymbol{v}_i \rangle \boldsymbol{v}_i + 2 \sum_{j=1}^{i-1} \langle \boldsymbol{v}_j, \mathbb{G} \boldsymbol{v}_i \rangle \boldsymbol{v}_j \nonumber \\
 &= - (\mathbb{I} - \boldsymbol{v}_i \boldsymbol{v}_i^\top - 2 \sum_{j=1}^{i-1} \boldsymbol{v}_j \boldsymbol{v}_j^\top) \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \quad i=1,2,\ldots,k
-\tag{5}
 \end{aligned}
+\tag{5}
 $$ 
 
 Combining equations
@@ -390,11 +390,17 @@ The \"shrinking\" process in numerical algorithms can be implemented by
 introducing dynamics for $l$. The simplest choice is to consider
 $\dot{l} = -l$, corresponding to the exponential decay of the dimer
 length. This gives the dynamics for the entire problem when the Hessian
-matrix needs to be numerically approximated: $$\begin{cases}
+matrix needs to be numerically approximated: 
+
+$$
+\begin{cases}
      & \beta^{-1} \boldsymbol{\dot{x}} = \left( \mathbb{I} - 2 \sum_{i=1}^{k} \boldsymbol{v}_i \boldsymbol{v}_i^\top \right) \boldsymbol{F}(\boldsymbol{x}) \\
      & \gamma^{-1} \boldsymbol{\dot{v}}_i = - \left( \mathbb{I} - \boldsymbol{v}_i \boldsymbol{v}_i^\top - 2 \sum_{j=1}^{i-1} \boldsymbol{v}_j \boldsymbol{v}_j^\top \right) \boldsymbol{H}(\boldsymbol{x}, \boldsymbol{v}, l) \quad i=1,2,\ldots,k \\
      & \dot{l} = -l
-\end{cases}$$ The linear stability of this method is discussed in the
+\end{cases}
+$$ 
+
+The linear stability of this method is discussed in the
 paper \"High-Index Optimization-Based Shrinking Dimer Method for Finding
 High-Index Saddle Points\" by Jianyuan Yin, Lei Zhang and Pingwen Zhang.
 

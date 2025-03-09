@@ -452,7 +452,7 @@ states; simultaneously, set a lower bound for $\beta^{(n)}$ so that it
 can escape from the neighborhood of a critical point, which is different
 from finding the minimizer.
 
-## BB Method
+## BB Gradient Method
 
 Let
 $\Delta \boldsymbol{x}^{(n)} = \boldsymbol{x}^{(n)} - \boldsymbol{x}^{(n-1)}$

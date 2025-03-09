@@ -675,5 +675,3 @@ we presented several step size selection methods to further solidify the
 algorithm's implementation, as well as integrated LOBPCG into the HiOSD
 method to offer alternative approaches to solving the problem.
 
-
-![Numerical Algorithms for Computing Rare Events and Index-1 Saddle Points](./Numerical Algorithms for Computing Rare Events and Index-1 Saddle Points.png)

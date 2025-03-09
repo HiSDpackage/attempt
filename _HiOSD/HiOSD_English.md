@@ -611,7 +611,7 @@ $$
 $$
 
 Using the formula
-(), we can approximate
+(7), we can approximate
 
 $$
 \mathbb{Y}_{\text{CG}}^{(n)} = \left[ \boldsymbol{u}_1^{(n)}, \ldots, \boldsymbol{u}_k^{(n)}, \boldsymbol{y}_i^{(n)} : \|\tilde{\boldsymbol{w}}_i^{(n)}\| > \epsilon_w, i = 1, \ldots, 2k \right]

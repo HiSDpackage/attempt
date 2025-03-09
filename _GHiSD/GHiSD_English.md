@@ -62,9 +62,7 @@ part of the corresponding eigenvalues. Specifically:
     the unstable subspace of the equilibrium point
     $$
     \mathcal{W}^u(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_1,\ldots,\boldsymbol{w}_{k_u}\} \cap \mathbb{R}^d
-    $$
-    .
-    It is called unstable because perturbations in these directions near
+    $$.It is called unstable because perturbations in these directions near
     the equilibrium point will grow exponentially, moving away from the
     equilibrium point.
 
@@ -74,12 +72,11 @@ part of the corresponding eigenvalues. Specifically:
     the stable subspace of the equilibrium point
     $$
     \mathcal{W}^s(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_{k_u+1},\ldots,\boldsymbol{w}_{k_u+k_s}\} \cap \mathbb{R}^d
-    $$
-    .  
-    It is called stable because perturbations in these directions near
+    $$.It is called stable because perturbations in these directions near
     the equilibrium point will decay exponentially, moving towards the
     equilibrium point.
-
+   
+    
 -   $$
     \{\boldsymbol{w}_{k_u+k_s+1},\ldots,\boldsymbol{w}_{k_u+k_s+k_c}\} \subset \mathbb{C}^d
     $$

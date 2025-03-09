@@ -171,9 +171,14 @@ direction.
 In particular, since the natural force
 $\boldsymbol{F}(\boldsymbol{x}) = -\nabla E(\boldsymbol{x})$ is the
 steepest descent direction, we can consider setting
-$\mathcal{P}_{\mathcal{V}} \boldsymbol{\dot{x}} = -\mathcal{P}_{\mathcal{V}} \boldsymbol{F}(\boldsymbol{x})$
+$$
+\mathcal{P}_{\mathcal{V}} \boldsymbol{\dot{x}} = -\mathcal{P}_{\mathcal{V}} \boldsymbol{F}(\boldsymbol{x})
+$$
 and
-$\mathcal{P}_{\mathcal{V}^{\perp}} \boldsymbol{\dot{x}} = \mathcal{P}_{\mathcal{V}^{\perp}} \boldsymbol{F}(\boldsymbol{x}) = \boldsymbol{F}(\boldsymbol{x}) - \mathcal{P}_{\mathcal{V}} \boldsymbol{F}(\boldsymbol{x})$,
+$$
+\mathcal{P}_{\mathcal{V}^{\perp}} \boldsymbol{\dot{x}} = \mathcal{P}_{\mathcal{V}^{\perp}} \boldsymbol{F}(\boldsymbol{x}) = \boldsymbol{F}(\boldsymbol{x}) - \mathcal{P}_{\mathcal{V}} \boldsymbol{F}(\boldsymbol{x})
+$$
+,
 and then introducing two positive relaxation constants
 $\beta_{\mathcal{V}}$ and $\beta_{\mathcal{V}^{\perp}}$, we can give the
 dynamics of $\boldsymbol{x}$ as
@@ -626,13 +631,20 @@ $$
 $$
 
 to approximate
-$(\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)}$
+$$
+(\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)}
+$$
 in equation
 ([\[smaller question\]](#smaller question){reference-type="ref"
 reference="smaller question"}). To maintain the symmetry of
-$\mathbb{P}_{\text{CG}}^{(n)}$ due to numerical errors, it is better to
+$$
+\mathbb{P}_{\text{CG}}^{(n)}
+$$
+due to numerical errors, it is better to
 use
-$(\mathbb{P}_{\text{CG}}^{(n)} + (\mathbb{P}_{\text{CG}}^{(n)})^{\top}) / 2$
+$$
+(\mathbb{P}_{\text{CG}}^{(n)} + (\mathbb{P}_{\text{CG}}^{(n)})^{\top}) / 2
+$$
 as a substitute for $\mathbb{P}_{\text{CG}}^{(n)}$.
 
 ## Algorithm Framework

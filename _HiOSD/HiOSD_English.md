@@ -74,14 +74,29 @@ so $\boldsymbol{\hat{x}}$ is at least a $k$-saddle point;
 
 On the other hand, for any subspace $\mathcal{K'}$ of $\mathcal{H}$ with
 dimension $k+1$ , the subspace $\hat{\mathcal{V}}^{\perp}$ spanned by
-$\boldsymbol{\hat{v}}_{k+1}, \ldots, \boldsymbol{\hat{v}}_d$ intersects
+$$
+\boldsymbol{\hat{v}}_{k+1}, \ldots, \boldsymbol{\hat{v}}_d
+$$
+intersects
 with $\mathcal{K'}$ non-trivially (otherwise, by adding
-$\boldsymbol{\hat{v}}_{k+1}, \ldots, \boldsymbol{\hat{v}}_d$ to
+$$
+\boldsymbol{\hat{v}}_{k+1}, \ldots, \boldsymbol{\hat{v}}_d
+$$
+to
 $\mathcal{K'}$, we would generate a space with dimension $d+1$, which is
 a contradiction!). Let a non-zero element in the intersection be
-$$\boldsymbol{w} = \sum_{i=k+1}^{d} a_i \boldsymbol{\hat{v}}_i$$ then we
+
+$$
+\boldsymbol{w} = \sum_{i=k+1}^{d} a_i \boldsymbol{\hat{v}}_i
+$$
+
+then we
 have
-$$\boldsymbol{w}^{\top} \mathbb{G}(\hat{x}) \boldsymbol{w} = \sum_{i=k+1}^{d} a_i \boldsymbol{\hat{v}}_i^{\top} \sum_{i=k+1}^{d} \hat{\lambda}_i a_i \boldsymbol{\hat{v}}_i = \sum_{i=k+1}^{d} \hat{\lambda}_i a_i^2 > 0$$
+
+$$
+\boldsymbol{w}^{\top} \mathbb{G}(\hat{x}) \boldsymbol{w} = \sum_{i=k+1}^{d} a_i \boldsymbol{\hat{v}}_i^{\top} \sum_{i=k+1}^{d} \hat{\lambda}_i a_i \boldsymbol{\hat{v}}_i = \sum_{i=k+1}^{d} \hat{\lambda}_i a_i^2 > 0
+$$
+
 Thus, $\mathbb{G}(\boldsymbol{\hat{x}})$ is not negative definite on
 $\mathcal{K'}$, meaning the index of $\boldsymbol{\hat{x}}$ is $k$.
 
@@ -135,12 +150,21 @@ $\mathcal{P}_{\mathcal{V}^{\perp}} \boldsymbol{\dot{x}} = \mathcal{P}_{\mathcal{
 and then introducing two positive relaxation constants
 $\beta_{\mathcal{V}}$ and $\beta_{\mathcal{V}^{\perp}}$, we can give the
 dynamics of $\boldsymbol{x}$ as
-$$\boldsymbol{\dot{x}} = \beta_{\mathcal{V}} (-\mathcal{P}_{\mathcal{V}} \boldsymbol{F}(\boldsymbol{x})) + \beta_{\mathcal{V}^{\perp}} (\boldsymbol{F}(\boldsymbol{x}) - \mathcal{P}_{\mathcal{V}} \boldsymbol{F}(\boldsymbol{x})).$$
+
+$$
+\boldsymbol{\dot{x}} = \beta_{\mathcal{V}} (-\mathcal{P}_{\mathcal{V}} \boldsymbol{F}(\boldsymbol{x})) + \beta_{\mathcal{V}^{\perp}} (\boldsymbol{F}(\boldsymbol{x}) - \mathcal{P}_{\mathcal{V}} \boldsymbol{F}(\boldsymbol{x})).
+$$
+
 Furthermore, if we simply set
 $\beta_{\mathcal{V}} = \beta_{\mathcal{V}^{\perp}} = \beta$, the
 equation becomes
-$$\beta^{-1} \boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}) - 2 \mathcal{P}_{\mathcal{V}} \boldsymbol{F}(\boldsymbol{x})
-\label{the dynamics of x easy vesion}$$ In particular, if a set of
+
+$$
+\beta^{-1} \boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}) - 2 \mathcal{P}_{\mathcal{V}} \boldsymbol{F}(\boldsymbol{x})
+\label{the dynamics of x easy vesion}
+$$ 
+
+In particular, if a set of
 standard orthonormal basis
 $\boldsymbol{v_1}, \boldsymbol{v_2}, \ldots, \boldsymbol{v_k}$ for the
 space $\mathcal{V}$ is given, the projection transformation is
@@ -148,8 +172,13 @@ $\mathcal{P}_{\mathcal{V}} = \sum_{i=1}^{k} \boldsymbol{v}_i \boldsymbol{v}^{\to
 so equation
 ([\[the dynamics of x easy vesion\]](#the dynamics of x easy vesion){reference-type="ref"
 reference="the dynamics of x easy vesion"}) becomes
-$$\beta^{-1} \boldsymbol{\dot{x}} = \left(\mathbb{I} - 2 \sum_{i=1}^{k} \boldsymbol{v}_i \boldsymbol{v}^{\top}_i \right) \boldsymbol{F}(\boldsymbol{x})
-\label{the dynamics of x easy vesion 2}$$ where $\mathbb{I}$ is the
+
+$$
+\beta^{-1} \boldsymbol{\dot{x}} = \left(\mathbb{I} - 2 \sum_{i=1}^{k} \boldsymbol{v}_i \boldsymbol{v}^{\top}_i \right) \boldsymbol{F}(\boldsymbol{x})
+\label{the dynamics of x easy vesion 2}
+$$ 
+
+where $\mathbb{I}$ is the
 identity matrix.
 
 # Updating the Subspace $\mathcal{V}$
@@ -167,62 +196,122 @@ $\mathcal{V}$.
 Let's first focus on the simplest case: how to find the smallest
 eigenvalue and its corresponding eigenvector? We can solve the
 constrained optimization problem
-$$\min_{\boldsymbol{v}_1} \langle \boldsymbol{v}_1, \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_1 \rangle \quad \text{s.t.} \quad \langle \boldsymbol{v}_1, \boldsymbol{v}_1 \rangle = 1$$
+
+$$
+\min_{\boldsymbol{v}_1} \langle \boldsymbol{v}_1, \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_1 \rangle \quad \text{s.t.} \quad \langle \boldsymbol{v}_1, \boldsymbol{v}_1 \rangle = 1
+$$
+
 to achieve it.
 
 Similarly, given
 $\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_{i-1}$, to
 find the $i$-th smallest eigenvalue and its corresponding eigenvector,
 we can solve the following constrained optimization problem:
-$$\min_{\boldsymbol{v}_i} \langle \boldsymbol{v}_i, \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \rangle \quad \text{s.t.} \quad \langle \boldsymbol{v}_i, \boldsymbol{v}_j \rangle = \delta_{ij} \quad j=1,2,\ldots,i
-\label{Rayleigh Quotient Optimization}$$ where $$\delta_{ij} =
+
+$$
+\min_{\boldsymbol{v}_i} \langle \boldsymbol{v}_i, \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \rangle \quad \text{s.t.} \quad \langle \boldsymbol{v}_i, \boldsymbol{v}_j \rangle = \delta_{ij} \quad j=1,2,\ldots,i
+\label{Rayleigh Quotient Optimization}
+$$
+
+where 
+
+$$
+\delta_{ij} =
 \begin{cases}
     1 & \text{if } i = j \\
     0 & \text{if } i \neq j
-\end{cases}$$ We consider the dynamics of this series of constrained
+\end{cases}
+$$
+
+We consider the dynamics of this series of constrained
 optimization problems. Consider the Lagrangian function
-$$\mathcal{L}_i(\boldsymbol{v}_i; \xi^{(i)}_1, \ldots, \xi^{(i)}_{i-1}, \xi^{(i)}_i) = \langle \boldsymbol{v}_i, \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \rangle - \xi^{(i)}_i (\langle \boldsymbol{v}_i, \boldsymbol{v}_i \rangle - 1) - \sum_{j=1}^{i-1} \xi^{(i)}_j \langle \boldsymbol{v}_i, \boldsymbol{v}_j \rangle$$
+
+$$
+\mathcal{L}_i(\boldsymbol{v}_i; \xi^{(i)}_1, \ldots, \xi^{(i)}_{i-1}, \xi^{(i)}_i) = \langle \boldsymbol{v}_i, \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \rangle - \xi^{(i)}_i (\langle \boldsymbol{v}_i, \boldsymbol{v}_i \rangle - 1) - \sum_{j=1}^{i-1} \xi^{(i)}_j \langle \boldsymbol{v}_i, \boldsymbol{v}_j \rangle
+$$
+
 Taking the gradient with respect to $\boldsymbol{v}_i$, we get
-$$\frac{\partial}{\partial \boldsymbol{v}_i} \mathcal{L}_i(\boldsymbol{v}_i; \xi^{(i)}_1, \ldots, \xi^{(i)}_{i-1}, \xi^{(i)}_i) = 2 \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i - 2 \xi^{(i)}_i \boldsymbol{v}_i - \sum_{j=1}^{i-1} \xi^{(i)}_j \boldsymbol{v}_j$$
+
+$$
+\frac{\partial}{\partial \boldsymbol{v}_i} \mathcal{L}_i(\boldsymbol{v}_i; \xi^{(i)}_1, \ldots, \xi^{(i)}_{i-1}, \xi^{(i)}_i) = 2 \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i - 2 \xi^{(i)}_i \boldsymbol{v}_i - \sum_{j=1}^{i-1} \xi^{(i)}_j \boldsymbol{v}_j
+$$
+
 Now, taking a relaxation constant $\gamma > 0$, the dynamics of
 $\boldsymbol{v}_i$ given by the gradient flow of the Lagrangian function
-(with undetermined coefficients) is $$\begin{aligned}
+(with undetermined coefficients) is 
+
+$$
+\begin{aligned}
 \boldsymbol{\dot{v}}_i 
 &= -\frac{\gamma}{2} \frac{\partial}{\partial \boldsymbol{v}_i} \mathcal{L}_i(\boldsymbol{v}_i; \xi^{(i)}_1, \ldots, \xi^{(i)}_{i-1}, \xi^{(i)}_i) \nonumber \\
 &= -\gamma \left( \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i - \xi^{(i)}_i \boldsymbol{v}_i - \frac{1}{2} \sum_{j=1}^{i-1} \xi^{(i)}_j \boldsymbol{v}_j \right)
-\label{the dynamics of v_i with undetermined coefficient}\end{aligned}$$
+\label{the dynamics of v_i with undetermined coefficient}\end{aligned}
+$$
+
 The factor $-\frac{\gamma}{2}$ is used here instead of $-\gamma$ for
 simplicity in the expression later. The next step is to determine each
 $\xi_i$. Notice the equality constraints
-$$c^{(i)}_i(t) = \langle \boldsymbol{v}_i, \boldsymbol{v}_i \rangle - 1 = 0$$
-$$c^{(i)}_j(t) = \langle \boldsymbol{v}_i, \boldsymbol{v}_j \rangle = 0 \quad j=1,2,\ldots,i-1$$
+
+$$
+c^{(i)}_i(t) = \langle \boldsymbol{v}_i, \boldsymbol{v}_i \rangle - 1 = 0
+$$
+
+$$
+c^{(i)}_j(t) = \langle \boldsymbol{v}_i, \boldsymbol{v}_j \rangle = 0 \quad j=1,2,\ldots,i-1
+$$
+
 To ensure that the initial values satisfy the equality constraints, we
 require:
-$$\dot{c}^{(i)}_i(t) = 2 \langle \boldsymbol{\dot{v}}_i, \boldsymbol{v}_i \rangle = 0$$
-$$\dot{c}^{(i)}_j(t) = \langle \boldsymbol{\dot{v}}_i, \boldsymbol{v}_j \rangle + \langle \boldsymbol{v}_i, \boldsymbol{\dot{v}}_j \rangle = 0 \quad j=1,2,\ldots,i-1$$
+
+$$
+\dot{c}^{(i)}_i(t) = 2 \langle \boldsymbol{\dot{v}}_i, \boldsymbol{v}_i \rangle = 0
+$$
+
+$$
+\dot{c}^{(i)}_j(t) = \langle \boldsymbol{\dot{v}}_i, \boldsymbol{v}_j \rangle + \langle \boldsymbol{v}_i, \boldsymbol{\dot{v}}_j \rangle = 0 \quad j=1,2,\ldots,i-1
+$$
+
 Substituting equation
 ([\[the dynamics of v_i with undetermined coefficient\]](#the dynamics of v_i with undetermined coefficient){reference-type="ref"
 reference="the dynamics of v_i with undetermined coefficient"}) into
 these equations (solving in the order of superscripts), we obtain
-$$\xi^{(i)}_i = \langle \boldsymbol{v}_i, \mathbb{G} \boldsymbol{v}_i \rangle$$
-$$\xi^{(i)}_j = 4 \langle \boldsymbol{v}_j, \mathbb{G} \boldsymbol{v}_i \rangle \quad j=1,2,\ldots,i-1$$
+
+$$
+\xi^{(i)}_i = \langle \boldsymbol{v}_i, \mathbb{G} \boldsymbol{v}_i \rangle
+$$
+
+$$
+\xi^{(i)}_j = 4 \langle \boldsymbol{v}_j, \mathbb{G} \boldsymbol{v}_i \rangle \quad j=1,2,\ldots,i-1
+$$
+
 Substituting these back into equation
 ([\[the dynamics of v_i with undetermined coefficient\]](#the dynamics of v_i with undetermined coefficient){reference-type="ref"
 reference="the dynamics of v_i with undetermined coefficient"}), we
-obtain the final dynamics of $\boldsymbol{v}_i$: $$\begin{aligned}
+obtain the final dynamics of $\boldsymbol{v}_i$: 
+
+$$
+\begin{aligned}
 \gamma^{-1} \boldsymbol{\dot{v}}_i 
 &= - \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i + \langle \boldsymbol{v}_i, \mathbb{G} \boldsymbol{v}_i \rangle \boldsymbol{v}_i + 2 \sum_{j=1}^{i-1} \langle \boldsymbol{v}_j, \mathbb{G} \boldsymbol{v}_i \rangle \boldsymbol{v}_j \nonumber \\
 &= - (\mathbb{I} - \boldsymbol{v}_i \boldsymbol{v}_i^\top - 2 \sum_{j=1}^{i-1} \boldsymbol{v}_j \boldsymbol{v}_j^\top) \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \quad i=1,2,\ldots,k
-\label{the dynamics of v_i}\end{aligned}$$ Combining equations
+\label{the dynamics of v_i}\end{aligned}
+$$ 
+
+Combining equations
 ([\[the dynamics of x easy vesion 2\]](#the dynamics of x easy vesion 2){reference-type="ref"
 reference="the dynamics of x easy vesion 2"}) and
 ([\[the dynamics of v_i\]](#the dynamics of v_i){reference-type="ref"
 reference="the dynamics of v_i"}), we obtain the dynamics of the entire
-problem: $$\begin{cases}
+problem:
+
+$$
+\begin{cases}
      & \beta^{-1} \boldsymbol{\dot{x}} = \left( \mathbb{I} - 2 \sum_{i=1}^{k} \boldsymbol{v}_i \boldsymbol{v}_i^\top \right) \boldsymbol{F}(\boldsymbol{x}) \\
      & \gamma^{-1} \boldsymbol{\dot{v}}_i = - \left( \mathbb{I} - \boldsymbol{v}_i \boldsymbol{v}_i^\top - 2 \sum_{j=1}^{i-1} \boldsymbol{v}_j \boldsymbol{v}_j^\top \right) \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \quad i=1,2,\ldots,k
 \end{cases}
-\label{the dynamics with accurate Hessian}$$
+\label{the dynamics with accurate Hessian}
+$$
+
 
 ## Cases Requiring Numerical Approximation of the Hessian Matrix --- Shrinking Dimer Method
 
@@ -242,11 +331,23 @@ finite differences.
 
 Consider approximating the vector
 $\mathbb{G}(\boldsymbol{x}) \boldsymbol{v}$, noting that
-$$-\boldsymbol{F}(\boldsymbol{x}+l\boldsymbol{v}) \approx \nabla E(\boldsymbol{x}+l\boldsymbol{v}) = \nabla E(\boldsymbol{x}) + \mathbb{G}(\boldsymbol{x}) l \boldsymbol{v} + o(\lVert l \boldsymbol{v} \rVert^2) \quad (l \to 0)$$
-$$-\boldsymbol{F}(\boldsymbol{x}-l\boldsymbol{v}) \approx \nabla E(\boldsymbol{x}-l\boldsymbol{v}) = \nabla E(\boldsymbol{x}) - \mathbb{G}(\boldsymbol{x}) l \boldsymbol{v} + o(\lVert l \boldsymbol{v} \rVert^2) \quad (l \to 0)$$
+
+$$
+-\boldsymbol{F}(\boldsymbol{x}+l\boldsymbol{v}) \approx \nabla E(\boldsymbol{x}+l\boldsymbol{v}) = \nabla E(\boldsymbol{x}) + \mathbb{G}(\boldsymbol{x}) l \boldsymbol{v} + o(\lVert l \boldsymbol{v} \rVert^2) \quad (l \to 0)
+$$
+
+$$
+-\boldsymbol{F}(\boldsymbol{x}-l\boldsymbol{v}) \approx \nabla E(\boldsymbol{x}-l\boldsymbol{v}) = \nabla E(\boldsymbol{x}) - \mathbb{G}(\boldsymbol{x}) l \boldsymbol{v} + o(\lVert l \boldsymbol{v} \rVert^2) \quad (l \to 0)
+$$
+
 Thus, we can approximate
-$$\boldsymbol{H}(\boldsymbol{x}, \boldsymbol{v}, l) = -\frac{\boldsymbol{F}(\boldsymbol{x}+l\boldsymbol{v}) - \boldsymbol{F}(\boldsymbol{x}-l\boldsymbol{v})}{2l} \approx \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}
-\label{the approximation of Hessian}$$ In fact, the dimer method
+
+$$
+\boldsymbol{H}(\boldsymbol{x}, \boldsymbol{v}, l) = -\frac{\boldsymbol{F}(\boldsymbol{x}+l\boldsymbol{v}) - \boldsymbol{F}(\boldsymbol{x}-l\boldsymbol{v})}{2l} \approx \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}
+\label{the approximation of Hessian}
+$$ 
+
+In fact, the dimer method
 intuitively estimates the Hessian matrix at the center point
 $\boldsymbol{x}$ by using the gradients at the points
 $\boldsymbol{x}+l\boldsymbol{v}$ and $\boldsymbol{x}-l\boldsymbol{v}$.
@@ -273,30 +374,19 @@ High-Index Saddle Points\" by Jianyuan Yin, Lei Zhang and Pingwen Zhang.
 We directly discretize the dynamics given above and present the
 following algorithm:
 
-::: algorithm
-**Input :**
-$k \in \mathbb{N},\ l^{(0)} > 0,\ \boldsymbol{x}^{(0)} \in \mathcal{H},\ \{\boldsymbol{v}_i^{(0)}\}_{i=1}^k \subset \mathcal{H}$
-satisfying
-$\left\langle \boldsymbol{v}_j^{(0)}, \boldsymbol{v}_i^{(0)} \right\rangle = \delta_{ij}$.
-
-::: algorithmic
-Set $n=0$, compute $f^{(0)} = F(\boldsymbol{x}^{(0)})$;
-$\boldsymbol{x}^{(n+1)} = \boldsymbol{x}^{(n)} + \beta^{(n)} \boldsymbol{g}^{(n)}$;\
-$\boldsymbol{v}_i^* = \boldsymbol{v}_i^{(n)} + \gamma_i^{(n)} \boldsymbol{d}_i^{(n)}$;
-$\boldsymbol{v}_i^* = \boldsymbol{v}_i^* - \sum_{j=1}^{i-1} \left\langle \boldsymbol{v}_j^{(n+1)}, \boldsymbol{v}_i^* \right\rangle \boldsymbol{v}_j^{(n+1)}$;
-$\boldsymbol{v}_i^{(n+1)} = \boldsymbol{v}_i^* / \|\boldsymbol{v}_i^*\|$;
-$l^{(n+1)} = \max \left\{ l^{(n)} / (1 + \beta^{(n)}), \varepsilon \right\}$;
-$f^{(n+1)} = F(\boldsymbol{x}^{(n+1)})$; $n := n + 1$; **Output :**
-$\boldsymbol{x}^{(n)}, \boldsymbol{v}_1^{(n)}, \ldots, \boldsymbol{v}_k^{(n)}$;
-:::
-:::
-
 where
-$$\boldsymbol{g}^{(n)} = \boldsymbol{f}^{(n)} - 2 \sum_{i=1}^k \left\langle \boldsymbol{v}_i^{(n)}, \boldsymbol{f}^{(n)} \right\rangle \boldsymbol{v}_i^{(n)}$$
 
-$$\boldsymbol{d}_i^{(n)} = -\boldsymbol{u}_i^{(n)} + \left\langle \boldsymbol{v}_i^{(n)}, \boldsymbol{u}_i^{(n)} \right\rangle \boldsymbol{v}_i^{(n)} + \sum_{j=1}^{i-1} 2 \left\langle \boldsymbol{v}_j^{(n)}, \boldsymbol{u}_i^{(n)} \right\rangle \boldsymbol{v}_j^{(n)}$$
+$$
+\boldsymbol{g}^{(n)} = \boldsymbol{f}^{(n)} - 2 \sum_{i=1}^k \left\langle \boldsymbol{v}_i^{(n)}, \boldsymbol{f}^{(n)} \right\rangle \boldsymbol{v}_i^{(n)}
+$$
 
-$$\boldsymbol{u}_i^{(n)} = H\left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)}, l^{(n)} \right)$$
+$$
+\boldsymbol{d}_i^{(n)} = -\boldsymbol{u}_i^{(n)} + \left\langle \boldsymbol{v}_i^{(n)}, \boldsymbol{u}_i^{(n)} \right\rangle \boldsymbol{v}_i^{(n)} + \sum_{j=1}^{i-1} 2 \left\langle \boldsymbol{v}_j^{(n)}, \boldsymbol{u}_i^{(n)} \right\rangle \boldsymbol{v}_j^{(n)}
+$$
+
+$$
+\boldsymbol{u}_i^{(n)} = H\left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)}, l^{(n)} \right)
+$$
 
 Step 6 and 7 use Gram-Schmidt orthogonalization to maintain the
 orthogonality condition. Step 9 introduces $\varepsilon$ to prevent
@@ -340,20 +430,41 @@ $\Delta \boldsymbol{x}^{(n)} = \boldsymbol{x}^{(n)} - \boldsymbol{x}^{(n-1)}$
 and
 $\Delta \boldsymbol{g}^{(n)} = \boldsymbol{g}^{(n)} - \boldsymbol{g}^{(n-1)}$.
 Based on the quasi-Newton method, we solve the optimization problems
-$$\min_{\beta^{(n)}} \|\Delta \boldsymbol{x}^{(n)} - \beta^{(n)} \boldsymbol{g}^{(n)}\|$$
-$$\min_{\beta^{(n)}} \|\Delta \boldsymbol{x}^{(n)} / \beta^{(n)} - \boldsymbol{g}^{(n)}\|$$
+
+$$
+\min_{\beta^{(n)}} \|\Delta \boldsymbol{x}^{(n)} - \beta^{(n)} \boldsymbol{g}^{(n)}\|
+$$
+
+$$
+\min_{\beta^{(n)}} \|\Delta \boldsymbol{x}^{(n)} / \beta^{(n)} - \boldsymbol{g}^{(n)}\|
+$$
+
 to obtain the BB1 and BB2 step sizes:
-$$\beta_{\text{BB1}}^{(n)} = \frac{\langle \Delta \boldsymbol{x}^{(n)}, \Delta \boldsymbol{x}^{(n)} \rangle}{\langle \Delta \boldsymbol{x}^{(n)}, \Delta \boldsymbol{g}^{(n)} \rangle}$$
-$$\beta_{\text{BB2}}^{(n)} = \frac{\langle \Delta \boldsymbol{x}^{(n)}, \Delta \boldsymbol{g}^{(n)} \rangle}{\langle \Delta \boldsymbol{g}^{(n)}, \Delta \boldsymbol{g}^{(n)} \rangle}$$
+
+$$
+\beta_{\text{BB1}}^{(n)} = \frac{\langle \Delta \boldsymbol{x}^{(n)}, \Delta \boldsymbol{x}^{(n)} \rangle}{\langle \Delta \boldsymbol{x}^{(n)}, \Delta \boldsymbol{g}^{(n)} \rangle}
+$$
+
+$$
+\beta_{\text{BB2}}^{(n)} = \frac{\langle \Delta \boldsymbol{x}^{(n)}, \Delta \boldsymbol{g}^{(n)} \rangle}{\langle \Delta \boldsymbol{g}^{(n)}, \Delta \boldsymbol{g}^{(n)} \rangle}
+$$
+
 In this problem, since the denominator of the BB1 step size may become
 too small and cause numerical instability, we generally use the BB2 step
 size. Of course, similar to the line search, we can set an upper bound
 for $\beta^{(n)} \|\boldsymbol{g}^{(n)}\|$ and take the absolute value
 of $\beta_{\text{BB2}}^{(n)}$ to avoid negative step sizes. Combining
 these gives:
-$$\beta^{(n)} = \min \left\{ \frac{\tau}{\|\boldsymbol{g}^{(n)}\|}, \left| \frac{\langle \Delta \boldsymbol{x}^{(n)}, \Delta \boldsymbol{g}^{(n)} \rangle}{\langle \Delta \boldsymbol{g}^{(n)}, \Delta \boldsymbol{g}^{(n)} \rangle} \right| \right\}$$
+
+$$
+\beta^{(n)} = \min \left\{ \frac{\tau}{\|\boldsymbol{g}^{(n)}\|}, \left| \frac{\langle \Delta \boldsymbol{x}^{(n)}, \Delta \boldsymbol{g}^{(n)} \rangle}{\langle \Delta \boldsymbol{g}^{(n)}, \Delta \boldsymbol{g}^{(n)} \rangle} \right| \right\}
+$$
+
 For $\gamma_i^{(n)}$, using the BB2 step size gives
-$$\gamma_i^{(n)} = \left| \frac{\langle \Delta \boldsymbol{v}_i^{(n)}, \Delta \boldsymbol{d}_i^{(n)} \rangle}{\langle \Delta \boldsymbol{d}_i^{(n)}, \Delta \boldsymbol{d}_i^{(n)} \rangle} \right|$$
+
+$$
+\gamma_i^{(n)} = \left| \frac{\langle \Delta \boldsymbol{v}_i^{(n)}, \Delta \boldsymbol{d}_i^{(n)} \rangle}{\langle \Delta \boldsymbol{d}_i^{(n)}, \Delta \boldsymbol{d}_i^{(n)} \rangle} \right|
+$$
 
 # An Alternative Update of $\mathcal{V}$ --- Application of LOBPCG Method
 
@@ -378,7 +489,11 @@ transforming it into a subspace eigenvalue problem, we can solve for the
 eigenvalues of a smaller matrix.
 
 Specifically, the problem we face is:
-$$\min \sum_{i=1}^{k} \langle \boldsymbol{v}_i, \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \rangle \quad \text{s.t.} \quad \boldsymbol{v}_i \in \mathcal{U}, \langle \boldsymbol{v}_i, \boldsymbol{v}_j \rangle = \delta_{ij}$$
+
+$$
+\min \sum_{i=1}^{k} \langle \boldsymbol{v}_i, \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \rangle \quad \text{s.t.} \quad \boldsymbol{v}_i \in \mathcal{U}, \langle \boldsymbol{v}_i, \boldsymbol{v}_j \rangle = \delta_{ij}
+$$
+
 In the actual algorithm, we can consider performing one LOBPCG iteration
 after each $\boldsymbol{x}$ update, or we can choose to perform multiple
 iterations. Below is the case with just one iteration, where the
@@ -388,29 +503,54 @@ updates.
 
 In the LOBPCG method, we apply the symmetric positive-definite
 preconditioner $\mathbb{T}$ to the residual vector to obtain
-$$\boldsymbol{w}_i^{(n)} = \mathbb{T} \left( \mathbb{G}(\boldsymbol{x}^{(n+1)}) \boldsymbol{v}_i^{(n)} - \left\langle \boldsymbol{v}_i^{(n)}, \mathbb{G}(\boldsymbol{x}^{(n+1)}) \boldsymbol{v}_i^{(n)} \right\rangle \boldsymbol{v}_i^{(n)} \right)$$
+
+$$
+\boldsymbol{w}_i^{(n)} = \mathbb{T} \left( \mathbb{G}(\boldsymbol{x}^{(n+1)}) \boldsymbol{v}_i^{(n)} - \left\langle \boldsymbol{v}_i^{(n)}, \mathbb{G}(\boldsymbol{x}^{(n+1)}) \boldsymbol{v}_i^{(n)} \right\rangle \boldsymbol{v}_i^{(n)} \right)
+$$
+
 Then, we combine the current and previous approximate eigenvectors to
 form the subspace in the LOBPCG method:
-$$\mathcal{U}_{\text{CG}}^{(n)} = \text{span} \left\{ \boldsymbol{v}_i^{(n-1)}, \boldsymbol{v}_i^{(n)}, \boldsymbol{w}_i^{(n)}, i=1,2,\ldots,k \right\}$$
+
+$$
+\mathcal{U}_{\text{CG}}^{(n)} = \text{span} \left\{ \boldsymbol{v}_i^{(n-1)}, \boldsymbol{v}_i^{(n)}, \boldsymbol{w}_i^{(n)}, i=1,2,\ldots,k \right\}
+$$
+
 Let
 $\boldsymbol{w}_{i+k}^{(n)} = \boldsymbol{v}_i^{(n-1)}, i = 1, 2, \ldots, k$,
 and perform Gram-Schmidt orthogonalization:
-$$\tilde{\boldsymbol{w}}_i^{(n)} = \boldsymbol{w}_i^{(n)} - \sum_{j=1}^{k} \left\langle \boldsymbol{w}_i^{(n)}, \boldsymbol{v}_j^{(n)} \right\rangle \boldsymbol{v}_j^{(n)} - \sum_{\substack{j=1 \\ \|\tilde{\boldsymbol{w}}_j^{(n)}\| > \epsilon_w}}^{i-1} \frac{\left\langle \boldsymbol{w}_i^{(n)}, \tilde{\boldsymbol{w}}_j^{(n)} \right\rangle}{\left\| \tilde{\boldsymbol{w}}_j^{(n)} \right\|^2} \tilde{\boldsymbol{w}}_j^{(n)}, i=1,2,\ldots, 2k$$
+
+$$
+\tilde{\boldsymbol{w}}_i^{(n)} = \boldsymbol{w}_i^{(n)} - \sum_{j=1}^{k} \left\langle \boldsymbol{w}_i^{(n)}, \boldsymbol{v}_j^{(n)} \right\rangle \boldsymbol{v}_j^{(n)} - \sum_{\substack{j=1 \\ \|\tilde{\boldsymbol{w}}_j^{(n)}\| > \epsilon_w}}^{i-1} \frac{\left\langle \boldsymbol{w}_i^{(n)}, \tilde{\boldsymbol{w}}_j^{(n)} \right\rangle}{\left\| \tilde{\boldsymbol{w}}_j^{(n)} \right\|^2} \tilde{\boldsymbol{w}}_j^{(n)}, i=1,2,\ldots, 2k
+$$
+
 Vectors with small norms are discarded to maintain numerical stability.
 This results in an orthogonal matrix of column vectors of size
 $n \times K$ (where $k \leq K \leq 3k$):
-$$\mathbb{U}_{\text{CG}}^{(n)} = \left[ \boldsymbol{v}_1^{(n)}, \ldots, \boldsymbol{v}_k^{(n)}, \frac{\tilde{\boldsymbol{w}}_i^{(n)}}{\|\tilde{\boldsymbol{w}}_i^{(n)}\|} : \|\tilde{\boldsymbol{w}}_i^{(n)}\| > \epsilon_w, i = 1, \ldots, 2k \right]
-\label{U}$$ Thus, the vectors in the subspace can be approximated as
+
+$$
+\mathbb{U}_{\text{CG}}^{(n)} = \left[ \boldsymbol{v}_1^{(n)}, \ldots, \boldsymbol{v}_k^{(n)}, \frac{\tilde{\boldsymbol{w}}_i^{(n)}}{\|\tilde{\boldsymbol{w}}_i^{(n)}\|} : \|\tilde{\boldsymbol{w}}_i^{(n)}\| > \epsilon_w, i = 1, \ldots, 2k \right]
+\label{U}
+$$ 
+
+Thus, the vectors in the subspace can be approximated as
 $\mathbb{U}_{\text{CG}}^{(n)} \boldsymbol{\eta}$, where
 $\boldsymbol{\eta} \in \mathbb{R}^{K \times 1}$.
 
 Next, finding the $k$ smallest eigenvalues and corresponding
 eigenvectors in $\mathcal{U}_{\text{CG}}^{(n)}$ is equivalent to solving
 for $\boldsymbol{\eta}$ such that
-$$\mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)} \boldsymbol{\eta} = \lambda \mathbb{U}_{\text{CG}}^{(n)} \boldsymbol{\eta}$$
+
+$$
+\mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)} \boldsymbol{\eta} = \lambda \mathbb{U}_{\text{CG}}^{(n)} \boldsymbol{\eta}
+$$
+
 That is,
-$$(\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)} \boldsymbol{\eta} = \lambda \boldsymbol{\eta}
-\label{smaller question}$$ Thus, we only need to solve for the $k$
+
+$$
+(\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)} \boldsymbol{\eta} = \lambda \boldsymbol{\eta}
+\label{smaller question}
+$$
+Thus, we only need to solve for the $k$
 smallest eigenvalues and corresponding eigenvectors of the $K \times K$
 symmetric matrix
 $(\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)}$,
@@ -427,17 +567,34 @@ $\mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)}$
 essentially still involves the structure where we only need to focus on
 multiplying the Hessian matrix by a vector, which we already
 approximated earlier:
-$$\mathbb{G}(\boldsymbol{x}^{(n+1)}) \boldsymbol{v}_i^{(n)} \approx \boldsymbol{u}_i^{(n)} = H \left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)}, l^{(n)} \right)$$
+
+$$
+\mathbb{G}(\boldsymbol{x}^{(n+1)}) \boldsymbol{v}_i^{(n)} \approx \boldsymbol{u}_i^{(n)} = H \left( \boldsymbol{x}^{(n+1)}, \boldsymbol{v}_i^{(n)}, l^{(n)} \right)
+$$
+
 Similarly, we define
-$$\boldsymbol{y}_i^{(n)} = \boldsymbol{H} \left( \boldsymbol{x}^{(n+1)}, \frac{\tilde{\boldsymbol{w}}_i^{(n)}}{\|\tilde{\boldsymbol{w}}_i^{(n)}\|}, l^{(n)} \right)$$
+
+$$
+\boldsymbol{y}_i^{(n)} = \boldsymbol{H} \left( \boldsymbol{x}^{(n+1)}, \frac{\tilde{\boldsymbol{w}}_i^{(n)}}{\|\tilde{\boldsymbol{w}}_i^{(n)}\|}, l^{(n)} \right)
+$$
+
 Using the formula
 ([\[the approximation of Hessian\]](#the approximation of Hessian){reference-type="ref"
 reference="the approximation of Hessian"}), we can approximate
-$$\mathbb{Y}_{\text{CG}}^{(n)} = \left[ \boldsymbol{u}_1^{(n)}, \ldots, \boldsymbol{u}_k^{(n)}, \boldsymbol{y}_i^{(n)} : \|\tilde{\boldsymbol{w}}_i^{(n)}\| > \epsilon_w, i = 1, \ldots, 2k \right]
-\label{dimer Y=GU}$$ to approximate
+
+$$
+\mathbb{Y}_{\text{CG}}^{(n)} = \left[ \boldsymbol{u}_1^{(n)}, \ldots, \boldsymbol{u}_k^{(n)}, \boldsymbol{y}_i^{(n)} : \|\tilde{\boldsymbol{w}}_i^{(n)}\| > \epsilon_w, i = 1, \ldots, 2k \right]
+\label{dimer Y=GU}
+$$ 
+
+to approximate
 $\mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)}$. Thus,
 we can use
-$$\mathbb{P}_{\text{CG}}^{(n)} = (\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{Y}_{\text{CG}}^{(n)}$$
+
+$$
+\mathbb{P}_{\text{CG}}^{(n)} = (\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{Y}_{\text{CG}}^{(n)}
+$$
+
 to approximate
 $(\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)}$
 in equation
@@ -453,31 +610,7 @@ as a substitute for $\mathbb{P}_{\text{CG}}^{(n)}$.
 Summarizing the content of the previous subsection, we obtain the
 general framework of the HiOSD-LOBPCG algorithm:
 
-::: algorithm
-**Input :**
-$k \in \mathbb{N}, l^{(0)} > 0, \boldsymbol{x}^{(0)} \in \mathcal{H}, \{\boldsymbol{v}_i^{(0)}\}_{i=1}^k \subset \mathcal{H}$
-satisfying
-$\langle \boldsymbol{v}_j^{(0)}, \boldsymbol{v}_i^{(0)} \rangle = \delta_{ij}$.
 
-::: algorithmic
-Initialize $n = 0$, compute
-$\boldsymbol{f}^{(0)} = \boldsymbol{F}(\boldsymbol{x}^{(0)})$;
-$\boldsymbol{x}^{(n+1)} = \boldsymbol{x}^{(n)} + \beta^{(n)} \boldsymbol{g}^{(n)}$;
-Calculate $\mathbb{U}^{(n)}$ as ([\[U\]](#U){reference-type="ref"
-reference="U"}); Calculate $\mathbb{Y}^{(n)}$ as
-([\[dimer Y=GU\]](#dimer Y=GU){reference-type="ref"
-reference="dimer Y=GU"});
-$\mathbb{P}^{(n)} = (\mathbb{U}^{(n)})^\top \mathbb{Y}^{(n)}$; Calculate
-$\{\boldsymbol{\eta}_i^{(n)}\}_{i=1}^k$ as the eigenvectors
-corresponding to the $k$ smallest eigenvalues of
-$(\mathbb{P}^{(n)} + (\mathbb{P}^{(n)})^\top) / 2$;
-$\boldsymbol{v}_i^{(n+1)} = \mathbb{U}^{(n)} \boldsymbol{\eta}_i^{(n)}$;
-$l^{(n+1)} = \max\{ l^{(n)} / (1 + \beta^{(n)}), \epsilon \}$;
-$\boldsymbol{f}^{(n+1)} = \boldsymbol{F}(\boldsymbol{x}^{(n+1)})$;
-$n := n + 1$; ; **Output :**
-$\boldsymbol{x}^{(n)}, \boldsymbol{v}_1^{(n)}, \ldots, \boldsymbol{v}_k^{(n)}$;
-:::
-:::
 
 Note that the step size selection only appears in the choice of
 $\beta^{(n)}$ in line 3, which can be referred to in Section 6.

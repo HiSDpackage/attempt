@@ -193,7 +193,7 @@ equation becomes
 
 $$
 \beta^{-1} \boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}) - 2 \mathcal{P}_{\mathcal{V}} \boldsymbol{F}(\boldsymbol{x})
-\label{the dynamics of x easy vesion}
+\tag{1}
 $$ 
 
 In particular, if a set of
@@ -205,12 +205,11 @@ $$
 $$
 ,
 so equation
-([\[the dynamics of x easy vesion\]](#the dynamics of x easy vesion){reference-type="ref"
-reference="the dynamics of x easy vesion"}) becomes
+(1) becomes
 
 $$
 \beta^{-1} \boldsymbol{\dot{x}} = \left(\mathbb{I} - 2 \sum_{i=1}^{k} \boldsymbol{v}_i \boldsymbol{v}^{\top}_i \right) \boldsymbol{F}(\boldsymbol{x})
-\label{the dynamics of x easy vesion 2}
+\tag{2}
 $$ 
 
 where $\mathbb{I}$ is the
@@ -245,7 +244,7 @@ we can solve the following constrained optimization problem:
 
 $$
 \min_{\boldsymbol{v}_i} \langle \boldsymbol{v}_i, \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \rangle \quad \text{s.t.} \quad \langle \boldsymbol{v}_i, \boldsymbol{v}_j \rangle = \delta_{ij} \quad j=1,2,\ldots,i
-\label{Rayleigh Quotient Optimization}
+\tag{3}
 $$
 
 where 
@@ -262,7 +261,7 @@ We consider the dynamics of this series of constrained
 optimization problems. Consider the Lagrangian function
 
 $$
-\mathcal{L}_i(\boldsymbol{v}_i; \xi^{(i)}_1, \ldots, \xi^{(i)}_{i-1}, \xi^{(i)}_i) = \langle \boldsymbol{v}_i, \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \rangle - \xi^{(i)}_i (\langle \boldsymbol{v}_i, \boldsymbol{v}_i \rangle - 1) - \sum_{j=1}^{i-1} \xi^{(i)}_j \langle \boldsymbol{v}_i, \boldsymbol{v}_j \rangle
+\mathcal{L}_i(\boldsymbol{v}_i; \xi^{(i)}_1, \ldots, \xi^{(i)}_{i-1}, \xi^{(i)}_i) = \langle \boldsymbol{v}_i, \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \rangle - \xi^{(i)}_i (\langle \boldsymbol{v}_i, \boldsymbol{v}_i \rangle - 1) - \sum_{j=1}^{i-1} \xi^{(i)}_j \tag{4}
 $$
 
 Taking the gradient with respect to $\boldsymbol{v}_i$, we get
@@ -307,8 +306,7 @@ $$
 $$
 
 Substituting equation
-([\[the dynamics of v_i with undetermined coefficient\]](#the dynamics of v_i with undetermined coefficient){reference-type="ref"
-reference="the dynamics of v_i with undetermined coefficient"}) into
+(4) into
 these equations (solving in the order of superscripts), we obtain
 
 $$
@@ -320,8 +318,7 @@ $$
 $$
 
 Substituting these back into equation
-([\[the dynamics of v_i with undetermined coefficient\]](#the dynamics of v_i with undetermined coefficient){reference-type="ref"
-reference="the dynamics of v_i with undetermined coefficient"}), we
+(4), we
 obtain the final dynamics of $\boldsymbol{v}_i$: 
 
 $$
@@ -329,14 +326,13 @@ $$
 \gamma^{-1} \boldsymbol{\dot{v}}_i 
 &= - \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i + \langle \boldsymbol{v}_i, \mathbb{G} \boldsymbol{v}_i \rangle \boldsymbol{v}_i + 2 \sum_{j=1}^{i-1} \langle \boldsymbol{v}_j, \mathbb{G} \boldsymbol{v}_i \rangle \boldsymbol{v}_j \nonumber \\
 &= - (\mathbb{I} - \boldsymbol{v}_i \boldsymbol{v}_i^\top - 2 \sum_{j=1}^{i-1} \boldsymbol{v}_j \boldsymbol{v}_j^\top) \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i \quad i=1,2,\ldots,k
-\label{the dynamics of v_i}\end{aligned}
+\tag{5}
+\end{aligned}
 $$ 
 
 Combining equations
-([\[the dynamics of x easy vesion 2\]](#the dynamics of x easy vesion 2){reference-type="ref"
-reference="the dynamics of x easy vesion 2"}) and
-([\[the dynamics of v_i\]](#the dynamics of v_i){reference-type="ref"
-reference="the dynamics of v_i"}), we obtain the dynamics of the entire
+(2) and
+(5), we obtain the dynamics of the entire
 problem:
 
 $$
@@ -351,14 +347,12 @@ $$
 ## Cases Requiring Numerical Approximation of the Hessian Matrix --- Shrinking Dimer Method
 
 In equation
-([\[the dynamics with accurate Hessian\]](#the dynamics with accurate Hessian){reference-type="ref"
-reference="the dynamics with accurate Hessian"}), if the exact Hessian
+(6), if the exact Hessian
 is available, then it can be used directly. However, for many problems,
 the Hessian matrix cannot be computed or the cost of computation is too
 high. We need numerical approximation methods to handle the Hessian
 matrix. In particular, in equation
-([\[the dynamics with accurate Hessian\]](#the dynamics with accurate Hessian){reference-type="ref"
-reference="the dynamics with accurate Hessian"}), we don't need to
+(6), we don't need to
 approximate the entire matrix, but only need to handle the form of the
 Hessian matrix multiplied by a vector
 $\mathbb{G}(\boldsymbol{x}) \boldsymbol{v}_i$, which can be done through
@@ -379,7 +373,7 @@ Thus, we can approximate
 
 $$
 \boldsymbol{H}(\boldsymbol{x}, \boldsymbol{v}, l) = -\frac{\boldsymbol{F}(\boldsymbol{x}+l\boldsymbol{v}) - \boldsymbol{F}(\boldsymbol{x}-l\boldsymbol{v})}{2l} \approx \mathbb{G}(\boldsymbol{x}) \boldsymbol{v}
-\label{the approximation of Hessian}
+\tag{7}
 $$ 
 
 In fact, the dimer method
@@ -514,8 +508,7 @@ efficiency and speed well.
 ## Basic Idea of the Method
 
 The Rayleigh quotient optimization problem
-([\[Rayleigh Quotient Optimization\]](#Rayleigh Quotient Optimization){reference-type="ref"
-reference="Rayleigh Quotient Optimization"}) over the entire space is
+(3) over the entire space is
 transformed into an approximate solution in a subspace $\mathcal{U}$,
 and with multiple iterations, the information in this subspace gradually
 improves, leading to better approximations. That is, the eigenvectors
@@ -564,7 +557,7 @@ $n \times K$ (where $k \leq K \leq 3k$):
 
 $$
 \mathbb{U}_{\text{CG}}^{(n)} = \left[ \boldsymbol{v}_1^{(n)}, \ldots, \boldsymbol{v}_k^{(n)}, \frac{\tilde{\boldsymbol{w}}_i^{(n)}}{\|\tilde{\boldsymbol{w}}_i^{(n)}\|} : \|\tilde{\boldsymbol{w}}_i^{(n)}\| > \epsilon_w, i = 1, \ldots, 2k \right]
-\label{U}
+\tag{8}
 $$ 
 
 Thus, the vectors in the subspace can be approximated as
@@ -583,12 +576,16 @@ That is,
 
 $$
 (\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)} \boldsymbol{\eta} = \lambda \boldsymbol{\eta}
-\label{smaller question}
+\tag{9}
 $$
+
 Thus, we only need to solve for the $k$
 smallest eigenvalues and corresponding eigenvectors of the $K \times K$
 symmetric matrix
-$(\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)}$,
+$$
+(\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)}
+$$
+,
 and once they are found, we can recover the eigenvectors in the original
 space by multiplying the eigenvectors by $\mathbb{U}_{\text{CG}}^{(n)}$.
 
@@ -614,12 +611,11 @@ $$
 $$
 
 Using the formula
-([\[the approximation of Hessian\]](#the approximation of Hessian){reference-type="ref"
-reference="the approximation of Hessian"}), we can approximate
+(), we can approximate
 
 $$
 \mathbb{Y}_{\text{CG}}^{(n)} = \left[ \boldsymbol{u}_1^{(n)}, \ldots, \boldsymbol{u}_k^{(n)}, \boldsymbol{y}_i^{(n)} : \|\tilde{\boldsymbol{w}}_i^{(n)}\| > \epsilon_w, i = 1, \ldots, 2k \right]
-\label{dimer Y=GU}
+\tag{10}
 $$ 
 
 to approximate
@@ -635,8 +631,7 @@ $$
 (\mathbb{U}_{\text{CG}}^{(n)})^{\top} \mathbb{G}(\boldsymbol{x}^{(n+1)}) \mathbb{U}_{\text{CG}}^{(n)}
 $$
 in equation
-([\[smaller question\]](#smaller question){reference-type="ref"
-reference="smaller question"}). To maintain the symmetry of
+(9). To maintain the symmetry of
 $$
 \mathbb{P}_{\text{CG}}^{(n)}
 $$

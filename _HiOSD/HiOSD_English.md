@@ -148,10 +148,24 @@ Hessian matrix at the current $\boldsymbol{x}$).
 
 Updating $\boldsymbol{x}$ intuitively involves making the projection of
 $\boldsymbol{\dot{x}}$ onto the space $\mathcal{V}$,
-$\mathcal{P}_{\mathcal{V}} \boldsymbol{\dot{x}}$, the ascent direction
-of the energy function $E(\boldsymbol{x})$, while the projection onto
-its complement $\mathcal{V}^{\perp}$,
-$\mathcal{P}_{\mathcal{V}^{\perp}} \boldsymbol{\dot{x}}$, is the descent
+$$
+\mathcal{P}_{\mathcal{V}} \boldsymbol{\dot{x}}
+$$
+, the ascent direction
+of the energy function 
+$$
+E(\boldsymbol{x})
+$$
+, while the projection onto
+its complement 
+$$
+\mathcal{V}^{\perp}
+$$
+,
+$$
+\mathcal{P}_{\mathcal{V}^{\perp}} \boldsymbol{\dot{x}}
+$$
+, is the descent
 direction.
 
 In particular, since the natural force
@@ -181,7 +195,10 @@ In particular, if a set of
 standard orthonormal basis
 $\boldsymbol{v_1}, \boldsymbol{v_2}, \ldots, \boldsymbol{v_k}$ for the
 space $\mathcal{V}$ is given, the projection transformation is
-$\mathcal{P}_{\mathcal{V}} = \sum_{i=1}^{k} \boldsymbol{v}_i \boldsymbol{v}^{\top}_i$,
+$$
+\mathcal{P}_{\mathcal{V}} = \sum_{i=1}^{k} \boldsymbol{v}_i \boldsymbol{v}^{\top}_i
+$$
+,
 so equation
 ([\[the dynamics of x easy vesion\]](#the dynamics of x easy vesion){reference-type="ref"
 reference="the dynamics of x easy vesion"}) becomes

@@ -1,9 +1,9 @@
 ---
 layout: single
-permalink: /HiOSD_English/
+permalink: /HiOSD/
 title: "High-Index Optimization-Based Shrinking Dimer Method"
 sidebar:
-    nav: HiOSD_English
+    nav: HiOSD
 toc: true
 toc_sticky: true
 mathjax: true

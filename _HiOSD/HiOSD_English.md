@@ -9,7 +9,7 @@ toc_sticky: true
 mathjax: true
 
 ---
-# What is an Index-$k$ Saddle Point
+# What is an Index-$k$ Saddle Point($k$-saddle)
 
 Given a twice Fréchet differentiable energy functional
 $E(\boldsymbol{x})$ defined on a real Hilbert space $\mathcal{H}$ with

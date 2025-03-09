@@ -55,33 +55,51 @@ Consider classifying the (generalized) right eigenvectors of
 $\mathbb{J}(\boldsymbol{\hat{x}})$ according to the sign of the real
 part of the corresponding eigenvalues. Specifically:
 
--   $\{\boldsymbol{w}_1,\ldots,\boldsymbol{w}_{k_u}\} \subset \mathbb{C}^d$
+-   $$
+    \{\boldsymbol{w}_1,\ldots,\boldsymbol{w}_{k_u}\} \subset \mathbb{C}^d
+    $$
     correspond to eigenvalues with positive real parts, associated with
     the unstable subspace of the equilibrium point
-    $\mathcal{W}^u(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_1,\ldots,\boldsymbol{w}_{k_u}\} \cap \mathbb{R}^d$.
+    $$
+    \mathcal{W}^u(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_1,\ldots,\boldsymbol{w}_{k_u}\} \cap \mathbb{R}^d
+    $$
+    .
     It is called unstable because perturbations in these directions near
     the equilibrium point will grow exponentially, moving away from the
     equilibrium point.
 
--   $\{\boldsymbol{w}_{k_u+1},\ldots,\boldsymbol{w}_{k_u+k_s}\} \subset \mathbb{C}^d$
+-   $$
+    \boldsymbol{w}_{k_u+1},\ldots,\boldsymbol{w}_{k_u+k_s}\} \subset \mathbb{C}^d
+    $$   
     correspond to eigenvalues with negative real parts, associated with
     the stable subspace of the equilibrium point
-    $\mathcal{W}^s(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_{k_u+1},\ldots,\boldsymbol{w}_{k_u+k_s}\} \cap \mathbb{R}^d$.
+    $$
+    \mathcal{W}^s(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_{k_u+1},\ldots,\boldsymbol{w}_{k_u+k_s}\} \cap \mathbb{R}^d
+    $$
+    .  
     It is called stable because perturbations in these directions near
     the equilibrium point will decay exponentially, moving towards the
     equilibrium point.
 
--   $\{\boldsymbol{w}_{k_u+k_s+1},\ldots,\boldsymbol{w}_{k_u+k_s+k_c}\} \subset \mathbb{C}^d$
+-   $$
+    \{\boldsymbol{w}_{k_u+k_s+1},\ldots,\boldsymbol{w}_{k_u+k_s+k_c}\} \subset \mathbb{C}^d
+    $$
     correspond to eigenvalues with zero real parts, associated with the
     center subspace of the equilibrium point
-    $\mathcal{W}^c(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_{k_u+k_s+1},\ldots,\boldsymbol{w}_{k_u+k_s+k_c}\} \cap \mathbb{R}^d$.
+    $$
+    \mathcal{W}^c(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_{k_u+k_s+1},\ldots,\boldsymbol{w}_{k_u+k_s+k_c}\} \cap \mathbb{R}^d
+    $$
+    .
     Perturbations in these directions do not exhibit exponential growth
     or decay, but instead have periodic oscillations or other more
     complex dynamic behaviors.
 
 The above $k_u+k_s+k_c=d$ and according to the primary decomposition
 theorem, $\mathbb{R}^d$ can be decomposed into a direct sum
-$\mathbb{R}^d = \mathcal{W}^u(\boldsymbol{\hat{x}}) \oplus \mathcal{W}^s(\boldsymbol{\hat{x}}) \oplus \mathcal{W}^c(\boldsymbol{\hat{x}})$.
+$$
+\mathbb{R}^d = \mathcal{W}^u(\boldsymbol{\hat{x}}) \oplus \mathcal{W}^s(\boldsymbol{\hat{x}}) \oplus \mathcal{W}^c(\boldsymbol{\hat{x}})
+$$
+.
 Specifically,
 
 -   If all the eigenvalues of $\mathbb{J}(\boldsymbol{\hat{x}})$ have

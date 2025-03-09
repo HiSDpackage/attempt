@@ -64,8 +64,10 @@ with the corresponding eigenvectors
 $\boldsymbol{\hat{v}}_1, \boldsymbol{\hat{v}}_2, \ldots, \boldsymbol{\hat{v}}_d$.
 
 It can be proven that for a nondegenerate critical point $\hat{x}$, if
-$\hat{\lambda}_1 \leq \ldots \leq \hat{\lambda}_k < 0 < \hat{\lambda}_{k+1} \leq \ldots \leq \hat{\lambda}_d$,
-then $k$ is the index of the saddle point.
+$$
+\hat{\lambda}_1 \leq \ldots \leq \hat{\lambda}_k < 0 < \hat{\lambda}_{k+1} \leq \ldots \leq \hat{\lambda}_d
+$$
+,then $k$ is the index of the saddle point.
 
 On one hand, $\mathbb{G}(\boldsymbol{\hat{x}})$ is negative definite on
 the subspace $\hat{\mathcal{V}}$ spanned by
@@ -115,12 +117,23 @@ $\boldsymbol{\hat{x}} + \hat{\mathcal{V}}$ and a local minimum on the
 linear manifold $\boldsymbol{\hat{x}} + \hat{\mathcal{V}}^{\perp}$.
 
 Consider
-$\boldsymbol{\hat{x}}_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}_{\hat{\mathcal{V}}^{\perp}}$
+$$
+\boldsymbol{\hat{x}}_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}_{\hat{\mathcal{V}}^{\perp}}
+$$
 as the projections of $\boldsymbol{\hat{x}}$ onto
-$\hat{\mathcal{V}}, \hat{\mathcal{V}}^{\perp}$, respectively, then
-$(\boldsymbol{v}, \boldsymbol{w}) = (\boldsymbol{\hat{x}}_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}_{\hat{\mathcal{V}}^{\perp}})$
+$$
+\hat{\mathcal{V}}, \hat{\mathcal{V}}^{\perp}
+$$
+, respectively, then
+$$
+(\boldsymbol{v}, \boldsymbol{w}) = (\boldsymbol{\hat{x}}_{\hat{\mathcal{V}}}, \boldsymbol{\hat{x}}_{\hat{\mathcal{V}}^{\perp}})
+$$
 is a solution to the minimax problem
-$$\min_{\boldsymbol{w} \in \hat{\mathcal{V}}^{\perp}} \max_{\boldsymbol{v} \in \hat{\mathcal{V}}} E(\boldsymbol{v} + \boldsymbol{w}).$$
+
+$$
+\min_{\boldsymbol{w} \in \hat{\mathcal{V}}^{\perp}} \max_{\boldsymbol{v} \in \hat{\mathcal{V}}} E(\boldsymbol{v} + \boldsymbol{w}).
+$$
+
 However, this is not a classical minimax problem because the space
 $\hat{\mathcal{V}}$ is unknown. Therefore, in the process of solving the
 optimization problem, our iterative method should include two parts: one

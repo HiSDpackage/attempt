@@ -1,3 +1,14 @@
+---
+layout: single
+permalink: /GHiSD/
+title: "Generalized High-index Saddle Dynamics"
+sidebar:
+    nav: GHiSD
+toc: true
+toc_sticky: true
+mathjax: true
+---
+
 # Description of $k$-saddle in Non-Gradient Autonomous Dynamical Systems
 
 In the HiOSD algorithm, we deal with the energy functional
@@ -6,8 +17,12 @@ $\boldsymbol{F}(\boldsymbol{x}) = -\nabla E(\boldsymbol{x})$ serves as
 the natural force of the system. The GHiSD algorithm, on the other hand,
 aims to search for index-$k$ saddle points in more general
 ($d$-dimensional) non-gradient autonomous dynamical systems:
-$$\boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}),\quad \boldsymbol{x} \in \mathbb{R}^d,\quad \boldsymbol{F} \in \mathcal{C}^r(\mathbb{R}^d,\mathbb{R}^d),\quad r \geq 2
-\label{dynamical system}$$ First, we need to clarify what the index of a
+
+$$
+\boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}),\quad \boldsymbol{x} \in \mathbb{R}^d,\quad \boldsymbol{F} \in \mathcal{C}^r(\mathbb{R}^d,\mathbb{R}^d),\quad r \geq 2
+\label{dynamical system}
+$$ 
+First, we need to clarify what the index of a
 saddle point refers to in non-gradient systems.
 
 In the context of dynamical systems, we denote the Jacobian matrix of
@@ -23,11 +38,19 @@ Considering the system near the equilibrium point, let
 $\boldsymbol{x} = \boldsymbol{\hat{x}} + \boldsymbol{y}$ and substitute
 it into ([\[dynamical system\]](#dynamical system){reference-type="ref"
 reference="dynamical system"}), then perform a Taylor expansion:
-$$\boldsymbol{\dot{y}} = \boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}) = \boldsymbol{F}(\boldsymbol{\hat{x}}) + \mathbb{J}(\boldsymbol{\hat{x}})\boldsymbol{y} + \mathcal{O}(\|\boldsymbol{y}\|^2)$$
+
+$$
+\boldsymbol{\dot{y}} = \boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}) = \boldsymbol{F}(\boldsymbol{\hat{x}}) + \mathbb{J}(\boldsymbol{\hat{x}})\boldsymbol{y} + \mathcal{O}(\|\boldsymbol{y}\|^2)
+$$
+
 Noting that $\boldsymbol{F}(\boldsymbol{\hat{x}}) = 0$, and retaining
 only the principal linear term of the above equation, we obtain the
 associated linear system near the equilibrium point:
-$$\boldsymbol{\dot{y}} = \mathbb{J}(\boldsymbol{\hat{x}})\boldsymbol{y}$$
+
+$$
+\boldsymbol{\dot{y}} = \mathbb{J}(\boldsymbol{\hat{x}})\boldsymbol{y}
+$$
+
 Consider classifying the (generalized) right eigenvectors of
 $\mathbb{J}(\boldsymbol{\hat{x}})$ according to the sign of the real
 part of the corresponding eigenvalues. Specifically:
@@ -107,7 +130,11 @@ subspace. Therefore, intuitively, we can still allow
 $\boldsymbol{\dot{x}}$ to maintain the direction of the system force in
 the stable subspace and choose the opposite direction to the system
 force in the unstable subspace, i.e.,
-$$\boldsymbol{\dot{x}} = -\mathcal{P}_{\mathcal{W}^{\mathrm{u}}(\boldsymbol{x})} \boldsymbol{F}(\boldsymbol{x}) + \left( \boldsymbol{F}(\boldsymbol{x}) - \mathcal{P}_{\mathcal{W}^{\mathrm{u}}(\boldsymbol{x})} \boldsymbol{F}(\boldsymbol{x}) \right) = \left( \mathbb{I} - 2\mathcal{P}_{\mathcal{W}^{\mathrm{u}}(\boldsymbol{x})} \right) \boldsymbol{F}(\boldsymbol{x})$$
+
+$$
+\boldsymbol{\dot{x}} = -\mathcal{P}_{\mathcal{W}^{\mathrm{u}}(\boldsymbol{x})} \boldsymbol{F}(\boldsymbol{x}) + \left( \boldsymbol{F}(\boldsymbol{x}) - \mathcal{P}_{\mathcal{W}^{\mathrm{u}}(\boldsymbol{x})} \boldsymbol{F}(\boldsymbol{x}) \right) = \left( \mathbb{I} - 2\mathcal{P}_{\mathcal{W}^{\mathrm{u}}(\boldsymbol{x})} \right) \boldsymbol{F}(\boldsymbol{x})
+$$
+
 Note that in the dynamics above, since we do not know the unstable
 subspace $\mathcal{W}^{\mathrm{u}}(\boldsymbol{\hat{x}})$ of the
 $k$-saddle, we consider using the current point's unstable subspace
@@ -129,10 +156,18 @@ characterize the projection transformation, we generally consider
 finding an orthogonal basis
 $\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_k$ for this
 space, which allows us to obtain
-$$\mathcal{P}_{\mathcal{W}^{\mathrm{u}}(\boldsymbol{x})} = \sum_{j=1}^{k} \boldsymbol{v}_j \boldsymbol{v}_j^{\top}$$
+
+$$
+\mathcal{P}_{\mathcal{W}^{\mathrm{u}}(\boldsymbol{x})} = \sum_{j=1}^{k} \boldsymbol{v}_j \boldsymbol{v}_j^{\top}
+$$
+
 Thus,
-$$\boldsymbol{\dot{x}} = \left( \mathbb{I} - 2 \sum_{j=1}^{k} \boldsymbol{v}_j \boldsymbol{v}_j^\top \right) \boldsymbol{F}(\boldsymbol{x})
-\label{GHiSD the dynamics of x}$$
+
+$$
+\boldsymbol{\dot{x}} = \left( \mathbb{I} - 2 \sum_{j=1}^{k} \boldsymbol{v}_j \boldsymbol{v}_j^\top \right) \boldsymbol{F}(\boldsymbol{x})
+\label{GHiSD the dynamics of x}
+$$
+
 
 # Finding an Orthogonal Basis for $\mathcal{W}^{\mathrm{u}}(\boldsymbol{x})$
 
@@ -166,25 +201,42 @@ which is the next largest in the original space. This idea can be
 similarly extended from two to $k$ vectors, which is equivalent to
 performing an orthogonalization operation on these vectors (since we are
 only concerned with the direction, standard orthogonalization can be
-applied), leading to a concise discrete algorithm: $$\begin{cases}
+applied), leading to a concise discrete algorithm: 
+
+$$
+\begin{cases}
 \tilde{\boldsymbol{v}}_i^{(m+1)} = \boldsymbol{v}_i^{(m)} + \beta \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i^{(m)} \hspace{1em} i = 1, \cdots, k \\
 \left[ \boldsymbol{v}_1^{(m+1)}, \cdots, \boldsymbol{v}_k^{(m+1)} \right] = \text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)
 \label{discrete GHiSD of W^u}
-\end{cases}$$ where
+\end{cases}
+$$
+
+where
 $\text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)$
 represents the standard orthogonalization process, usually using the
 Gram-Schmidt orthogonalization method. Additionally, similar to HiOSD,
 combining the dimer method allows for the approximation of
-$\mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i^{(m)}$ as: $$\begin{cases}
+$\mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i^{(m)}$ as: 
+
+$$
+\begin{cases}
 \tilde{\boldsymbol{v}}_i^{(m+1)} = \boldsymbol{v}_i^{(m)} + \beta \dfrac{\boldsymbol{F}(\boldsymbol{x} + l \boldsymbol{v}_i^{(m)}) - \boldsymbol{F}(\boldsymbol{x} - l \boldsymbol{v}_i^{(m)})}{2l} \quad i = 1, \cdots, k \\
 \left[ \boldsymbol{v}_1^{(m+1)}, \cdots, \boldsymbol{v}_k^{(m+1)} \right] = \text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)
-\end{cases}$$ Then, combining the discretization of $\boldsymbol{x}$
-dynamics, we obtain: $$\begin{cases}
+\end{cases}
+$$
+
+Then, combining the discretization of $\boldsymbol{x}$
+dynamics, we obtain:
+
+$$
+\begin{cases}
 \boldsymbol{x}^{(m+1)} = \boldsymbol{x}^{(m)} + \alpha \left( \boldsymbol{F}(\boldsymbol{x}^{(m)}) - 2 \displaystyle\sum_{j=1}^{k} \left\langle \boldsymbol{F}(\boldsymbol{x}^{(m)}), \boldsymbol{v}_j^{(m)} \right\rangle \boldsymbol{v}_j^{(m)} \right) \\
 \tilde{\boldsymbol{v}}_i^{(m+1)} = \boldsymbol{v}_i^{(m)} + \beta \dfrac{\boldsymbol{F}(\boldsymbol{x}^{(m+1)} + l \boldsymbol{v}_i^{(m)}) - \boldsymbol{F}(\boldsymbol{x}^{(m+1)} - l \boldsymbol{v}_i^{(m)})}{2l}\quad i = 1, \cdots, k \\
 \left[ \boldsymbol{v}_1^{(m+1)}, \cdots, \boldsymbol{v}_k^{(m+1)} \right] = \text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)
 \end{cases}
-\label{discrete GHiSD}$$
+\label{discrete GHiSD}
+$$
+
 
 ## Dynamics of $\mathcal{W}^u(\boldsymbol{x})$ and Direct Discretization
 
@@ -192,21 +244,46 @@ By taking the limit $\beta \rightarrow 0$ in the discrete form
 ([\[discrete GHiSD of W\^u\]](#discrete GHiSD of W^u){reference-type="ref"
 reference="discrete GHiSD of W^u"}) (including the orthogonalization
 process), we can obtain the continuous ODE:
-$$\boldsymbol{\dot{v}}_i = \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i + \sum_{j=1}^{i} \xi^{(i)}_j \boldsymbol{v}_j$$
+
+$$
+\boldsymbol{\dot{v}}_i = \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i + \sum_{j=1}^{i} \xi^{(i)}_j \boldsymbol{v}_j
+$$
+
 Noting the orthonormal constraint:
-$$\left\langle \boldsymbol{v}_i, \boldsymbol{v}_j \right\rangle = \delta_{ij} \quad i, j = 1, \ldots, k$$
+
+$$
+\left\langle \boldsymbol{v}_i, \boldsymbol{v}_j \right\rangle = \delta_{ij} \quad i, j = 1, \ldots, k
+$$
+
 Differentiating with respect to $t$ gives:
-$$\left\langle \boldsymbol{\dot{v}}_i, \boldsymbol{v}_j \right\rangle + \left\langle \boldsymbol{v}_i, \boldsymbol{\dot{v}}_j \right\rangle = 0 \quad i, j = 1, \ldots, k$$
+
+$$
+\left\langle \boldsymbol{\dot{v}}_i, \boldsymbol{v}_j \right\rangle + \left\langle \boldsymbol{v}_i, \boldsymbol{\dot{v}}_j \right\rangle = 0 \quad i, j = 1, \ldots, k
+$$
+
 Substituting in, we can obtain:
-$$\xi_{i}^{(i)} = -\langle \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i, \boldsymbol{v}_i \rangle$$
-$$\xi_{j}^{(i)} = -\langle \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i, \boldsymbol{v}_j \rangle - \langle \boldsymbol{v}_i, \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_j \rangle \quad j = 1, \cdots, i-1$$
+
+$$
+\xi_{i}^{(i)} = -\langle \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i, \boldsymbol{v}_i \rangle
+$$
+
+$$
+\xi_{j}^{(i)} = -\langle \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i, \boldsymbol{v}_j \rangle - \langle \boldsymbol{v}_i, \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_j \rangle \quad j = 1, \cdots, i-1
+$$
+
 Combining this with equation
 ([\[GHiSD the dynamics of x\]](#GHiSD the dynamics of x){reference-type="ref"
 reference="GHiSD the dynamics of x"}), we can obtain the dynamics of the
-entire problem: $$\begin{cases} 
+entire problem:
+
+$$
+\begin{cases} 
 \dot{\boldsymbol{x}} = \left( \mathbb{I} - 2 \sum_{j=1}^{k} \boldsymbol{v}_j \boldsymbol{v}_j^\top \right) \boldsymbol{F}(\boldsymbol{x}),\\
 \dot{\boldsymbol{v}}_i = \left( \mathbb{I} - \boldsymbol{v}_i \boldsymbol{v}_i^\top \right) \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i - \sum_{j=1}^{i-1} \boldsymbol{v}_j \boldsymbol{v}_j^\top \left( \mathbb{J}(\boldsymbol{x}) + \mathbb{J}^\top(\boldsymbol{x}) \right) \boldsymbol{v}_i, \quad i = 1, \cdots, k
-\end{cases}$$ For the proof of the linear stability of this dynamics,
+\end{cases}
+$$
+
+For the proof of the linear stability of this dynamics,
 please refer to the article \"Searching the solution landscape by
 generalized high-index saddle dynamics\" by Jianyuan Yin, Bing Yu and
 Lei Zhang.

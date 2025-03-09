@@ -674,5 +674,3 @@ dynamics led to the HiOSD algorithm. Finally, based on this framework,
 we presented several step size selection methods to further solidify the
 algorithm's implementation, as well as integrated LOBPCG into the HiOSD
 method to offer alternative approaches to solving the problem.
-
-<img src="./Numerical Algorithms for Computing Rare Events and Index-1 Saddle Points.png" alt="图片描述" width="500">

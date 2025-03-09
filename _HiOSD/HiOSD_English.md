@@ -647,7 +647,7 @@ as a substitute for $\mathbb{P}_{\text{CG}}^{(n)}$.
 Summarizing the content of the previous subsection, we obtain the
 general framework of the HiOSD-LOBPCG algorithm:
 
-![HiOSD-LOBPCG method for a $k$-saddle](https://github.com/username/repository/blob/main/images/example.png?raw=true)
+![HiOSD-LOBPCG method for a $k$-saddle](./HiOSD-LOBPCG method for a $k$-saddle.png)
 
 
 Note that the step size selection only appears in the choice of

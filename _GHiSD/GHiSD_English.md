@@ -70,7 +70,7 @@ part of the corresponding eigenvalues. Specifically:
 
 -   $$
     \boldsymbol{w}_{k_u+1},\ldots,\boldsymbol{w}_{k_u+k_s}\} \subset \mathbb{C}^d
-    $$    correspond to eigenvalues with negative real parts, associated with
+    $$correspond to eigenvalues with negative real parts, associated with
     the stable subspace of the equilibrium point
     $$
     \mathcal{W}^s(\boldsymbol{\hat{x}}) = \text{span}_\mathbb{C}\{\boldsymbol{w}_{k_u+1},\ldots,\boldsymbol{w}_{k_u+k_s}\} \cap \mathbb{R}^d

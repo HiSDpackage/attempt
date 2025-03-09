@@ -106,7 +106,7 @@ In fact, if one is familiar with the canonical form of a real symmetric
 matrix, it can be seen that the index of a saddle point here is
 essentially the negative inertia index of the Hessian matrix.
 
-# Transforming the Search for a $k$-saddle Point into an Optimization Problem
+# Transforming the Search for a $k$-saddle into an Optimization Problem
 
 Continuing with the previous notation, note that
 $\mathbb{G}(\boldsymbol{\hat{x}})$ is negative definite on

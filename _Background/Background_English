@@ -1,9 +1,9 @@
 ---
 layout: single
-permalink: /Introduction/
+permalink: /Background/
 title: "Construction of Solution Landscapes for Complex Systems"
 sidebar:
-    nav: Introduction
+    nav: Background
 toc: true
 toc_sticky: true
 mathjax: true

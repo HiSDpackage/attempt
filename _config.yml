@@ -60,6 +60,7 @@ permalink   : date
 
 include:
   - _pages
+  - _Introduction
   - _HiOSD
   - _GHiSD
   - _AHiSD

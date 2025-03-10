@@ -20,7 +20,7 @@ aims to search for index-$k$ saddle points in more general
 
 $$
 \boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}),\quad \boldsymbol{x} \in \mathbb{R}^d,\quad \boldsymbol{F} \in \mathcal{C}^r(\mathbb{R}^d,\mathbb{R}^d),\quad r \geq 2
-\label{dynamical system}
+\tag{1}
 $$ 
 
 First, we need to clarify what the index of a
@@ -37,8 +37,7 @@ it as an equilibrium point or stationary point.
 
 Considering the system near the equilibrium point, let
 $\boldsymbol{x} = \boldsymbol{\hat{x}} + \boldsymbol{y}$ and substitute
-it into ([\[dynamical system\]](#dynamical system){reference-type="ref"
-reference="dynamical system"}), then perform a Taylor expansion:
+it into (1), then perform a Taylor expansion:
 
 $$
 \boldsymbol{\dot{y}} = \boldsymbol{\dot{x}} = \boldsymbol{F}(\boldsymbol{x}) = \boldsymbol{F}(\boldsymbol{\hat{x}}) + \mathbb{J}(\boldsymbol{\hat{x}})\boldsymbol{y} + \mathcal{O}(\|\boldsymbol{y}\|^2)
@@ -179,7 +178,7 @@ Thus,
 
 $$
 \boldsymbol{\dot{x}} = \left( \mathbb{I} - 2 \sum_{j=1}^{k} \boldsymbol{v}_j \boldsymbol{v}_j^\top \right) \boldsymbol{F}(\boldsymbol{x})
-\label{GHiSD the dynamics of x}
+\tag{2}
 $$
 
 
@@ -221,8 +220,8 @@ $$
 \begin{cases}
 \tilde{\boldsymbol{v}}_i^{(m+1)} = \boldsymbol{v}_i^{(m)} + \beta \mathbb{J}(\boldsymbol{x}) \boldsymbol{v}_i^{(m)} \hspace{1em} i = 1, \cdots, k \\
 \left[ \boldsymbol{v}_1^{(m+1)}, \cdots, \boldsymbol{v}_k^{(m+1)} \right] = \text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)
-\label{discrete GHiSD of W^u}
 \end{cases}
+\tag{3}
 $$
 
 where
@@ -248,15 +247,14 @@ $$
 \tilde{\boldsymbol{v}}_i^{(m+1)} = \boldsymbol{v}_i^{(m)} + \beta \dfrac{\boldsymbol{F}(\boldsymbol{x}^{(m+1)} + l \boldsymbol{v}_i^{(m)}) - \boldsymbol{F}(\boldsymbol{x}^{(m+1)} - l \boldsymbol{v}_i^{(m)})}{2l}\quad i = 1, \cdots, k \\
 \left[ \boldsymbol{v}_1^{(m+1)}, \cdots, \boldsymbol{v}_k^{(m+1)} \right] = \text{orth} \left( \left[ \tilde{\boldsymbol{v}}_1^{(m+1)}, \cdots, \tilde{\boldsymbol{v}}_k^{(m+1)} \right] \right)
 \end{cases}
-\label{discrete GHiSD}
+\tag{4}
 $$
 
 
 ## Dynamics of $\mathcal{W}^u(\boldsymbol{x})$ and Direct Discretization
 
 By taking the limit $\beta \rightarrow 0$ in the discrete form
-([\[discrete GHiSD of W\^u\]](#discrete GHiSD of W^u){reference-type="ref"
-reference="discrete GHiSD of W^u"}) (including the orthogonalization
+(3) (including the orthogonalization
 process), we can obtain the continuous ODE:
 
 $$
@@ -286,8 +284,7 @@ $$
 $$
 
 Combining this with equation
-([\[GHiSD the dynamics of x\]](#GHiSD the dynamics of x){reference-type="ref"
-reference="GHiSD the dynamics of x"}), we can obtain the dynamics of the
+(2), we can obtain the dynamics of the
 entire problem:
 
 $$
@@ -313,8 +310,7 @@ and Xiangcheng Zheng, it is proven that the actual effects of the two
 discretization formats are not significantly different. Therefore,
 considering the computational load, we often directly use the simpler
 discrete format
-([\[discrete GHiSD\]](#discrete GHiSD){reference-type="ref"
-reference="discrete GHiSD"}).
+(4).
 
 # Construction of the Solution Landscape
 

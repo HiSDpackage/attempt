@@ -60,7 +60,7 @@ permalink   : date
 
 include:
   - _pages
-  - _Introduction
+  - _Background
   - _HiOSD
   - _GHiSD
   - _AHiSD
@@ -102,9 +102,9 @@ defaults:
       mathjax: true
       toc: true
       toc_sticky: true
-  # _Introduction: for Introduction documents
+  # _Background: for Background documents
   - scope:
-      path: "_Introduction"
+      path: "_Background"
       type: pages
     values:
       layout: single
@@ -112,7 +112,7 @@ defaults:
       share: false
       comments: true
       sidebar:
-        nav: "Introduction"
+        nav: "Background"
       mathjax: true
       toc: true
       toc_sticky: true    

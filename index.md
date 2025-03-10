@@ -1,7 +1,7 @@
 ---
 layout: single
 permalink: /
-title: "iFEM: an Integrated Finite Element Methods Package in MATLAB"
+title: "HiSD: an Algorithm Package for Computing High-index Saddle Points in Python"
 excerpt: "A quick start guide."
 sidebar:
     nav: docs

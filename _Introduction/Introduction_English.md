@@ -1,3 +1,14 @@
+---
+layout: single
+permalink: /Introduction/
+title: "Construction of Solution Landscapes for Complex Systems"
+sidebar:
+    nav: Introduction
+toc: true
+toc_sticky: true
+mathjax: true
+---
+
 Many practical problems in physics, chemistry, and other fields can be
 reduced to the problem of finding the minima of nonlinear functions or
 functionals with multiple variables. These applications span materials
